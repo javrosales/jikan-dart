@@ -6,7 +6,7 @@ part of 'genre.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Genre> _$genreSerializer = new _$GenreSerializer();
+Serializer<Genre> _$genreSerializer = _$GenreSerializer();
 
 class _$GenreSerializer implements StructuredSerializer<Genre> {
   @override
@@ -38,7 +38,7 @@ class _$GenreSerializer implements StructuredSerializer<Genre> {
   @override
   Genre deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GenreBuilder();
+    final result = GenreBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -80,22 +80,17 @@ class _$Genre extends Genre {
   final int? count;
 
   factory _$Genre([void Function(GenreBuilder)? updates]) =>
-      (new GenreBuilder()..update(updates))._build();
+      (GenreBuilder()..update(updates))._build();
 
   _$Genre._(
       {required this.malId, required this.name, required this.url, this.count})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'Genre', 'malId');
-    BuiltValueNullFieldError.checkNotNull(name, r'Genre', 'name');
-    BuiltValueNullFieldError.checkNotNull(url, r'Genre', 'url');
-  }
-
+      : super._();
   @override
   Genre rebuild(void Function(GenreBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GenreBuilder toBuilder() => new GenreBuilder()..replace(this);
+  GenreBuilder toBuilder() => GenreBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -164,7 +159,6 @@ class GenreBuilder implements Builder<Genre, GenreBuilder> {
 
   @override
   void replace(Genre other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Genre;
   }
 
@@ -178,12 +172,13 @@ class GenreBuilder implements Builder<Genre, GenreBuilder> {
 
   _$Genre _build() {
     final _$result = _$v ??
-        new _$Genre._(
-            malId:
-                BuiltValueNullFieldError.checkNotNull(malId, r'Genre', 'malId'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'Genre', 'name'),
-            url: BuiltValueNullFieldError.checkNotNull(url, r'Genre', 'url'),
-            count: count);
+        _$Genre._(
+          malId:
+              BuiltValueNullFieldError.checkNotNull(malId, r'Genre', 'malId'),
+          name: BuiltValueNullFieldError.checkNotNull(name, r'Genre', 'name'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'Genre', 'url'),
+          count: count,
+        );
     replace(_$result);
     return _$result;
   }

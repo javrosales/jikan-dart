@@ -6,7 +6,7 @@ part of 'favorite.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Favorite> _$favoriteSerializer = new _$FavoriteSerializer();
+Serializer<Favorite> _$favoriteSerializer = _$FavoriteSerializer();
 
 class _$FavoriteSerializer implements StructuredSerializer<Favorite> {
   @override
@@ -48,7 +48,7 @@ class _$FavoriteSerializer implements StructuredSerializer<Favorite> {
   @override
   Favorite deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new FavoriteBuilder();
+    final result = FavoriteBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -102,7 +102,7 @@ class _$Favorite extends Favorite {
   final int? startYear;
 
   factory _$Favorite([void Function(FavoriteBuilder)? updates]) =>
-      (new FavoriteBuilder()..update(updates))._build();
+      (FavoriteBuilder()..update(updates))._build();
 
   _$Favorite._(
       {required this.malId,
@@ -111,19 +111,13 @@ class _$Favorite extends Favorite {
       required this.name,
       this.type,
       this.startYear})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'Favorite', 'malId');
-    BuiltValueNullFieldError.checkNotNull(url, r'Favorite', 'url');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'Favorite', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(name, r'Favorite', 'name');
-  }
-
+      : super._();
   @override
   Favorite rebuild(void Function(FavoriteBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FavoriteBuilder toBuilder() => new FavoriteBuilder()..replace(this);
+  FavoriteBuilder toBuilder() => FavoriteBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -208,7 +202,6 @@ class FavoriteBuilder implements Builder<Favorite, FavoriteBuilder> {
 
   @override
   void replace(Favorite other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Favorite;
   }
 
@@ -222,16 +215,17 @@ class FavoriteBuilder implements Builder<Favorite, FavoriteBuilder> {
 
   _$Favorite _build() {
     final _$result = _$v ??
-        new _$Favorite._(
-            malId: BuiltValueNullFieldError.checkNotNull(
-                malId, r'Favorite', 'malId'),
-            url: BuiltValueNullFieldError.checkNotNull(url, r'Favorite', 'url'),
-            imageUrl: BuiltValueNullFieldError.checkNotNull(
-                imageUrl, r'Favorite', 'imageUrl'),
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'Favorite', 'name'),
-            type: type,
-            startYear: startYear);
+        _$Favorite._(
+          malId: BuiltValueNullFieldError.checkNotNull(
+              malId, r'Favorite', 'malId'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'Favorite', 'url'),
+          imageUrl: BuiltValueNullFieldError.checkNotNull(
+              imageUrl, r'Favorite', 'imageUrl'),
+          name:
+              BuiltValueNullFieldError.checkNotNull(name, r'Favorite', 'name'),
+          type: type,
+          startYear: startYear,
+        );
     replace(_$result);
     return _$result;
   }

@@ -1,4 +1,4 @@
-library favorites;
+// library favorites;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -11,7 +11,7 @@ part 'favorites.g.dart';
 abstract class Favorites implements Built<Favorites, FavoritesBuilder> {
   Favorites._();
 
-  factory Favorites([Function(FavoritesBuilder b) updates]) = _$Favorites;
+  factory Favorites([void Function(FavoritesBuilder) updates]) = _$Favorites;
 
   @BuiltValueField(wireName: 'anime')
   BuiltList<Favorite> get anime;

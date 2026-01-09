@@ -6,7 +6,7 @@ part of 'meta.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Meta> _$metaSerializer = new _$MetaSerializer();
+Serializer<Meta> _$metaSerializer = _$MetaSerializer();
 
 class _$MetaSerializer implements StructuredSerializer<Meta> {
   @override
@@ -34,7 +34,7 @@ class _$MetaSerializer implements StructuredSerializer<Meta> {
   @override
   Meta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new MetaBuilder();
+    final result = MetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -76,26 +76,20 @@ class _$Meta extends Meta {
   final String url;
 
   factory _$Meta([void Function(MetaBuilder)? updates]) =>
-      (new MetaBuilder()..update(updates))._build();
+      (MetaBuilder()..update(updates))._build();
 
   _$Meta._(
       {required this.malId,
       required this.type,
       required this.name,
       required this.url})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'Meta', 'malId');
-    BuiltValueNullFieldError.checkNotNull(type, r'Meta', 'type');
-    BuiltValueNullFieldError.checkNotNull(name, r'Meta', 'name');
-    BuiltValueNullFieldError.checkNotNull(url, r'Meta', 'url');
-  }
-
+      : super._();
   @override
   Meta rebuild(void Function(MetaBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MetaBuilder toBuilder() => new MetaBuilder()..replace(this);
+  MetaBuilder toBuilder() => MetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -164,7 +158,6 @@ class MetaBuilder implements Builder<Meta, MetaBuilder> {
 
   @override
   void replace(Meta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Meta;
   }
 
@@ -178,12 +171,12 @@ class MetaBuilder implements Builder<Meta, MetaBuilder> {
 
   _$Meta _build() {
     final _$result = _$v ??
-        new _$Meta._(
-            malId:
-                BuiltValueNullFieldError.checkNotNull(malId, r'Meta', 'malId'),
-            type: BuiltValueNullFieldError.checkNotNull(type, r'Meta', 'type'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'Meta', 'name'),
-            url: BuiltValueNullFieldError.checkNotNull(url, r'Meta', 'url'));
+        _$Meta._(
+          malId: BuiltValueNullFieldError.checkNotNull(malId, r'Meta', 'malId'),
+          type: BuiltValueNullFieldError.checkNotNull(type, r'Meta', 'type'),
+          name: BuiltValueNullFieldError.checkNotNull(name, r'Meta', 'name'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'Meta', 'url'),
+        );
     replace(_$result);
     return _$result;
   }

@@ -1,4 +1,4 @@
-library person_meta;
+// library person_meta;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -10,7 +10,7 @@ part 'person_meta.g.dart';
 abstract class PersonMeta implements Built<PersonMeta, PersonMetaBuilder> {
   PersonMeta._();
 
-  factory PersonMeta([Function(PersonMetaBuilder b) updates]) = _$PersonMeta;
+  factory PersonMeta([void Function(PersonMetaBuilder) updates]) = _$PersonMeta;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

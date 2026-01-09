@@ -1,4 +1,4 @@
-library entry_meta;
+// library entry_meta;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'entry_meta.g.dart';
 abstract class EntryMeta implements Built<EntryMeta, EntryMetaBuilder> {
   EntryMeta._();
 
-  factory EntryMeta([Function(EntryMetaBuilder b) updates]) = _$EntryMeta;
+  factory EntryMeta([void Function(EntryMetaBuilder) updates]) = _$EntryMeta;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

@@ -1,4 +1,4 @@
-library user_recommendation;
+// library user_recommendation;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -13,7 +13,8 @@ abstract class UserRecommendation
     implements Built<UserRecommendation, UserRecommendationBuilder> {
   UserRecommendation._();
 
-  factory UserRecommendation([Function(UserRecommendationBuilder b) updates]) =
+  factory UserRecommendation(
+          [void Function(UserRecommendationBuilder) updates]) =
       _$UserRecommendation;
 
   @BuiltValueField(wireName: 'mal_id')

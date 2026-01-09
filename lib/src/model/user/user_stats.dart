@@ -1,4 +1,4 @@
-library user_stats;
+// library user_stats;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'user_stats.g.dart';
 abstract class UserStats implements Built<UserStats, UserStatsBuilder> {
   UserStats._();
 
-  factory UserStats([Function(UserStatsBuilder b) updates]) = _$UserStats;
+  factory UserStats([void Function(UserStatsBuilder) updates]) = _$UserStats;
 
   @BuiltValueField(wireName: 'days_watched')
   double? get daysWatched;

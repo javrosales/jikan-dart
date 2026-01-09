@@ -1,4 +1,4 @@
-library stats;
+// library stats;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -11,7 +11,7 @@ part 'stats.g.dart';
 abstract class Stats implements Built<Stats, StatsBuilder> {
   Stats._();
 
-  factory Stats([Function(StatsBuilder b) updates]) = _$Stats;
+  factory Stats([void Function(StatsBuilder) updates]) = _$Stats;
 
   @BuiltValueField(wireName: 'watching')
   int? get watching;

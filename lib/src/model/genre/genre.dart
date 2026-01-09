@@ -1,4 +1,4 @@
-library genre;
+// library genre;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'genre.g.dart';
 abstract class Genre implements Built<Genre, GenreBuilder> {
   Genre._();
 
-  factory Genre([Function(GenreBuilder b) updates]) = _$Genre;
+  factory Genre([void Function(GenreBuilder) updates]) = _$Genre;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

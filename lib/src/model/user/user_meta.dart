@@ -1,4 +1,4 @@
-library user_meta;
+// library user_meta;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'user_meta.g.dart';
 abstract class UserMeta implements Built<UserMeta, UserMetaBuilder> {
   UserMeta._();
 
-  factory UserMeta([Function(UserMetaBuilder b) updates]) = _$UserMeta;
+  factory UserMeta([void Function(UserMetaBuilder) updates]) = _$UserMeta;
 
   @BuiltValueField(wireName: 'username')
   String get username;

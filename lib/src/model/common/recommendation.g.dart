@@ -7,7 +7,7 @@ part of 'recommendation.dart';
 // **************************************************************************
 
 Serializer<Recommendation> _$recommendationSerializer =
-    new _$RecommendationSerializer();
+    _$RecommendationSerializer();
 
 class _$RecommendationSerializer
     implements StructuredSerializer<Recommendation> {
@@ -36,7 +36,7 @@ class _$RecommendationSerializer
   Recommendation deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new RecommendationBuilder();
+    final result = RecommendationBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -72,23 +72,17 @@ class _$Recommendation extends Recommendation {
   final int votes;
 
   factory _$Recommendation([void Function(RecommendationBuilder)? updates]) =>
-      (new RecommendationBuilder()..update(updates))._build();
+      (RecommendationBuilder()..update(updates))._build();
 
   _$Recommendation._(
       {required this.entry, required this.url, required this.votes})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(entry, r'Recommendation', 'entry');
-    BuiltValueNullFieldError.checkNotNull(url, r'Recommendation', 'url');
-    BuiltValueNullFieldError.checkNotNull(votes, r'Recommendation', 'votes');
-  }
-
+      : super._();
   @override
   Recommendation rebuild(void Function(RecommendationBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  RecommendationBuilder toBuilder() =>
-      new RecommendationBuilder()..replace(this);
+  RecommendationBuilder toBuilder() => RecommendationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -124,7 +118,7 @@ class RecommendationBuilder
   _$Recommendation? _$v;
 
   EntryMetaBuilder? _entry;
-  EntryMetaBuilder get entry => _$this._entry ??= new EntryMetaBuilder();
+  EntryMetaBuilder get entry => _$this._entry ??= EntryMetaBuilder();
   set entry(EntryMetaBuilder? entry) => _$this._entry = entry;
 
   String? _url;
@@ -150,7 +144,6 @@ class RecommendationBuilder
 
   @override
   void replace(Recommendation other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Recommendation;
   }
 
@@ -166,19 +159,20 @@ class RecommendationBuilder
     _$Recommendation _$result;
     try {
       _$result = _$v ??
-          new _$Recommendation._(
-              entry: entry.build(),
-              url: BuiltValueNullFieldError.checkNotNull(
-                  url, r'Recommendation', 'url'),
-              votes: BuiltValueNullFieldError.checkNotNull(
-                  votes, r'Recommendation', 'votes'));
+          _$Recommendation._(
+            entry: entry.build(),
+            url: BuiltValueNullFieldError.checkNotNull(
+                url, r'Recommendation', 'url'),
+            votes: BuiltValueNullFieldError.checkNotNull(
+                votes, r'Recommendation', 'votes'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'entry';
         entry.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'Recommendation', _$failedField, e.toString());
       }
       rethrow;

@@ -1,4 +1,4 @@
-library anime;
+// library anime;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -12,7 +12,7 @@ part 'anime.g.dart';
 abstract class Anime implements Built<Anime, AnimeBuilder> {
   Anime._();
 
-  factory Anime([Function(AnimeBuilder b) updates]) = _$Anime;
+  factory Anime([void Function(AnimeBuilder) updates]) = _$Anime;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

@@ -1,4 +1,4 @@
-library picture;
+// library picture;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'picture.g.dart';
 abstract class Picture implements Built<Picture, PictureBuilder> {
   Picture._();
 
-  factory Picture([Function(PictureBuilder b) updates]) = _$Picture;
+  factory Picture([void Function(PictureBuilder) updates]) = _$Picture;
 
   @BuiltValueField(wireName: 'image_url')
   String get imageUrl;

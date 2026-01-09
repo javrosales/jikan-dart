@@ -6,7 +6,7 @@ part of 'entry_update.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<EntryUpdate> _$entryUpdateSerializer = new _$EntryUpdateSerializer();
+Serializer<EntryUpdate> _$entryUpdateSerializer = _$EntryUpdateSerializer();
 
 class _$EntryUpdateSerializer implements StructuredSerializer<EntryUpdate> {
   @override
@@ -64,7 +64,7 @@ class _$EntryUpdateSerializer implements StructuredSerializer<EntryUpdate> {
   @override
   EntryUpdate deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new EntryUpdateBuilder();
+    final result = EntryUpdateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -130,7 +130,7 @@ class _$EntryUpdate extends EntryUpdate {
   final String date;
 
   factory _$EntryUpdate([void Function(EntryUpdateBuilder)? updates]) =>
-      (new EntryUpdateBuilder()..update(updates))._build();
+      (EntryUpdateBuilder()..update(updates))._build();
 
   _$EntryUpdate._(
       {required this.entry,
@@ -141,18 +141,13 @@ class _$EntryUpdate extends EntryUpdate {
       this.chaptersRead,
       this.chaptersTotal,
       required this.date})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(entry, r'EntryUpdate', 'entry');
-    BuiltValueNullFieldError.checkNotNull(status, r'EntryUpdate', 'status');
-    BuiltValueNullFieldError.checkNotNull(date, r'EntryUpdate', 'date');
-  }
-
+      : super._();
   @override
   EntryUpdate rebuild(void Function(EntryUpdateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  EntryUpdateBuilder toBuilder() => new EntryUpdateBuilder()..replace(this);
+  EntryUpdateBuilder toBuilder() => EntryUpdateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -202,7 +197,7 @@ class EntryUpdateBuilder implements Builder<EntryUpdate, EntryUpdateBuilder> {
   _$EntryUpdate? _$v;
 
   EntryMetaBuilder? _entry;
-  EntryMetaBuilder get entry => _$this._entry ??= new EntryMetaBuilder();
+  EntryMetaBuilder get entry => _$this._entry ??= EntryMetaBuilder();
   set entry(EntryMetaBuilder? entry) => _$this._entry = entry;
 
   int? _score;
@@ -255,7 +250,6 @@ class EntryUpdateBuilder implements Builder<EntryUpdate, EntryUpdateBuilder> {
 
   @override
   void replace(EntryUpdate other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$EntryUpdate;
   }
 
@@ -271,24 +265,25 @@ class EntryUpdateBuilder implements Builder<EntryUpdate, EntryUpdateBuilder> {
     _$EntryUpdate _$result;
     try {
       _$result = _$v ??
-          new _$EntryUpdate._(
-              entry: entry.build(),
-              score: score,
-              status: BuiltValueNullFieldError.checkNotNull(
-                  status, r'EntryUpdate', 'status'),
-              episodesSeen: episodesSeen,
-              episodesTotal: episodesTotal,
-              chaptersRead: chaptersRead,
-              chaptersTotal: chaptersTotal,
-              date: BuiltValueNullFieldError.checkNotNull(
-                  date, r'EntryUpdate', 'date'));
+          _$EntryUpdate._(
+            entry: entry.build(),
+            score: score,
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'EntryUpdate', 'status'),
+            episodesSeen: episodesSeen,
+            episodesTotal: episodesTotal,
+            chaptersRead: chaptersRead,
+            chaptersTotal: chaptersTotal,
+            date: BuiltValueNullFieldError.checkNotNull(
+                date, r'EntryUpdate', 'date'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'entry';
         entry.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'EntryUpdate', _$failedField, e.toString());
       }
       rethrow;

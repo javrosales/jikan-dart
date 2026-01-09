@@ -6,7 +6,7 @@ part of 'manga_meta.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<MangaMeta> _$mangaMetaSerializer = new _$MangaMetaSerializer();
+Serializer<MangaMeta> _$mangaMetaSerializer = _$MangaMetaSerializer();
 
 class _$MangaMetaSerializer implements StructuredSerializer<MangaMeta> {
   @override
@@ -50,7 +50,7 @@ class _$MangaMetaSerializer implements StructuredSerializer<MangaMeta> {
   @override
   MangaMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new MangaMetaBuilder();
+    final result = MangaMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -104,7 +104,7 @@ class _$MangaMeta extends MangaMeta {
   final String? position;
 
   factory _$MangaMeta([void Function(MangaMetaBuilder)? updates]) =>
-      (new MangaMetaBuilder()..update(updates))._build();
+      (MangaMetaBuilder()..update(updates))._build();
 
   _$MangaMeta._(
       {required this.malId,
@@ -113,19 +113,13 @@ class _$MangaMeta extends MangaMeta {
       required this.title,
       this.role,
       this.position})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'MangaMeta', 'malId');
-    BuiltValueNullFieldError.checkNotNull(url, r'MangaMeta', 'url');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'MangaMeta', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(title, r'MangaMeta', 'title');
-  }
-
+      : super._();
   @override
   MangaMeta rebuild(void Function(MangaMetaBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MangaMetaBuilder toBuilder() => new MangaMetaBuilder()..replace(this);
+  MangaMetaBuilder toBuilder() => MangaMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -210,7 +204,6 @@ class MangaMetaBuilder implements Builder<MangaMeta, MangaMetaBuilder> {
 
   @override
   void replace(MangaMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MangaMeta;
   }
 
@@ -224,17 +217,17 @@ class MangaMetaBuilder implements Builder<MangaMeta, MangaMetaBuilder> {
 
   _$MangaMeta _build() {
     final _$result = _$v ??
-        new _$MangaMeta._(
-            malId: BuiltValueNullFieldError.checkNotNull(
-                malId, r'MangaMeta', 'malId'),
-            url:
-                BuiltValueNullFieldError.checkNotNull(url, r'MangaMeta', 'url'),
-            imageUrl: BuiltValueNullFieldError.checkNotNull(
-                imageUrl, r'MangaMeta', 'imageUrl'),
-            title: BuiltValueNullFieldError.checkNotNull(
-                title, r'MangaMeta', 'title'),
-            role: role,
-            position: position);
+        _$MangaMeta._(
+          malId: BuiltValueNullFieldError.checkNotNull(
+              malId, r'MangaMeta', 'malId'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'MangaMeta', 'url'),
+          imageUrl: BuiltValueNullFieldError.checkNotNull(
+              imageUrl, r'MangaMeta', 'imageUrl'),
+          title: BuiltValueNullFieldError.checkNotNull(
+              title, r'MangaMeta', 'title'),
+          role: role,
+          position: position,
+        );
     replace(_$result);
     return _$result;
   }

@@ -1,4 +1,4 @@
-library character_meta;
+// library character_meta;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -12,7 +12,7 @@ abstract class CharacterMeta
     implements Built<CharacterMeta, CharacterMetaBuilder> {
   CharacterMeta._();
 
-  factory CharacterMeta([Function(CharacterMetaBuilder b) updates]) =
+  factory CharacterMeta([void Function(CharacterMetaBuilder) updates]) =
       _$CharacterMeta;
 
   @BuiltValueField(wireName: 'mal_id')

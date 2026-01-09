@@ -6,7 +6,7 @@ part of 'user_update.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<UserUpdate> _$userUpdateSerializer = new _$UserUpdateSerializer();
+Serializer<UserUpdate> _$userUpdateSerializer = _$UserUpdateSerializer();
 
 class _$UserUpdateSerializer implements StructuredSerializer<UserUpdate> {
   @override
@@ -76,7 +76,7 @@ class _$UserUpdateSerializer implements StructuredSerializer<UserUpdate> {
   @override
   UserUpdate deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserUpdateBuilder();
+    final result = UserUpdateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -154,7 +154,7 @@ class _$UserUpdate extends UserUpdate {
   final String date;
 
   factory _$UserUpdate([void Function(UserUpdateBuilder)? updates]) =>
-      (new UserUpdateBuilder()..update(updates))._build();
+      (UserUpdateBuilder()..update(updates))._build();
 
   _$UserUpdate._(
       {required this.user,
@@ -167,18 +167,13 @@ class _$UserUpdate extends UserUpdate {
       this.chaptersRead,
       this.chaptersTotal,
       required this.date})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(user, r'UserUpdate', 'user');
-    BuiltValueNullFieldError.checkNotNull(status, r'UserUpdate', 'status');
-    BuiltValueNullFieldError.checkNotNull(date, r'UserUpdate', 'date');
-  }
-
+      : super._();
   @override
   UserUpdate rebuild(void Function(UserUpdateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserUpdateBuilder toBuilder() => new UserUpdateBuilder()..replace(this);
+  UserUpdateBuilder toBuilder() => UserUpdateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -234,7 +229,7 @@ class UserUpdateBuilder implements Builder<UserUpdate, UserUpdateBuilder> {
   _$UserUpdate? _$v;
 
   UserMetaBuilder? _user;
-  UserMetaBuilder get user => _$this._user ??= new UserMetaBuilder();
+  UserMetaBuilder get user => _$this._user ??= UserMetaBuilder();
   set user(UserMetaBuilder? user) => _$this._user = user;
 
   int? _score;
@@ -297,7 +292,6 @@ class UserUpdateBuilder implements Builder<UserUpdate, UserUpdateBuilder> {
 
   @override
   void replace(UserUpdate other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUpdate;
   }
 
@@ -313,26 +307,27 @@ class UserUpdateBuilder implements Builder<UserUpdate, UserUpdateBuilder> {
     _$UserUpdate _$result;
     try {
       _$result = _$v ??
-          new _$UserUpdate._(
-              user: user.build(),
-              score: score,
-              status: BuiltValueNullFieldError.checkNotNull(
-                  status, r'UserUpdate', 'status'),
-              episodesSeen: episodesSeen,
-              episodesTotal: episodesTotal,
-              volumesRead: volumesRead,
-              volumesTotal: volumesTotal,
-              chaptersRead: chaptersRead,
-              chaptersTotal: chaptersTotal,
-              date: BuiltValueNullFieldError.checkNotNull(
-                  date, r'UserUpdate', 'date'));
+          _$UserUpdate._(
+            user: user.build(),
+            score: score,
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'UserUpdate', 'status'),
+            episodesSeen: episodesSeen,
+            episodesTotal: episodesTotal,
+            volumesRead: volumesRead,
+            volumesTotal: volumesTotal,
+            chaptersRead: chaptersRead,
+            chaptersTotal: chaptersTotal,
+            date: BuiltValueNullFieldError.checkNotNull(
+                date, r'UserUpdate', 'date'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'user';
         user.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserUpdate', _$failedField, e.toString());
       }
       rethrow;

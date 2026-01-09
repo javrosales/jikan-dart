@@ -6,7 +6,7 @@ part of 'user_profile.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<UserProfile> _$userProfileSerializer = new _$UserProfileSerializer();
+Serializer<UserProfile> _$userProfileSerializer = _$UserProfileSerializer();
 
 class _$UserProfileSerializer implements StructuredSerializer<UserProfile> {
   @override
@@ -103,7 +103,7 @@ class _$UserProfileSerializer implements StructuredSerializer<UserProfile> {
   @override
   UserProfile deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserProfileBuilder();
+    final result = UserProfileBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -215,7 +215,7 @@ class _$UserProfile extends UserProfile {
   final String? about;
 
   factory _$UserProfile([void Function(UserProfileBuilder)? updates]) =>
-      (new UserProfileBuilder()..update(updates))._build();
+      (UserProfileBuilder()..update(updates))._build();
 
   _$UserProfile._(
       {this.malId,
@@ -233,27 +233,13 @@ class _$UserProfile extends UserProfile {
       required this.animeUpdates,
       required this.mangaUpdates,
       this.about})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(username, r'UserProfile', 'username');
-    BuiltValueNullFieldError.checkNotNull(url, r'UserProfile', 'url');
-    BuiltValueNullFieldError.checkNotNull(
-        animeStats, r'UserProfile', 'animeStats');
-    BuiltValueNullFieldError.checkNotNull(
-        mangaStats, r'UserProfile', 'mangaStats');
-    BuiltValueNullFieldError.checkNotNull(
-        favorites, r'UserProfile', 'favorites');
-    BuiltValueNullFieldError.checkNotNull(
-        animeUpdates, r'UserProfile', 'animeUpdates');
-    BuiltValueNullFieldError.checkNotNull(
-        mangaUpdates, r'UserProfile', 'mangaUpdates');
-  }
-
+      : super._();
   @override
   UserProfile rebuild(void Function(UserProfileBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserProfileBuilder toBuilder() => new UserProfileBuilder()..replace(this);
+  UserProfileBuilder toBuilder() => UserProfileBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -360,31 +346,28 @@ class UserProfileBuilder implements Builder<UserProfile, UserProfileBuilder> {
   set joined(String? joined) => _$this._joined = joined;
 
   UserStatsBuilder? _animeStats;
-  UserStatsBuilder get animeStats =>
-      _$this._animeStats ??= new UserStatsBuilder();
+  UserStatsBuilder get animeStats => _$this._animeStats ??= UserStatsBuilder();
   set animeStats(UserStatsBuilder? animeStats) =>
       _$this._animeStats = animeStats;
 
   UserStatsBuilder? _mangaStats;
-  UserStatsBuilder get mangaStats =>
-      _$this._mangaStats ??= new UserStatsBuilder();
+  UserStatsBuilder get mangaStats => _$this._mangaStats ??= UserStatsBuilder();
   set mangaStats(UserStatsBuilder? mangaStats) =>
       _$this._mangaStats = mangaStats;
 
   FavoritesBuilder? _favorites;
-  FavoritesBuilder get favorites =>
-      _$this._favorites ??= new FavoritesBuilder();
+  FavoritesBuilder get favorites => _$this._favorites ??= FavoritesBuilder();
   set favorites(FavoritesBuilder? favorites) => _$this._favorites = favorites;
 
   ListBuilder<EntryUpdate>? _animeUpdates;
   ListBuilder<EntryUpdate> get animeUpdates =>
-      _$this._animeUpdates ??= new ListBuilder<EntryUpdate>();
+      _$this._animeUpdates ??= ListBuilder<EntryUpdate>();
   set animeUpdates(ListBuilder<EntryUpdate>? animeUpdates) =>
       _$this._animeUpdates = animeUpdates;
 
   ListBuilder<EntryUpdate>? _mangaUpdates;
   ListBuilder<EntryUpdate> get mangaUpdates =>
-      _$this._mangaUpdates ??= new ListBuilder<EntryUpdate>();
+      _$this._mangaUpdates ??= ListBuilder<EntryUpdate>();
   set mangaUpdates(ListBuilder<EntryUpdate>? mangaUpdates) =>
       _$this._mangaUpdates = mangaUpdates;
 
@@ -419,7 +402,6 @@ class UserProfileBuilder implements Builder<UserProfile, UserProfileBuilder> {
 
   @override
   void replace(UserProfile other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserProfile;
   }
 
@@ -435,24 +417,25 @@ class UserProfileBuilder implements Builder<UserProfile, UserProfileBuilder> {
     _$UserProfile _$result;
     try {
       _$result = _$v ??
-          new _$UserProfile._(
-              malId: malId,
-              username: BuiltValueNullFieldError.checkNotNull(
-                  username, r'UserProfile', 'username'),
-              url: BuiltValueNullFieldError.checkNotNull(
-                  url, r'UserProfile', 'url'),
-              imageUrl: imageUrl,
-              lastOnline: lastOnline,
-              gender: gender,
-              birthday: birthday,
-              location: location,
-              joined: joined,
-              animeStats: animeStats.build(),
-              mangaStats: mangaStats.build(),
-              favorites: favorites.build(),
-              animeUpdates: animeUpdates.build(),
-              mangaUpdates: mangaUpdates.build(),
-              about: about);
+          _$UserProfile._(
+            malId: malId,
+            username: BuiltValueNullFieldError.checkNotNull(
+                username, r'UserProfile', 'username'),
+            url: BuiltValueNullFieldError.checkNotNull(
+                url, r'UserProfile', 'url'),
+            imageUrl: imageUrl,
+            lastOnline: lastOnline,
+            gender: gender,
+            birthday: birthday,
+            location: location,
+            joined: joined,
+            animeStats: animeStats.build(),
+            mangaStats: mangaStats.build(),
+            favorites: favorites.build(),
+            animeUpdates: animeUpdates.build(),
+            mangaUpdates: mangaUpdates.build(),
+            about: about,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -467,7 +450,7 @@ class UserProfileBuilder implements Builder<UserProfile, UserProfileBuilder> {
         _$failedField = 'mangaUpdates';
         mangaUpdates.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserProfile', _$failedField, e.toString());
       }
       rethrow;

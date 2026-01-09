@@ -6,7 +6,7 @@ part of 'friend.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Friend> _$friendSerializer = new _$FriendSerializer();
+Serializer<Friend> _$friendSerializer = _$FriendSerializer();
 
 class _$FriendSerializer implements StructuredSerializer<Friend> {
   @override
@@ -39,7 +39,7 @@ class _$FriendSerializer implements StructuredSerializer<Friend> {
   @override
   Friend deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new FriendBuilder();
+    final result = FriendBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -75,20 +75,16 @@ class _$Friend extends Friend {
   final String? friendsSince;
 
   factory _$Friend([void Function(FriendBuilder)? updates]) =>
-      (new FriendBuilder()..update(updates))._build();
+      (FriendBuilder()..update(updates))._build();
 
   _$Friend._({required this.user, required this.lastOnline, this.friendsSince})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(user, r'Friend', 'user');
-    BuiltValueNullFieldError.checkNotNull(lastOnline, r'Friend', 'lastOnline');
-  }
-
+      : super._();
   @override
   Friend rebuild(void Function(FriendBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FriendBuilder toBuilder() => new FriendBuilder()..replace(this);
+  FriendBuilder toBuilder() => FriendBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -123,7 +119,7 @@ class FriendBuilder implements Builder<Friend, FriendBuilder> {
   _$Friend? _$v;
 
   UserMetaBuilder? _user;
-  UserMetaBuilder get user => _$this._user ??= new UserMetaBuilder();
+  UserMetaBuilder get user => _$this._user ??= UserMetaBuilder();
   set user(UserMetaBuilder? user) => _$this._user = user;
 
   String? _lastOnline;
@@ -149,7 +145,6 @@ class FriendBuilder implements Builder<Friend, FriendBuilder> {
 
   @override
   void replace(Friend other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Friend;
   }
 
@@ -165,18 +160,19 @@ class FriendBuilder implements Builder<Friend, FriendBuilder> {
     _$Friend _$result;
     try {
       _$result = _$v ??
-          new _$Friend._(
-              user: user.build(),
-              lastOnline: BuiltValueNullFieldError.checkNotNull(
-                  lastOnline, r'Friend', 'lastOnline'),
-              friendsSince: friendsSince);
+          _$Friend._(
+            user: user.build(),
+            lastOnline: BuiltValueNullFieldError.checkNotNull(
+                lastOnline, r'Friend', 'lastOnline'),
+            friendsSince: friendsSince,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'user';
         user.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'Friend', _$failedField, e.toString());
       }
       rethrow;

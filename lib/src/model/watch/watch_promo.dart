@@ -1,4 +1,4 @@
-library watch_promo;
+// library watch_promo;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -10,7 +10,7 @@ part 'watch_promo.g.dart';
 abstract class WatchPromo implements Built<WatchPromo, WatchPromoBuilder> {
   WatchPromo._();
 
-  factory WatchPromo([Function(WatchPromoBuilder b) updates]) = _$WatchPromo;
+  factory WatchPromo([void Function(WatchPromoBuilder) updates]) = _$WatchPromo;
 
   @BuiltValueField(wireName: 'entry')
   EntryMeta get entry;

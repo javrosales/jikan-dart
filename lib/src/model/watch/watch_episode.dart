@@ -1,4 +1,4 @@
-library watch_episode;
+// library watch_episode;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -13,7 +13,7 @@ abstract class WatchEpisode
     implements Built<WatchEpisode, WatchEpisodeBuilder> {
   WatchEpisode._();
 
-  factory WatchEpisode([Function(WatchEpisodeBuilder b) updates]) =
+  factory WatchEpisode([void Function(WatchEpisodeBuilder) updates]) =
       _$WatchEpisode;
 
   @BuiltValueField(wireName: 'entry')

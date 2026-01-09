@@ -1,4 +1,4 @@
-library voice_actor;
+// library voice_actor;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -11,7 +11,7 @@ part 'voice_actor.g.dart';
 abstract class VoiceActor implements Built<VoiceActor, VoiceActorBuilder> {
   VoiceActor._();
 
-  factory VoiceActor([Function(VoiceActorBuilder b) updates]) = _$VoiceActor;
+  factory VoiceActor([void Function(VoiceActorBuilder) updates]) = _$VoiceActor;
 
   @BuiltValueField(wireName: 'role')
   String get role;

@@ -6,7 +6,7 @@ part of 'stats.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Stats> _$statsSerializer = new _$StatsSerializer();
+Serializer<Stats> _$statsSerializer = _$StatsSerializer();
 
 class _$StatsSerializer implements StructuredSerializer<Stats> {
   @override
@@ -63,7 +63,7 @@ class _$StatsSerializer implements StructuredSerializer<Stats> {
   @override
   Stats deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new StatsBuilder();
+    final result = StatsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -137,7 +137,7 @@ class _$Stats extends Stats {
   final BuiltList<Score> scores;
 
   factory _$Stats([void Function(StatsBuilder)? updates]) =>
-      (new StatsBuilder()..update(updates))._build();
+      (StatsBuilder()..update(updates))._build();
 
   _$Stats._(
       {this.watching,
@@ -149,20 +149,13 @@ class _$Stats extends Stats {
       this.planToRead,
       required this.total,
       required this.scores})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(completed, r'Stats', 'completed');
-    BuiltValueNullFieldError.checkNotNull(onHold, r'Stats', 'onHold');
-    BuiltValueNullFieldError.checkNotNull(dropped, r'Stats', 'dropped');
-    BuiltValueNullFieldError.checkNotNull(total, r'Stats', 'total');
-    BuiltValueNullFieldError.checkNotNull(scores, r'Stats', 'scores');
-  }
-
+      : super._();
   @override
   Stats rebuild(void Function(StatsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  StatsBuilder toBuilder() => new StatsBuilder()..replace(this);
+  StatsBuilder toBuilder() => StatsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -247,7 +240,7 @@ class StatsBuilder implements Builder<Stats, StatsBuilder> {
   set total(int? total) => _$this._total = total;
 
   ListBuilder<Score>? _scores;
-  ListBuilder<Score> get scores => _$this._scores ??= new ListBuilder<Score>();
+  ListBuilder<Score> get scores => _$this._scores ??= ListBuilder<Score>();
   set scores(ListBuilder<Score>? scores) => _$this._scores = scores;
 
   StatsBuilder();
@@ -271,7 +264,6 @@ class StatsBuilder implements Builder<Stats, StatsBuilder> {
 
   @override
   void replace(Stats other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Stats;
   }
 
@@ -287,28 +279,28 @@ class StatsBuilder implements Builder<Stats, StatsBuilder> {
     _$Stats _$result;
     try {
       _$result = _$v ??
-          new _$Stats._(
-              watching: watching,
-              reading: reading,
-              completed: BuiltValueNullFieldError.checkNotNull(
-                  completed, r'Stats', 'completed'),
-              onHold: BuiltValueNullFieldError.checkNotNull(
-                  onHold, r'Stats', 'onHold'),
-              dropped: BuiltValueNullFieldError.checkNotNull(
-                  dropped, r'Stats', 'dropped'),
-              planToWatch: planToWatch,
-              planToRead: planToRead,
-              total: BuiltValueNullFieldError.checkNotNull(
-                  total, r'Stats', 'total'),
-              scores: scores.build());
+          _$Stats._(
+            watching: watching,
+            reading: reading,
+            completed: BuiltValueNullFieldError.checkNotNull(
+                completed, r'Stats', 'completed'),
+            onHold: BuiltValueNullFieldError.checkNotNull(
+                onHold, r'Stats', 'onHold'),
+            dropped: BuiltValueNullFieldError.checkNotNull(
+                dropped, r'Stats', 'dropped'),
+            planToWatch: planToWatch,
+            planToRead: planToRead,
+            total:
+                BuiltValueNullFieldError.checkNotNull(total, r'Stats', 'total'),
+            scores: scores.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'scores';
         scores.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'Stats', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Stats', _$failedField, e.toString());
       }
       rethrow;
     }

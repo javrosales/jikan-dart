@@ -6,7 +6,7 @@ part of 'serializers.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializers _$serializers = (new Serializers().toBuilder()
+Serializers _$serializers = (Serializers().toBuilder()
       ..add(Anime.serializer)
       ..add(AnimeMeta.serializer)
       ..add(Archive.serializer)
@@ -48,130 +48,130 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(WatchPromo.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(EntryMeta)]),
-          () => new ListBuilder<EntryMeta>())
+          () => ListBuilder<EntryMeta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(EntryUpdate)]),
-          () => new ListBuilder<EntryUpdate>())
+          () => ListBuilder<EntryUpdate>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(EntryUpdate)]),
-          () => new ListBuilder<EntryUpdate>())
+          () => ListBuilder<EntryUpdate>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Episode)]),
-          () => new ListBuilder<Episode>())
+          () => ListBuilder<Episode>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Favorite)]),
-          () => new ListBuilder<Favorite>())
+          () => ListBuilder<Favorite>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Favorite)]),
-          () => new ListBuilder<Favorite>())
+          () => ListBuilder<Favorite>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Favorite)]),
-          () => new ListBuilder<Favorite>())
+          () => ListBuilder<Favorite>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Favorite)]),
-          () => new ListBuilder<Favorite>())
+          () => ListBuilder<Favorite>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(PersonMeta)]),
-          () => new ListBuilder<PersonMeta>())
+          () => ListBuilder<PersonMeta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Score)]),
-          () => new ListBuilder<Score>())
+          () => ListBuilder<Score>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(AnimeMeta)]),
-          () => new ListBuilder<AnimeMeta>())
+          () => ListBuilder<AnimeMeta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MangaMeta)]),
-          () => new ListBuilder<MangaMeta>())
+          () => ListBuilder<MangaMeta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(PersonMeta)]),
-          () => new ListBuilder<PersonMeta>())
+          () => ListBuilder<PersonMeta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(AnimeMeta)]),
-          () => new ListBuilder<AnimeMeta>())
+          () => ListBuilder<AnimeMeta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MangaMeta)]),
-          () => new ListBuilder<MangaMeta>())
+          () => ListBuilder<MangaMeta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(VoiceActor)]),
-          () => new ListBuilder<VoiceActor>())
+          () => ListBuilder<VoiceActor>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Relation)]),
-          () => new ListBuilder<Relation>())
+          () => ListBuilder<Relation>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Meta)]),
-          () => new ListBuilder<Meta>())
+          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Relation)]),
-          () => new ListBuilder<Relation>()))
+          () => ListBuilder<Relation>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

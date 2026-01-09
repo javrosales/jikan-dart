@@ -1,4 +1,4 @@
-library entry_update;
+// library entry_update;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -10,7 +10,8 @@ part 'entry_update.g.dart';
 abstract class EntryUpdate implements Built<EntryUpdate, EntryUpdateBuilder> {
   EntryUpdate._();
 
-  factory EntryUpdate([Function(EntryUpdateBuilder b) updates]) = _$EntryUpdate;
+  factory EntryUpdate([void Function(EntryUpdateBuilder) updates]) =
+      _$EntryUpdate;
 
   @BuiltValueField(wireName: 'entry')
   EntryMeta get entry;

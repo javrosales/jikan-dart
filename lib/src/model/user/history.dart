@@ -1,4 +1,4 @@
-library history;
+// library history;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -10,7 +10,7 @@ part 'history.g.dart';
 abstract class History implements Built<History, HistoryBuilder> {
   History._();
 
-  factory History([Function(HistoryBuilder b) updates]) = _$History;
+  factory History([void Function(HistoryBuilder) updates]) = _$History;
 
   @BuiltValueField(wireName: 'entry')
   Meta get entry;

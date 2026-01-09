@@ -6,7 +6,7 @@ part of 'watch_promo.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<WatchPromo> _$watchPromoSerializer = new _$WatchPromoSerializer();
+Serializer<WatchPromo> _$watchPromoSerializer = _$WatchPromoSerializer();
 
 class _$WatchPromoSerializer implements StructuredSerializer<WatchPromo> {
   @override
@@ -38,7 +38,7 @@ class _$WatchPromoSerializer implements StructuredSerializer<WatchPromo> {
   @override
   WatchPromo deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WatchPromoBuilder();
+    final result = WatchPromoBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -80,26 +80,20 @@ class _$WatchPromo extends WatchPromo {
   final String videoUrl;
 
   factory _$WatchPromo([void Function(WatchPromoBuilder)? updates]) =>
-      (new WatchPromoBuilder()..update(updates))._build();
+      (WatchPromoBuilder()..update(updates))._build();
 
   _$WatchPromo._(
       {required this.entry,
       required this.title,
       required this.imageUrl,
       required this.videoUrl})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(entry, r'WatchPromo', 'entry');
-    BuiltValueNullFieldError.checkNotNull(title, r'WatchPromo', 'title');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'WatchPromo', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(videoUrl, r'WatchPromo', 'videoUrl');
-  }
-
+      : super._();
   @override
   WatchPromo rebuild(void Function(WatchPromoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  WatchPromoBuilder toBuilder() => new WatchPromoBuilder()..replace(this);
+  WatchPromoBuilder toBuilder() => WatchPromoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -137,7 +131,7 @@ class WatchPromoBuilder implements Builder<WatchPromo, WatchPromoBuilder> {
   _$WatchPromo? _$v;
 
   EntryMetaBuilder? _entry;
-  EntryMetaBuilder get entry => _$this._entry ??= new EntryMetaBuilder();
+  EntryMetaBuilder get entry => _$this._entry ??= EntryMetaBuilder();
   set entry(EntryMetaBuilder? entry) => _$this._entry = entry;
 
   String? _title;
@@ -168,7 +162,6 @@ class WatchPromoBuilder implements Builder<WatchPromo, WatchPromoBuilder> {
 
   @override
   void replace(WatchPromo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WatchPromo;
   }
 
@@ -184,21 +177,22 @@ class WatchPromoBuilder implements Builder<WatchPromo, WatchPromoBuilder> {
     _$WatchPromo _$result;
     try {
       _$result = _$v ??
-          new _$WatchPromo._(
-              entry: entry.build(),
-              title: BuiltValueNullFieldError.checkNotNull(
-                  title, r'WatchPromo', 'title'),
-              imageUrl: BuiltValueNullFieldError.checkNotNull(
-                  imageUrl, r'WatchPromo', 'imageUrl'),
-              videoUrl: BuiltValueNullFieldError.checkNotNull(
-                  videoUrl, r'WatchPromo', 'videoUrl'));
+          _$WatchPromo._(
+            entry: entry.build(),
+            title: BuiltValueNullFieldError.checkNotNull(
+                title, r'WatchPromo', 'title'),
+            imageUrl: BuiltValueNullFieldError.checkNotNull(
+                imageUrl, r'WatchPromo', 'imageUrl'),
+            videoUrl: BuiltValueNullFieldError.checkNotNull(
+                videoUrl, r'WatchPromo', 'videoUrl'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'entry';
         entry.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'WatchPromo', _$failedField, e.toString());
       }
       rethrow;

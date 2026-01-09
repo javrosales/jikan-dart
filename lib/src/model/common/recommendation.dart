@@ -1,4 +1,4 @@
-library recommendation;
+// library recommendation;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -11,7 +11,7 @@ abstract class Recommendation
     implements Built<Recommendation, RecommendationBuilder> {
   Recommendation._();
 
-  factory Recommendation([Function(RecommendationBuilder b) updates]) =
+  factory Recommendation([void Function(RecommendationBuilder) updates]) =
       _$Recommendation;
 
   @BuiltValueField(wireName: 'entry')

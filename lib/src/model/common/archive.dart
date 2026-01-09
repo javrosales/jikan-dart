@@ -1,4 +1,4 @@
-library archive;
+// library archive;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -10,7 +10,7 @@ part 'archive.g.dart';
 abstract class Archive implements Built<Archive, ArchiveBuilder> {
   Archive._();
 
-  factory Archive([Function(ArchiveBuilder b) updates]) = _$Archive;
+  factory Archive([void Function(ArchiveBuilder) updates]) = _$Archive;
 
   @BuiltValueField(wireName: 'year')
   int get year;

@@ -6,7 +6,7 @@ part of 'user_meta.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<UserMeta> _$userMetaSerializer = new _$UserMetaSerializer();
+Serializer<UserMeta> _$userMetaSerializer = _$UserMetaSerializer();
 
 class _$UserMetaSerializer implements StructuredSerializer<UserMeta> {
   @override
@@ -38,7 +38,7 @@ class _$UserMetaSerializer implements StructuredSerializer<UserMeta> {
   @override
   UserMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserMetaBuilder();
+    final result = UserMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -74,20 +74,16 @@ class _$UserMeta extends UserMeta {
   final String? imageUrl;
 
   factory _$UserMeta([void Function(UserMetaBuilder)? updates]) =>
-      (new UserMetaBuilder()..update(updates))._build();
+      (UserMetaBuilder()..update(updates))._build();
 
   _$UserMeta._({required this.username, required this.url, this.imageUrl})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(username, r'UserMeta', 'username');
-    BuiltValueNullFieldError.checkNotNull(url, r'UserMeta', 'url');
-  }
-
+      : super._();
   @override
   UserMeta rebuild(void Function(UserMetaBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserMetaBuilder toBuilder() => new UserMetaBuilder()..replace(this);
+  UserMetaBuilder toBuilder() => UserMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -148,7 +144,6 @@ class UserMetaBuilder implements Builder<UserMeta, UserMetaBuilder> {
 
   @override
   void replace(UserMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserMeta;
   }
 
@@ -162,11 +157,12 @@ class UserMetaBuilder implements Builder<UserMeta, UserMetaBuilder> {
 
   _$UserMeta _build() {
     final _$result = _$v ??
-        new _$UserMeta._(
-            username: BuiltValueNullFieldError.checkNotNull(
-                username, r'UserMeta', 'username'),
-            url: BuiltValueNullFieldError.checkNotNull(url, r'UserMeta', 'url'),
-            imageUrl: imageUrl);
+        _$UserMeta._(
+          username: BuiltValueNullFieldError.checkNotNull(
+              username, r'UserMeta', 'username'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'UserMeta', 'url'),
+          imageUrl: imageUrl,
+        );
     replace(_$result);
     return _$result;
   }

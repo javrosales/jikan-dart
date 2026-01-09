@@ -1,4 +1,4 @@
-library manga_meta;
+// library manga_meta;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'manga_meta.g.dart';
 abstract class MangaMeta implements Built<MangaMeta, MangaMetaBuilder> {
   MangaMeta._();
 
-  factory MangaMeta([Function(MangaMetaBuilder b) updates]) = _$MangaMeta;
+  factory MangaMeta([void Function(MangaMetaBuilder) updates]) = _$MangaMeta;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

@@ -1,4 +1,4 @@
-library person;
+// library person;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -13,7 +13,7 @@ part 'person.g.dart';
 abstract class Person implements Built<Person, PersonBuilder> {
   Person._();
 
-  factory Person([Function(PersonBuilder b) updates]) = _$Person;
+  factory Person([void Function(PersonBuilder) updates]) = _$Person;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

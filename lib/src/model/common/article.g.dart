@@ -6,7 +6,7 @@ part of 'article.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Article> _$articleSerializer = new _$ArticleSerializer();
+Serializer<Article> _$articleSerializer = _$ArticleSerializer();
 
 class _$ArticleSerializer implements StructuredSerializer<Article> {
   @override
@@ -57,7 +57,7 @@ class _$ArticleSerializer implements StructuredSerializer<Article> {
   @override
   Article deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ArticleBuilder();
+    final result = ArticleBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -135,7 +135,7 @@ class _$Article extends Article {
   final String excerpt;
 
   factory _$Article([void Function(ArticleBuilder)? updates]) =>
-      (new ArticleBuilder()..update(updates))._build();
+      (ArticleBuilder()..update(updates))._build();
 
   _$Article._(
       {required this.malId,
@@ -148,25 +148,13 @@ class _$Article extends Article {
       this.imageUrl,
       required this.comments,
       required this.excerpt})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'Article', 'malId');
-    BuiltValueNullFieldError.checkNotNull(url, r'Article', 'url');
-    BuiltValueNullFieldError.checkNotNull(title, r'Article', 'title');
-    BuiltValueNullFieldError.checkNotNull(date, r'Article', 'date');
-    BuiltValueNullFieldError.checkNotNull(
-        authorUsername, r'Article', 'authorUsername');
-    BuiltValueNullFieldError.checkNotNull(authorUrl, r'Article', 'authorUrl');
-    BuiltValueNullFieldError.checkNotNull(forumUrl, r'Article', 'forumUrl');
-    BuiltValueNullFieldError.checkNotNull(comments, r'Article', 'comments');
-    BuiltValueNullFieldError.checkNotNull(excerpt, r'Article', 'excerpt');
-  }
-
+      : super._();
   @override
   Article rebuild(void Function(ArticleBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ArticleBuilder toBuilder() => new ArticleBuilder()..replace(this);
+  ArticleBuilder toBuilder() => ArticleBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -284,7 +272,6 @@ class ArticleBuilder implements Builder<Article, ArticleBuilder> {
 
   @override
   void replace(Article other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Article;
   }
 
@@ -298,25 +285,25 @@ class ArticleBuilder implements Builder<Article, ArticleBuilder> {
 
   _$Article _build() {
     final _$result = _$v ??
-        new _$Article._(
-            malId: BuiltValueNullFieldError.checkNotNull(
-                malId, r'Article', 'malId'),
-            url: BuiltValueNullFieldError.checkNotNull(url, r'Article', 'url'),
-            title: BuiltValueNullFieldError.checkNotNull(
-                title, r'Article', 'title'),
-            date:
-                BuiltValueNullFieldError.checkNotNull(date, r'Article', 'date'),
-            authorUsername: BuiltValueNullFieldError.checkNotNull(
-                authorUsername, r'Article', 'authorUsername'),
-            authorUrl: BuiltValueNullFieldError.checkNotNull(
-                authorUrl, r'Article', 'authorUrl'),
-            forumUrl: BuiltValueNullFieldError.checkNotNull(
-                forumUrl, r'Article', 'forumUrl'),
-            imageUrl: imageUrl,
-            comments: BuiltValueNullFieldError.checkNotNull(
-                comments, r'Article', 'comments'),
-            excerpt: BuiltValueNullFieldError.checkNotNull(
-                excerpt, r'Article', 'excerpt'));
+        _$Article._(
+          malId:
+              BuiltValueNullFieldError.checkNotNull(malId, r'Article', 'malId'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'Article', 'url'),
+          title:
+              BuiltValueNullFieldError.checkNotNull(title, r'Article', 'title'),
+          date: BuiltValueNullFieldError.checkNotNull(date, r'Article', 'date'),
+          authorUsername: BuiltValueNullFieldError.checkNotNull(
+              authorUsername, r'Article', 'authorUsername'),
+          authorUrl: BuiltValueNullFieldError.checkNotNull(
+              authorUrl, r'Article', 'authorUrl'),
+          forumUrl: BuiltValueNullFieldError.checkNotNull(
+              forumUrl, r'Article', 'forumUrl'),
+          imageUrl: imageUrl,
+          comments: BuiltValueNullFieldError.checkNotNull(
+              comments, r'Article', 'comments'),
+          excerpt: BuiltValueNullFieldError.checkNotNull(
+              excerpt, r'Article', 'excerpt'),
+        );
     replace(_$result);
     return _$result;
   }

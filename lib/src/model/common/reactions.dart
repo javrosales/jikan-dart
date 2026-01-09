@@ -1,4 +1,4 @@
-library reactions;
+// library reactions;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'reactions.g.dart';
 abstract class Reactions implements Built<Reactions, ReactionsBuilder> {
   Reactions._();
 
-  factory Reactions([Function(ReactionsBuilder b) updates]) = _$Reactions;
+  factory Reactions([void Function(ReactionsBuilder) updates]) = _$Reactions;
 
   @BuiltValueField(wireName: 'overall')
   int get overall;

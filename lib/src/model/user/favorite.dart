@@ -1,4 +1,4 @@
-library favorite;
+// library favorite;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'favorite.g.dart';
 abstract class Favorite implements Built<Favorite, FavoriteBuilder> {
   Favorite._();
 
-  factory Favorite([Function(FavoriteBuilder b) updates]) = _$Favorite;
+  factory Favorite([void Function(FavoriteBuilder) updates]) = _$Favorite;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

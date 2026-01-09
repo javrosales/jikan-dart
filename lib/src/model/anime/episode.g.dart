@@ -6,7 +6,7 @@ part of 'episode.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Episode> _$episodeSerializer = new _$EpisodeSerializer();
+Serializer<Episode> _$episodeSerializer = _$EpisodeSerializer();
 
 class _$EpisodeSerializer implements StructuredSerializer<Episode> {
   @override
@@ -94,7 +94,7 @@ class _$EpisodeSerializer implements StructuredSerializer<Episode> {
   @override
   Episode deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new EpisodeBuilder();
+    final result = EpisodeBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -178,7 +178,7 @@ class _$Episode extends Episode {
   final bool? premium;
 
   factory _$Episode([void Function(EpisodeBuilder)? updates]) =>
-      (new EpisodeBuilder()..update(updates))._build();
+      (EpisodeBuilder()..update(updates))._build();
 
   _$Episode._(
       {required this.malId,
@@ -192,17 +192,13 @@ class _$Episode extends Episode {
       this.recap,
       this.forumUrl,
       this.premium})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'Episode', 'malId');
-    BuiltValueNullFieldError.checkNotNull(title, r'Episode', 'title');
-  }
-
+      : super._();
   @override
   Episode rebuild(void Function(EpisodeBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  EpisodeBuilder toBuilder() => new EpisodeBuilder()..replace(this);
+  EpisodeBuilder toBuilder() => EpisodeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -328,7 +324,6 @@ class EpisodeBuilder implements Builder<Episode, EpisodeBuilder> {
 
   @override
   void replace(Episode other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Episode;
   }
 
@@ -342,20 +337,21 @@ class EpisodeBuilder implements Builder<Episode, EpisodeBuilder> {
 
   _$Episode _build() {
     final _$result = _$v ??
-        new _$Episode._(
-            malId: BuiltValueNullFieldError.checkNotNull(
-                malId, r'Episode', 'malId'),
-            url: url,
-            title: BuiltValueNullFieldError.checkNotNull(
-                title, r'Episode', 'title'),
-            titleJapanese: titleJapanese,
-            titleRomanji: titleRomanji,
-            aired: aired,
-            score: score,
-            filler: filler,
-            recap: recap,
-            forumUrl: forumUrl,
-            premium: premium);
+        _$Episode._(
+          malId:
+              BuiltValueNullFieldError.checkNotNull(malId, r'Episode', 'malId'),
+          url: url,
+          title:
+              BuiltValueNullFieldError.checkNotNull(title, r'Episode', 'title'),
+          titleJapanese: titleJapanese,
+          titleRomanji: titleRomanji,
+          aired: aired,
+          score: score,
+          filler: filler,
+          recap: recap,
+          forumUrl: forumUrl,
+          premium: premium,
+        );
     replace(_$result);
     return _$result;
   }

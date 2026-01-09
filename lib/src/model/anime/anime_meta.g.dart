@@ -6,7 +6,7 @@ part of 'anime_meta.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<AnimeMeta> _$animeMetaSerializer = new _$AnimeMetaSerializer();
+Serializer<AnimeMeta> _$animeMetaSerializer = _$AnimeMetaSerializer();
 
 class _$AnimeMetaSerializer implements StructuredSerializer<AnimeMeta> {
   @override
@@ -50,7 +50,7 @@ class _$AnimeMetaSerializer implements StructuredSerializer<AnimeMeta> {
   @override
   AnimeMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new AnimeMetaBuilder();
+    final result = AnimeMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -104,7 +104,7 @@ class _$AnimeMeta extends AnimeMeta {
   final String? position;
 
   factory _$AnimeMeta([void Function(AnimeMetaBuilder)? updates]) =>
-      (new AnimeMetaBuilder()..update(updates))._build();
+      (AnimeMetaBuilder()..update(updates))._build();
 
   _$AnimeMeta._(
       {required this.malId,
@@ -113,19 +113,13 @@ class _$AnimeMeta extends AnimeMeta {
       required this.title,
       this.role,
       this.position})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'AnimeMeta', 'malId');
-    BuiltValueNullFieldError.checkNotNull(url, r'AnimeMeta', 'url');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'AnimeMeta', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(title, r'AnimeMeta', 'title');
-  }
-
+      : super._();
   @override
   AnimeMeta rebuild(void Function(AnimeMetaBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  AnimeMetaBuilder toBuilder() => new AnimeMetaBuilder()..replace(this);
+  AnimeMetaBuilder toBuilder() => AnimeMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -210,7 +204,6 @@ class AnimeMetaBuilder implements Builder<AnimeMeta, AnimeMetaBuilder> {
 
   @override
   void replace(AnimeMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AnimeMeta;
   }
 
@@ -224,17 +217,17 @@ class AnimeMetaBuilder implements Builder<AnimeMeta, AnimeMetaBuilder> {
 
   _$AnimeMeta _build() {
     final _$result = _$v ??
-        new _$AnimeMeta._(
-            malId: BuiltValueNullFieldError.checkNotNull(
-                malId, r'AnimeMeta', 'malId'),
-            url:
-                BuiltValueNullFieldError.checkNotNull(url, r'AnimeMeta', 'url'),
-            imageUrl: BuiltValueNullFieldError.checkNotNull(
-                imageUrl, r'AnimeMeta', 'imageUrl'),
-            title: BuiltValueNullFieldError.checkNotNull(
-                title, r'AnimeMeta', 'title'),
-            role: role,
-            position: position);
+        _$AnimeMeta._(
+          malId: BuiltValueNullFieldError.checkNotNull(
+              malId, r'AnimeMeta', 'malId'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'AnimeMeta', 'url'),
+          imageUrl: BuiltValueNullFieldError.checkNotNull(
+              imageUrl, r'AnimeMeta', 'imageUrl'),
+          title: BuiltValueNullFieldError.checkNotNull(
+              title, r'AnimeMeta', 'title'),
+          role: role,
+          position: position,
+        );
     replace(_$result);
     return _$result;
   }

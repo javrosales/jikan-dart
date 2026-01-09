@@ -6,7 +6,7 @@ part of 'person.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Person> _$personSerializer = new _$PersonSerializer();
+Serializer<Person> _$personSerializer = _$PersonSerializer();
 
 class _$PersonSerializer implements StructuredSerializer<Person> {
   @override
@@ -101,7 +101,7 @@ class _$PersonSerializer implements StructuredSerializer<Person> {
   @override
   Person deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PersonBuilder();
+    final result = PersonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -211,7 +211,7 @@ class _$Person extends Person {
   final BuiltList<VoiceActor>? voices;
 
   factory _$Person([void Function(PersonBuilder)? updates]) =>
-      (new PersonBuilder()..update(updates))._build();
+      (PersonBuilder()..update(updates))._build();
 
   _$Person._(
       {required this.malId,
@@ -228,22 +228,13 @@ class _$Person extends Person {
       this.anime,
       this.manga,
       this.voices})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'Person', 'malId');
-    BuiltValueNullFieldError.checkNotNull(url, r'Person', 'url');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'Person', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(name, r'Person', 'name');
-    BuiltValueNullFieldError.checkNotNull(
-        alternateNames, r'Person', 'alternateNames');
-    BuiltValueNullFieldError.checkNotNull(favorites, r'Person', 'favorites');
-  }
-
+      : super._();
   @override
   Person rebuild(void Function(PersonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PersonBuilder toBuilder() => new PersonBuilder()..replace(this);
+  PersonBuilder toBuilder() => PersonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -340,7 +331,7 @@ class PersonBuilder implements Builder<Person, PersonBuilder> {
 
   ListBuilder<String>? _alternateNames;
   ListBuilder<String> get alternateNames =>
-      _$this._alternateNames ??= new ListBuilder<String>();
+      _$this._alternateNames ??= ListBuilder<String>();
   set alternateNames(ListBuilder<String>? alternateNames) =>
       _$this._alternateNames = alternateNames;
 
@@ -358,17 +349,17 @@ class PersonBuilder implements Builder<Person, PersonBuilder> {
 
   ListBuilder<AnimeMeta>? _anime;
   ListBuilder<AnimeMeta> get anime =>
-      _$this._anime ??= new ListBuilder<AnimeMeta>();
+      _$this._anime ??= ListBuilder<AnimeMeta>();
   set anime(ListBuilder<AnimeMeta>? anime) => _$this._anime = anime;
 
   ListBuilder<MangaMeta>? _manga;
   ListBuilder<MangaMeta> get manga =>
-      _$this._manga ??= new ListBuilder<MangaMeta>();
+      _$this._manga ??= ListBuilder<MangaMeta>();
   set manga(ListBuilder<MangaMeta>? manga) => _$this._manga = manga;
 
   ListBuilder<VoiceActor>? _voices;
   ListBuilder<VoiceActor> get voices =>
-      _$this._voices ??= new ListBuilder<VoiceActor>();
+      _$this._voices ??= ListBuilder<VoiceActor>();
   set voices(ListBuilder<VoiceActor>? voices) => _$this._voices = voices;
 
   PersonBuilder();
@@ -397,7 +388,6 @@ class PersonBuilder implements Builder<Person, PersonBuilder> {
 
   @override
   void replace(Person other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Person;
   }
 
@@ -413,25 +403,26 @@ class PersonBuilder implements Builder<Person, PersonBuilder> {
     _$Person _$result;
     try {
       _$result = _$v ??
-          new _$Person._(
-              malId: BuiltValueNullFieldError.checkNotNull(
-                  malId, r'Person', 'malId'),
-              url: BuiltValueNullFieldError.checkNotNull(url, r'Person', 'url'),
-              imageUrl: BuiltValueNullFieldError.checkNotNull(
-                  imageUrl, r'Person', 'imageUrl'),
-              websiteUrl: websiteUrl,
-              name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'Person', 'name'),
-              givenName: givenName,
-              familyName: familyName,
-              alternateNames: alternateNames.build(),
-              birthday: birthday,
-              favorites: BuiltValueNullFieldError.checkNotNull(
-                  favorites, r'Person', 'favorites'),
-              about: about,
-              anime: _anime?.build(),
-              manga: _manga?.build(),
-              voices: _voices?.build());
+          _$Person._(
+            malId: BuiltValueNullFieldError.checkNotNull(
+                malId, r'Person', 'malId'),
+            url: BuiltValueNullFieldError.checkNotNull(url, r'Person', 'url'),
+            imageUrl: BuiltValueNullFieldError.checkNotNull(
+                imageUrl, r'Person', 'imageUrl'),
+            websiteUrl: websiteUrl,
+            name:
+                BuiltValueNullFieldError.checkNotNull(name, r'Person', 'name'),
+            givenName: givenName,
+            familyName: familyName,
+            alternateNames: alternateNames.build(),
+            birthday: birthday,
+            favorites: BuiltValueNullFieldError.checkNotNull(
+                favorites, r'Person', 'favorites'),
+            about: about,
+            anime: _anime?.build(),
+            manga: _manga?.build(),
+            voices: _voices?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -445,7 +436,7 @@ class PersonBuilder implements Builder<Person, PersonBuilder> {
         _$failedField = 'voices';
         _voices?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'Person', _$failedField, e.toString());
       }
       rethrow;

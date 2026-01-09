@@ -6,7 +6,7 @@ part of 'character.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Character> _$characterSerializer = new _$CharacterSerializer();
+Serializer<Character> _$characterSerializer = _$CharacterSerializer();
 
 class _$CharacterSerializer implements StructuredSerializer<Character> {
   @override
@@ -80,7 +80,7 @@ class _$CharacterSerializer implements StructuredSerializer<Character> {
   @override
   Character deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new CharacterBuilder();
+    final result = CharacterBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -172,7 +172,7 @@ class _$Character extends Character {
   final BuiltList<PersonMeta>? voices;
 
   factory _$Character([void Function(CharacterBuilder)? updates]) =>
-      (new CharacterBuilder()..update(updates))._build();
+      (CharacterBuilder()..update(updates))._build();
 
   _$Character._(
       {required this.malId,
@@ -186,21 +186,13 @@ class _$Character extends Character {
       this.anime,
       this.manga,
       this.voices})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'Character', 'malId');
-    BuiltValueNullFieldError.checkNotNull(url, r'Character', 'url');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'Character', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(name, r'Character', 'name');
-    BuiltValueNullFieldError.checkNotNull(nicknames, r'Character', 'nicknames');
-    BuiltValueNullFieldError.checkNotNull(favorites, r'Character', 'favorites');
-  }
-
+      : super._();
   @override
   Character rebuild(void Function(CharacterBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CharacterBuilder toBuilder() => new CharacterBuilder()..replace(this);
+  CharacterBuilder toBuilder() => CharacterBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -280,7 +272,7 @@ class CharacterBuilder implements Builder<Character, CharacterBuilder> {
 
   ListBuilder<String>? _nicknames;
   ListBuilder<String> get nicknames =>
-      _$this._nicknames ??= new ListBuilder<String>();
+      _$this._nicknames ??= ListBuilder<String>();
   set nicknames(ListBuilder<String>? nicknames) =>
       _$this._nicknames = nicknames;
 
@@ -294,17 +286,17 @@ class CharacterBuilder implements Builder<Character, CharacterBuilder> {
 
   ListBuilder<AnimeMeta>? _anime;
   ListBuilder<AnimeMeta> get anime =>
-      _$this._anime ??= new ListBuilder<AnimeMeta>();
+      _$this._anime ??= ListBuilder<AnimeMeta>();
   set anime(ListBuilder<AnimeMeta>? anime) => _$this._anime = anime;
 
   ListBuilder<MangaMeta>? _manga;
   ListBuilder<MangaMeta> get manga =>
-      _$this._manga ??= new ListBuilder<MangaMeta>();
+      _$this._manga ??= ListBuilder<MangaMeta>();
   set manga(ListBuilder<MangaMeta>? manga) => _$this._manga = manga;
 
   ListBuilder<PersonMeta>? _voices;
   ListBuilder<PersonMeta> get voices =>
-      _$this._voices ??= new ListBuilder<PersonMeta>();
+      _$this._voices ??= ListBuilder<PersonMeta>();
   set voices(ListBuilder<PersonMeta>? voices) => _$this._voices = voices;
 
   CharacterBuilder();
@@ -330,7 +322,6 @@ class CharacterBuilder implements Builder<Character, CharacterBuilder> {
 
   @override
   void replace(Character other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Character;
   }
 
@@ -346,23 +337,24 @@ class CharacterBuilder implements Builder<Character, CharacterBuilder> {
     _$Character _$result;
     try {
       _$result = _$v ??
-          new _$Character._(
-              malId: BuiltValueNullFieldError.checkNotNull(
-                  malId, r'Character', 'malId'),
-              url: BuiltValueNullFieldError.checkNotNull(
-                  url, r'Character', 'url'),
-              imageUrl: BuiltValueNullFieldError.checkNotNull(
-                  imageUrl, r'Character', 'imageUrl'),
-              name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'Character', 'name'),
-              nameKanji: nameKanji,
-              nicknames: nicknames.build(),
-              favorites: BuiltValueNullFieldError.checkNotNull(
-                  favorites, r'Character', 'favorites'),
-              about: about,
-              anime: _anime?.build(),
-              manga: _manga?.build(),
-              voices: _voices?.build());
+          _$Character._(
+            malId: BuiltValueNullFieldError.checkNotNull(
+                malId, r'Character', 'malId'),
+            url:
+                BuiltValueNullFieldError.checkNotNull(url, r'Character', 'url'),
+            imageUrl: BuiltValueNullFieldError.checkNotNull(
+                imageUrl, r'Character', 'imageUrl'),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'Character', 'name'),
+            nameKanji: nameKanji,
+            nicknames: nicknames.build(),
+            favorites: BuiltValueNullFieldError.checkNotNull(
+                favorites, r'Character', 'favorites'),
+            about: about,
+            anime: _anime?.build(),
+            manga: _manga?.build(),
+            voices: _voices?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -376,7 +368,7 @@ class CharacterBuilder implements Builder<Character, CharacterBuilder> {
         _$failedField = 'voices';
         _voices?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'Character', _$failedField, e.toString());
       }
       rethrow;

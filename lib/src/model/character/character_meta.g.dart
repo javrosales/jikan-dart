@@ -7,7 +7,7 @@ part of 'character_meta.dart';
 // **************************************************************************
 
 Serializer<CharacterMeta> _$characterMetaSerializer =
-    new _$CharacterMetaSerializer();
+    _$CharacterMetaSerializer();
 
 class _$CharacterMetaSerializer implements StructuredSerializer<CharacterMeta> {
   @override
@@ -53,7 +53,7 @@ class _$CharacterMetaSerializer implements StructuredSerializer<CharacterMeta> {
   CharacterMeta deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new CharacterMetaBuilder();
+    final result = CharacterMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -115,7 +115,7 @@ class _$CharacterMeta extends CharacterMeta {
   final BuiltList<PersonMeta>? voiceActors;
 
   factory _$CharacterMeta([void Function(CharacterMetaBuilder)? updates]) =>
-      (new CharacterMetaBuilder()..update(updates))._build();
+      (CharacterMetaBuilder()..update(updates))._build();
 
   _$CharacterMeta._(
       {required this.malId,
@@ -125,21 +125,13 @@ class _$CharacterMeta extends CharacterMeta {
       required this.role,
       this.favorites,
       this.voiceActors})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'CharacterMeta', 'malId');
-    BuiltValueNullFieldError.checkNotNull(url, r'CharacterMeta', 'url');
-    BuiltValueNullFieldError.checkNotNull(
-        imageUrl, r'CharacterMeta', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(name, r'CharacterMeta', 'name');
-    BuiltValueNullFieldError.checkNotNull(role, r'CharacterMeta', 'role');
-  }
-
+      : super._();
   @override
   CharacterMeta rebuild(void Function(CharacterMetaBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CharacterMetaBuilder toBuilder() => new CharacterMetaBuilder()..replace(this);
+  CharacterMetaBuilder toBuilder() => CharacterMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -212,7 +204,7 @@ class CharacterMetaBuilder
 
   ListBuilder<PersonMeta>? _voiceActors;
   ListBuilder<PersonMeta> get voiceActors =>
-      _$this._voiceActors ??= new ListBuilder<PersonMeta>();
+      _$this._voiceActors ??= ListBuilder<PersonMeta>();
   set voiceActors(ListBuilder<PersonMeta>? voiceActors) =>
       _$this._voiceActors = voiceActors;
 
@@ -235,7 +227,6 @@ class CharacterMetaBuilder
 
   @override
   void replace(CharacterMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CharacterMeta;
   }
 
@@ -251,26 +242,27 @@ class CharacterMetaBuilder
     _$CharacterMeta _$result;
     try {
       _$result = _$v ??
-          new _$CharacterMeta._(
-              malId: BuiltValueNullFieldError.checkNotNull(
-                  malId, r'CharacterMeta', 'malId'),
-              url: BuiltValueNullFieldError.checkNotNull(
-                  url, r'CharacterMeta', 'url'),
-              imageUrl: BuiltValueNullFieldError.checkNotNull(
-                  imageUrl, r'CharacterMeta', 'imageUrl'),
-              name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'CharacterMeta', 'name'),
-              role: BuiltValueNullFieldError.checkNotNull(
-                  role, r'CharacterMeta', 'role'),
-              favorites: favorites,
-              voiceActors: _voiceActors?.build());
+          _$CharacterMeta._(
+            malId: BuiltValueNullFieldError.checkNotNull(
+                malId, r'CharacterMeta', 'malId'),
+            url: BuiltValueNullFieldError.checkNotNull(
+                url, r'CharacterMeta', 'url'),
+            imageUrl: BuiltValueNullFieldError.checkNotNull(
+                imageUrl, r'CharacterMeta', 'imageUrl'),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'CharacterMeta', 'name'),
+            role: BuiltValueNullFieldError.checkNotNull(
+                role, r'CharacterMeta', 'role'),
+            favorites: favorites,
+            voiceActors: _voiceActors?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'voiceActors';
         _voiceActors?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'CharacterMeta', _$failedField, e.toString());
       }
       rethrow;

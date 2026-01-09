@@ -1,4 +1,4 @@
-library anime_meta;
+// library anime_meta;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'anime_meta.g.dart';
 abstract class AnimeMeta implements Built<AnimeMeta, AnimeMetaBuilder> {
   AnimeMeta._();
 
-  factory AnimeMeta([Function(AnimeMetaBuilder b) updates]) = _$AnimeMeta;
+  factory AnimeMeta([void Function(AnimeMetaBuilder) updates]) = _$AnimeMeta;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

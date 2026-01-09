@@ -1,4 +1,4 @@
-library forum;
+// library forum;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -11,7 +11,7 @@ abstract class Forum implements Built<Forum, ForumBuilder> {
 
   Forum._();
 
-  factory Forum([Function(ForumBuilder b) updates]) = _$Forum;
+  factory Forum([void Function(ForumBuilder) updates]) = _$Forum;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

@@ -1,4 +1,4 @@
-library character;
+// library character;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -13,7 +13,7 @@ part 'character.g.dart';
 abstract class Character implements Built<Character, CharacterBuilder> {
   Character._();
 
-  factory Character([Function(CharacterBuilder b) updates]) = _$Character;
+  factory Character([void Function(CharacterBuilder) updates]) = _$Character;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

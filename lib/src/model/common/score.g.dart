@@ -6,7 +6,7 @@ part of 'score.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Score> _$scoreSerializer = new _$ScoreSerializer();
+Serializer<Score> _$scoreSerializer = _$ScoreSerializer();
 
 class _$ScoreSerializer implements StructuredSerializer<Score> {
   @override
@@ -33,7 +33,7 @@ class _$ScoreSerializer implements StructuredSerializer<Score> {
   @override
   Score deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ScoreBuilder();
+    final result = ScoreBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -69,22 +69,17 @@ class _$Score extends Score {
   final double percentage;
 
   factory _$Score([void Function(ScoreBuilder)? updates]) =>
-      (new ScoreBuilder()..update(updates))._build();
+      (ScoreBuilder()..update(updates))._build();
 
   _$Score._(
       {required this.score, required this.votes, required this.percentage})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(score, r'Score', 'score');
-    BuiltValueNullFieldError.checkNotNull(votes, r'Score', 'votes');
-    BuiltValueNullFieldError.checkNotNull(percentage, r'Score', 'percentage');
-  }
-
+      : super._();
   @override
   Score rebuild(void Function(ScoreBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ScoreBuilder toBuilder() => new ScoreBuilder()..replace(this);
+  ScoreBuilder toBuilder() => ScoreBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -145,7 +140,6 @@ class ScoreBuilder implements Builder<Score, ScoreBuilder> {
 
   @override
   void replace(Score other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Score;
   }
 
@@ -159,13 +153,14 @@ class ScoreBuilder implements Builder<Score, ScoreBuilder> {
 
   _$Score _build() {
     final _$result = _$v ??
-        new _$Score._(
-            score:
-                BuiltValueNullFieldError.checkNotNull(score, r'Score', 'score'),
-            votes:
-                BuiltValueNullFieldError.checkNotNull(votes, r'Score', 'votes'),
-            percentage: BuiltValueNullFieldError.checkNotNull(
-                percentage, r'Score', 'percentage'));
+        _$Score._(
+          score:
+              BuiltValueNullFieldError.checkNotNull(score, r'Score', 'score'),
+          votes:
+              BuiltValueNullFieldError.checkNotNull(votes, r'Score', 'votes'),
+          percentage: BuiltValueNullFieldError.checkNotNull(
+              percentage, r'Score', 'percentage'),
+        );
     replace(_$result);
     return _$result;
   }

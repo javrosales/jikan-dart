@@ -6,7 +6,7 @@ part of 'archive.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Archive> _$archiveSerializer = new _$ArchiveSerializer();
+Serializer<Archive> _$archiveSerializer = _$ArchiveSerializer();
 
 class _$ArchiveSerializer implements StructuredSerializer<Archive> {
   @override
@@ -32,7 +32,7 @@ class _$ArchiveSerializer implements StructuredSerializer<Archive> {
   @override
   Archive deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ArchiveBuilder();
+    final result = ArchiveBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -64,19 +64,15 @@ class _$Archive extends Archive {
   final BuiltList<String> seasons;
 
   factory _$Archive([void Function(ArchiveBuilder)? updates]) =>
-      (new ArchiveBuilder()..update(updates))._build();
+      (ArchiveBuilder()..update(updates))._build();
 
-  _$Archive._({required this.year, required this.seasons}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(year, r'Archive', 'year');
-    BuiltValueNullFieldError.checkNotNull(seasons, r'Archive', 'seasons');
-  }
-
+  _$Archive._({required this.year, required this.seasons}) : super._();
   @override
   Archive rebuild(void Function(ArchiveBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ArchiveBuilder toBuilder() => new ArchiveBuilder()..replace(this);
+  ArchiveBuilder toBuilder() => ArchiveBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -110,8 +106,7 @@ class ArchiveBuilder implements Builder<Archive, ArchiveBuilder> {
   set year(int? year) => _$this._year = year;
 
   ListBuilder<String>? _seasons;
-  ListBuilder<String> get seasons =>
-      _$this._seasons ??= new ListBuilder<String>();
+  ListBuilder<String> get seasons => _$this._seasons ??= ListBuilder<String>();
   set seasons(ListBuilder<String>? seasons) => _$this._seasons = seasons;
 
   ArchiveBuilder();
@@ -128,7 +123,6 @@ class ArchiveBuilder implements Builder<Archive, ArchiveBuilder> {
 
   @override
   void replace(Archive other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Archive;
   }
 
@@ -144,17 +138,18 @@ class ArchiveBuilder implements Builder<Archive, ArchiveBuilder> {
     _$Archive _$result;
     try {
       _$result = _$v ??
-          new _$Archive._(
-              year: BuiltValueNullFieldError.checkNotNull(
-                  year, r'Archive', 'year'),
-              seasons: seasons.build());
+          _$Archive._(
+            year:
+                BuiltValueNullFieldError.checkNotNull(year, r'Archive', 'year'),
+            seasons: seasons.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'seasons';
         seasons.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'Archive', _$failedField, e.toString());
       }
       rethrow;

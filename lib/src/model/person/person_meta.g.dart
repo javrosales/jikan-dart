@@ -6,7 +6,7 @@ part of 'person_meta.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<PersonMeta> _$personMetaSerializer = new _$PersonMetaSerializer();
+Serializer<PersonMeta> _$personMetaSerializer = _$PersonMetaSerializer();
 
 class _$PersonMetaSerializer implements StructuredSerializer<PersonMeta> {
   @override
@@ -50,7 +50,7 @@ class _$PersonMetaSerializer implements StructuredSerializer<PersonMeta> {
   @override
   PersonMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PersonMetaBuilder();
+    final result = PersonMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -106,7 +106,7 @@ class _$PersonMeta extends PersonMeta {
   final BuiltList<String>? positions;
 
   factory _$PersonMeta([void Function(PersonMetaBuilder)? updates]) =>
-      (new PersonMetaBuilder()..update(updates))._build();
+      (PersonMetaBuilder()..update(updates))._build();
 
   _$PersonMeta._(
       {required this.malId,
@@ -115,19 +115,13 @@ class _$PersonMeta extends PersonMeta {
       required this.name,
       this.language,
       this.positions})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'PersonMeta', 'malId');
-    BuiltValueNullFieldError.checkNotNull(url, r'PersonMeta', 'url');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'PersonMeta', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(name, r'PersonMeta', 'name');
-  }
-
+      : super._();
   @override
   PersonMeta rebuild(void Function(PersonMetaBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PersonMetaBuilder toBuilder() => new PersonMetaBuilder()..replace(this);
+  PersonMetaBuilder toBuilder() => PersonMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -192,7 +186,7 @@ class PersonMetaBuilder implements Builder<PersonMeta, PersonMetaBuilder> {
 
   ListBuilder<String>? _positions;
   ListBuilder<String> get positions =>
-      _$this._positions ??= new ListBuilder<String>();
+      _$this._positions ??= ListBuilder<String>();
   set positions(ListBuilder<String>? positions) =>
       _$this._positions = positions;
 
@@ -214,7 +208,6 @@ class PersonMetaBuilder implements Builder<PersonMeta, PersonMetaBuilder> {
 
   @override
   void replace(PersonMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PersonMeta;
   }
 
@@ -230,24 +223,25 @@ class PersonMetaBuilder implements Builder<PersonMeta, PersonMetaBuilder> {
     _$PersonMeta _$result;
     try {
       _$result = _$v ??
-          new _$PersonMeta._(
-              malId: BuiltValueNullFieldError.checkNotNull(
-                  malId, r'PersonMeta', 'malId'),
-              url: BuiltValueNullFieldError.checkNotNull(
-                  url, r'PersonMeta', 'url'),
-              imageUrl: BuiltValueNullFieldError.checkNotNull(
-                  imageUrl, r'PersonMeta', 'imageUrl'),
-              name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'PersonMeta', 'name'),
-              language: language,
-              positions: _positions?.build());
+          _$PersonMeta._(
+            malId: BuiltValueNullFieldError.checkNotNull(
+                malId, r'PersonMeta', 'malId'),
+            url: BuiltValueNullFieldError.checkNotNull(
+                url, r'PersonMeta', 'url'),
+            imageUrl: BuiltValueNullFieldError.checkNotNull(
+                imageUrl, r'PersonMeta', 'imageUrl'),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'PersonMeta', 'name'),
+            language: language,
+            positions: _positions?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'positions';
         _positions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PersonMeta', _$failedField, e.toString());
       }
       rethrow;

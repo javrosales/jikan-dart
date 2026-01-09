@@ -1,4 +1,4 @@
-library article;
+// library article;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'article.g.dart';
 abstract class Article implements Built<Article, ArticleBuilder> {
   Article._();
 
-  factory Article([Function(ArticleBuilder b) updates]) = _$Article;
+  factory Article([void Function(ArticleBuilder) updates]) = _$Article;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

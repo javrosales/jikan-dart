@@ -6,7 +6,7 @@ part of 'picture.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Picture> _$pictureSerializer = new _$PictureSerializer();
+Serializer<Picture> _$pictureSerializer = _$PictureSerializer();
 
 class _$PictureSerializer implements StructuredSerializer<Picture> {
   @override
@@ -43,7 +43,7 @@ class _$PictureSerializer implements StructuredSerializer<Picture> {
   @override
   Picture deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PictureBuilder();
+    final result = PictureBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -79,19 +79,16 @@ class _$Picture extends Picture {
   final String? largeImageUrl;
 
   factory _$Picture([void Function(PictureBuilder)? updates]) =>
-      (new PictureBuilder()..update(updates))._build();
+      (PictureBuilder()..update(updates))._build();
 
   _$Picture._({required this.imageUrl, this.smallImageUrl, this.largeImageUrl})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'Picture', 'imageUrl');
-  }
-
+      : super._();
   @override
   Picture rebuild(void Function(PictureBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PictureBuilder toBuilder() => new PictureBuilder()..replace(this);
+  PictureBuilder toBuilder() => PictureBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -154,7 +151,6 @@ class PictureBuilder implements Builder<Picture, PictureBuilder> {
 
   @override
   void replace(Picture other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Picture;
   }
 
@@ -168,11 +164,12 @@ class PictureBuilder implements Builder<Picture, PictureBuilder> {
 
   _$Picture _build() {
     final _$result = _$v ??
-        new _$Picture._(
-            imageUrl: BuiltValueNullFieldError.checkNotNull(
-                imageUrl, r'Picture', 'imageUrl'),
-            smallImageUrl: smallImageUrl,
-            largeImageUrl: largeImageUrl);
+        _$Picture._(
+          imageUrl: BuiltValueNullFieldError.checkNotNull(
+              imageUrl, r'Picture', 'imageUrl'),
+          smallImageUrl: smallImageUrl,
+          largeImageUrl: largeImageUrl,
+        );
     replace(_$result);
     return _$result;
   }

@@ -6,7 +6,7 @@ part of 'entry_meta.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<EntryMeta> _$entryMetaSerializer = new _$EntryMetaSerializer();
+Serializer<EntryMeta> _$entryMetaSerializer = _$EntryMetaSerializer();
 
 class _$EntryMetaSerializer implements StructuredSerializer<EntryMeta> {
   @override
@@ -36,7 +36,7 @@ class _$EntryMetaSerializer implements StructuredSerializer<EntryMeta> {
   @override
   EntryMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new EntryMetaBuilder();
+    final result = EntryMetaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -78,26 +78,20 @@ class _$EntryMeta extends EntryMeta {
   final String title;
 
   factory _$EntryMeta([void Function(EntryMetaBuilder)? updates]) =>
-      (new EntryMetaBuilder()..update(updates))._build();
+      (EntryMetaBuilder()..update(updates))._build();
 
   _$EntryMeta._(
       {required this.malId,
       required this.url,
       required this.imageUrl,
       required this.title})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'EntryMeta', 'malId');
-    BuiltValueNullFieldError.checkNotNull(url, r'EntryMeta', 'url');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'EntryMeta', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(title, r'EntryMeta', 'title');
-  }
-
+      : super._();
   @override
   EntryMeta rebuild(void Function(EntryMetaBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  EntryMetaBuilder toBuilder() => new EntryMetaBuilder()..replace(this);
+  EntryMetaBuilder toBuilder() => EntryMetaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -166,7 +160,6 @@ class EntryMetaBuilder implements Builder<EntryMeta, EntryMetaBuilder> {
 
   @override
   void replace(EntryMeta other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$EntryMeta;
   }
 
@@ -180,15 +173,15 @@ class EntryMetaBuilder implements Builder<EntryMeta, EntryMetaBuilder> {
 
   _$EntryMeta _build() {
     final _$result = _$v ??
-        new _$EntryMeta._(
-            malId: BuiltValueNullFieldError.checkNotNull(
-                malId, r'EntryMeta', 'malId'),
-            url:
-                BuiltValueNullFieldError.checkNotNull(url, r'EntryMeta', 'url'),
-            imageUrl: BuiltValueNullFieldError.checkNotNull(
-                imageUrl, r'EntryMeta', 'imageUrl'),
-            title: BuiltValueNullFieldError.checkNotNull(
-                title, r'EntryMeta', 'title'));
+        _$EntryMeta._(
+          malId: BuiltValueNullFieldError.checkNotNull(
+              malId, r'EntryMeta', 'malId'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'EntryMeta', 'url'),
+          imageUrl: BuiltValueNullFieldError.checkNotNull(
+              imageUrl, r'EntryMeta', 'imageUrl'),
+          title: BuiltValueNullFieldError.checkNotNull(
+              title, r'EntryMeta', 'title'),
+        );
     replace(_$result);
     return _$result;
   }

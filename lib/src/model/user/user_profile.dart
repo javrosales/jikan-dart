@@ -1,4 +1,4 @@
-library user_profile;
+// library user_profile;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -13,7 +13,8 @@ part 'user_profile.g.dart';
 abstract class UserProfile implements Built<UserProfile, UserProfileBuilder> {
   UserProfile._();
 
-  factory UserProfile([Function(UserProfileBuilder b) updates]) = _$UserProfile;
+  factory UserProfile([void Function(UserProfileBuilder) updates]) =
+      _$UserProfile;
 
   @BuiltValueField(wireName: 'mal_id')
   int? get malId;

@@ -1,4 +1,4 @@
-library producer;
+// library producer;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'producer.g.dart';
 abstract class Producer implements Built<Producer, ProducerBuilder> {
   Producer._();
 
-  factory Producer([Function(ProducerBuilder b) updates]) = _$Producer;
+  factory Producer([void Function(ProducerBuilder) updates]) = _$Producer;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

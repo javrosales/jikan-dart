@@ -6,7 +6,7 @@ part of 'forum.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Forum> _$forumSerializer = new _$ForumSerializer();
+Serializer<Forum> _$forumSerializer = _$ForumSerializer();
 
 class _$ForumSerializer implements StructuredSerializer<Forum> {
   @override
@@ -44,7 +44,7 @@ class _$ForumSerializer implements StructuredSerializer<Forum> {
   @override
   Forum deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ForumBuilder();
+    final result = ForumBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -104,7 +104,7 @@ class _$Forum extends Forum {
   final int comments;
 
   factory _$Forum([void Function(ForumBuilder)? updates]) =>
-      (new ForumBuilder()..update(updates))._build();
+      (ForumBuilder()..update(updates))._build();
 
   _$Forum._(
       {required this.malId,
@@ -114,23 +114,13 @@ class _$Forum extends Forum {
       required this.authorUsername,
       required this.authorUrl,
       required this.comments})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'Forum', 'malId');
-    BuiltValueNullFieldError.checkNotNull(url, r'Forum', 'url');
-    BuiltValueNullFieldError.checkNotNull(title, r'Forum', 'title');
-    BuiltValueNullFieldError.checkNotNull(date, r'Forum', 'date');
-    BuiltValueNullFieldError.checkNotNull(
-        authorUsername, r'Forum', 'authorUsername');
-    BuiltValueNullFieldError.checkNotNull(authorUrl, r'Forum', 'authorUrl');
-    BuiltValueNullFieldError.checkNotNull(comments, r'Forum', 'comments');
-  }
-
+      : super._();
   @override
   Forum rebuild(void Function(ForumBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ForumBuilder toBuilder() => new ForumBuilder()..replace(this);
+  ForumBuilder toBuilder() => ForumBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -224,7 +214,6 @@ class ForumBuilder implements Builder<Forum, ForumBuilder> {
 
   @override
   void replace(Forum other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Forum;
   }
 
@@ -238,19 +227,20 @@ class ForumBuilder implements Builder<Forum, ForumBuilder> {
 
   _$Forum _build() {
     final _$result = _$v ??
-        new _$Forum._(
-            malId:
-                BuiltValueNullFieldError.checkNotNull(malId, r'Forum', 'malId'),
-            url: BuiltValueNullFieldError.checkNotNull(url, r'Forum', 'url'),
-            title:
-                BuiltValueNullFieldError.checkNotNull(title, r'Forum', 'title'),
-            date: BuiltValueNullFieldError.checkNotNull(date, r'Forum', 'date'),
-            authorUsername: BuiltValueNullFieldError.checkNotNull(
-                authorUsername, r'Forum', 'authorUsername'),
-            authorUrl: BuiltValueNullFieldError.checkNotNull(
-                authorUrl, r'Forum', 'authorUrl'),
-            comments: BuiltValueNullFieldError.checkNotNull(
-                comments, r'Forum', 'comments'));
+        _$Forum._(
+          malId:
+              BuiltValueNullFieldError.checkNotNull(malId, r'Forum', 'malId'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'Forum', 'url'),
+          title:
+              BuiltValueNullFieldError.checkNotNull(title, r'Forum', 'title'),
+          date: BuiltValueNullFieldError.checkNotNull(date, r'Forum', 'date'),
+          authorUsername: BuiltValueNullFieldError.checkNotNull(
+              authorUsername, r'Forum', 'authorUsername'),
+          authorUrl: BuiltValueNullFieldError.checkNotNull(
+              authorUrl, r'Forum', 'authorUrl'),
+          comments: BuiltValueNullFieldError.checkNotNull(
+              comments, r'Forum', 'comments'),
+        );
     replace(_$result);
     return _$result;
   }

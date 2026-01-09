@@ -7,7 +7,7 @@ part of 'user_recommendation.dart';
 // **************************************************************************
 
 Serializer<UserRecommendation> _$userRecommendationSerializer =
-    new _$UserRecommendationSerializer();
+    _$UserRecommendationSerializer();
 
 class _$UserRecommendationSerializer
     implements StructuredSerializer<UserRecommendation> {
@@ -45,7 +45,7 @@ class _$UserRecommendationSerializer
   UserRecommendation deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserRecommendationBuilder();
+    final result = UserRecommendationBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -96,7 +96,7 @@ class _$UserRecommendation extends UserRecommendation {
 
   factory _$UserRecommendation(
           [void Function(UserRecommendationBuilder)? updates]) =>
-      (new UserRecommendationBuilder()..update(updates))._build();
+      (UserRecommendationBuilder()..update(updates))._build();
 
   _$UserRecommendation._(
       {required this.malId,
@@ -104,17 +104,7 @@ class _$UserRecommendation extends UserRecommendation {
       required this.content,
       required this.date,
       required this.user})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        malId, r'UserRecommendation', 'malId');
-    BuiltValueNullFieldError.checkNotNull(
-        entry, r'UserRecommendation', 'entry');
-    BuiltValueNullFieldError.checkNotNull(
-        content, r'UserRecommendation', 'content');
-    BuiltValueNullFieldError.checkNotNull(date, r'UserRecommendation', 'date');
-    BuiltValueNullFieldError.checkNotNull(user, r'UserRecommendation', 'user');
-  }
-
+      : super._();
   @override
   UserRecommendation rebuild(
           void Function(UserRecommendationBuilder) updates) =>
@@ -122,7 +112,7 @@ class _$UserRecommendation extends UserRecommendation {
 
   @override
   UserRecommendationBuilder toBuilder() =>
-      new UserRecommendationBuilder()..replace(this);
+      UserRecommendationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -169,7 +159,7 @@ class UserRecommendationBuilder
 
   ListBuilder<EntryMeta>? _entry;
   ListBuilder<EntryMeta> get entry =>
-      _$this._entry ??= new ListBuilder<EntryMeta>();
+      _$this._entry ??= ListBuilder<EntryMeta>();
   set entry(ListBuilder<EntryMeta>? entry) => _$this._entry = entry;
 
   String? _content;
@@ -181,7 +171,7 @@ class UserRecommendationBuilder
   set date(String? date) => _$this._date = date;
 
   UserMetaBuilder? _user;
-  UserMetaBuilder get user => _$this._user ??= new UserMetaBuilder();
+  UserMetaBuilder get user => _$this._user ??= UserMetaBuilder();
   set user(UserMetaBuilder? user) => _$this._user = user;
 
   UserRecommendationBuilder();
@@ -201,7 +191,6 @@ class UserRecommendationBuilder
 
   @override
   void replace(UserRecommendation other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserRecommendation;
   }
 
@@ -217,15 +206,16 @@ class UserRecommendationBuilder
     _$UserRecommendation _$result;
     try {
       _$result = _$v ??
-          new _$UserRecommendation._(
-              malId: BuiltValueNullFieldError.checkNotNull(
-                  malId, r'UserRecommendation', 'malId'),
-              entry: entry.build(),
-              content: BuiltValueNullFieldError.checkNotNull(
-                  content, r'UserRecommendation', 'content'),
-              date: BuiltValueNullFieldError.checkNotNull(
-                  date, r'UserRecommendation', 'date'),
-              user: user.build());
+          _$UserRecommendation._(
+            malId: BuiltValueNullFieldError.checkNotNull(
+                malId, r'UserRecommendation', 'malId'),
+            entry: entry.build(),
+            content: BuiltValueNullFieldError.checkNotNull(
+                content, r'UserRecommendation', 'content'),
+            date: BuiltValueNullFieldError.checkNotNull(
+                date, r'UserRecommendation', 'date'),
+            user: user.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -235,7 +225,7 @@ class UserRecommendationBuilder
         _$failedField = 'user';
         user.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserRecommendation', _$failedField, e.toString());
       }
       rethrow;

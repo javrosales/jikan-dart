@@ -1,4 +1,4 @@
-library magazine;
+// library magazine;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'magazine.g.dart';
 abstract class Magazine implements Built<Magazine, MagazineBuilder> {
   Magazine._();
 
-  factory Magazine([Function(MagazineBuilder b) updates]) = _$Magazine;
+  factory Magazine([void Function(MagazineBuilder) updates]) = _$Magazine;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

@@ -6,7 +6,7 @@ part of 'promo.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Promo> _$promoSerializer = new _$PromoSerializer();
+Serializer<Promo> _$promoSerializer = _$PromoSerializer();
 
 class _$PromoSerializer implements StructuredSerializer<Promo> {
   @override
@@ -35,7 +35,7 @@ class _$PromoSerializer implements StructuredSerializer<Promo> {
   @override
   Promo deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new PromoBuilder();
+    final result = PromoBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -71,22 +71,17 @@ class _$Promo extends Promo {
   final String videoUrl;
 
   factory _$Promo([void Function(PromoBuilder)? updates]) =>
-      (new PromoBuilder()..update(updates))._build();
+      (PromoBuilder()..update(updates))._build();
 
   _$Promo._(
       {required this.title, required this.imageUrl, required this.videoUrl})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(title, r'Promo', 'title');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'Promo', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(videoUrl, r'Promo', 'videoUrl');
-  }
-
+      : super._();
   @override
   Promo rebuild(void Function(PromoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PromoBuilder toBuilder() => new PromoBuilder()..replace(this);
+  PromoBuilder toBuilder() => PromoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -147,7 +142,6 @@ class PromoBuilder implements Builder<Promo, PromoBuilder> {
 
   @override
   void replace(Promo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Promo;
   }
 
@@ -161,13 +155,14 @@ class PromoBuilder implements Builder<Promo, PromoBuilder> {
 
   _$Promo _build() {
     final _$result = _$v ??
-        new _$Promo._(
-            title:
-                BuiltValueNullFieldError.checkNotNull(title, r'Promo', 'title'),
-            imageUrl: BuiltValueNullFieldError.checkNotNull(
-                imageUrl, r'Promo', 'imageUrl'),
-            videoUrl: BuiltValueNullFieldError.checkNotNull(
-                videoUrl, r'Promo', 'videoUrl'));
+        _$Promo._(
+          title:
+              BuiltValueNullFieldError.checkNotNull(title, r'Promo', 'title'),
+          imageUrl: BuiltValueNullFieldError.checkNotNull(
+              imageUrl, r'Promo', 'imageUrl'),
+          videoUrl: BuiltValueNullFieldError.checkNotNull(
+              videoUrl, r'Promo', 'videoUrl'),
+        );
     replace(_$result);
     return _$result;
   }

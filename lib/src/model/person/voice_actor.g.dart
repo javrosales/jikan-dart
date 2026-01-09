@@ -6,7 +6,7 @@ part of 'voice_actor.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<VoiceActor> _$voiceActorSerializer = new _$VoiceActorSerializer();
+Serializer<VoiceActor> _$voiceActorSerializer = _$VoiceActorSerializer();
 
 class _$VoiceActorSerializer implements StructuredSerializer<VoiceActor> {
   @override
@@ -34,7 +34,7 @@ class _$VoiceActorSerializer implements StructuredSerializer<VoiceActor> {
   @override
   VoiceActor deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new VoiceActorBuilder();
+    final result = VoiceActorBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -70,23 +70,17 @@ class _$VoiceActor extends VoiceActor {
   final CharacterMeta character;
 
   factory _$VoiceActor([void Function(VoiceActorBuilder)? updates]) =>
-      (new VoiceActorBuilder()..update(updates))._build();
+      (VoiceActorBuilder()..update(updates))._build();
 
   _$VoiceActor._(
       {required this.role, required this.anime, required this.character})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(role, r'VoiceActor', 'role');
-    BuiltValueNullFieldError.checkNotNull(anime, r'VoiceActor', 'anime');
-    BuiltValueNullFieldError.checkNotNull(
-        character, r'VoiceActor', 'character');
-  }
-
+      : super._();
   @override
   VoiceActor rebuild(void Function(VoiceActorBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  VoiceActorBuilder toBuilder() => new VoiceActorBuilder()..replace(this);
+  VoiceActorBuilder toBuilder() => VoiceActorBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -125,12 +119,12 @@ class VoiceActorBuilder implements Builder<VoiceActor, VoiceActorBuilder> {
   set role(String? role) => _$this._role = role;
 
   AnimeMetaBuilder? _anime;
-  AnimeMetaBuilder get anime => _$this._anime ??= new AnimeMetaBuilder();
+  AnimeMetaBuilder get anime => _$this._anime ??= AnimeMetaBuilder();
   set anime(AnimeMetaBuilder? anime) => _$this._anime = anime;
 
   CharacterMetaBuilder? _character;
   CharacterMetaBuilder get character =>
-      _$this._character ??= new CharacterMetaBuilder();
+      _$this._character ??= CharacterMetaBuilder();
   set character(CharacterMetaBuilder? character) =>
       _$this._character = character;
 
@@ -149,7 +143,6 @@ class VoiceActorBuilder implements Builder<VoiceActor, VoiceActorBuilder> {
 
   @override
   void replace(VoiceActor other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$VoiceActor;
   }
 
@@ -165,11 +158,12 @@ class VoiceActorBuilder implements Builder<VoiceActor, VoiceActorBuilder> {
     _$VoiceActor _$result;
     try {
       _$result = _$v ??
-          new _$VoiceActor._(
-              role: BuiltValueNullFieldError.checkNotNull(
-                  role, r'VoiceActor', 'role'),
-              anime: anime.build(),
-              character: character.build());
+          _$VoiceActor._(
+            role: BuiltValueNullFieldError.checkNotNull(
+                role, r'VoiceActor', 'role'),
+            anime: anime.build(),
+            character: character.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -178,7 +172,7 @@ class VoiceActorBuilder implements Builder<VoiceActor, VoiceActorBuilder> {
         _$failedField = 'character';
         character.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'VoiceActor', _$failedField, e.toString());
       }
       rethrow;

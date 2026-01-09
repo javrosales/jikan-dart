@@ -1,4 +1,4 @@
-library episode;
+// library episode;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'episode.g.dart';
 abstract class Episode implements Built<Episode, EpisodeBuilder> {
   Episode._();
 
-  factory Episode([Function(EpisodeBuilder b) updates]) = _$Episode;
+  factory Episode([void Function(EpisodeBuilder) updates]) = _$Episode;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

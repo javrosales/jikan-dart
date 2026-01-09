@@ -6,7 +6,7 @@ part of 'producer.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Producer> _$producerSerializer = new _$ProducerSerializer();
+Serializer<Producer> _$producerSerializer = _$ProducerSerializer();
 
 class _$ProducerSerializer implements StructuredSerializer<Producer> {
   @override
@@ -54,7 +54,7 @@ class _$ProducerSerializer implements StructuredSerializer<Producer> {
   @override
   Producer deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ProducerBuilder();
+    final result = ProducerBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -120,7 +120,7 @@ class _$Producer extends Producer {
   final int count;
 
   factory _$Producer([void Function(ProducerBuilder)? updates]) =>
-      (new ProducerBuilder()..update(updates))._build();
+      (ProducerBuilder()..update(updates))._build();
 
   _$Producer._(
       {required this.malId,
@@ -131,21 +131,13 @@ class _$Producer extends Producer {
       this.established,
       this.about,
       required this.count})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'Producer', 'malId');
-    BuiltValueNullFieldError.checkNotNull(name, r'Producer', 'name');
-    BuiltValueNullFieldError.checkNotNull(url, r'Producer', 'url');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'Producer', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(favorites, r'Producer', 'favorites');
-    BuiltValueNullFieldError.checkNotNull(count, r'Producer', 'count');
-  }
-
+      : super._();
   @override
   Producer rebuild(void Function(ProducerBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ProducerBuilder toBuilder() => new ProducerBuilder()..replace(this);
+  ProducerBuilder toBuilder() => ProducerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -246,7 +238,6 @@ class ProducerBuilder implements Builder<Producer, ProducerBuilder> {
 
   @override
   void replace(Producer other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Producer;
   }
 
@@ -260,20 +251,21 @@ class ProducerBuilder implements Builder<Producer, ProducerBuilder> {
 
   _$Producer _build() {
     final _$result = _$v ??
-        new _$Producer._(
-            malId: BuiltValueNullFieldError.checkNotNull(
-                malId, r'Producer', 'malId'),
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'Producer', 'name'),
-            url: BuiltValueNullFieldError.checkNotNull(url, r'Producer', 'url'),
-            imageUrl: BuiltValueNullFieldError.checkNotNull(
-                imageUrl, r'Producer', 'imageUrl'),
-            favorites: BuiltValueNullFieldError.checkNotNull(
-                favorites, r'Producer', 'favorites'),
-            established: established,
-            about: about,
-            count: BuiltValueNullFieldError.checkNotNull(
-                count, r'Producer', 'count'));
+        _$Producer._(
+          malId: BuiltValueNullFieldError.checkNotNull(
+              malId, r'Producer', 'malId'),
+          name:
+              BuiltValueNullFieldError.checkNotNull(name, r'Producer', 'name'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'Producer', 'url'),
+          imageUrl: BuiltValueNullFieldError.checkNotNull(
+              imageUrl, r'Producer', 'imageUrl'),
+          favorites: BuiltValueNullFieldError.checkNotNull(
+              favorites, r'Producer', 'favorites'),
+          established: established,
+          about: about,
+          count: BuiltValueNullFieldError.checkNotNull(
+              count, r'Producer', 'count'),
+        );
     replace(_$result);
     return _$result;
   }

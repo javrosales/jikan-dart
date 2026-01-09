@@ -6,7 +6,7 @@ part of 'history.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<History> _$historySerializer = new _$HistorySerializer();
+Serializer<History> _$historySerializer = _$HistorySerializer();
 
 class _$HistorySerializer implements StructuredSerializer<History> {
   @override
@@ -33,7 +33,7 @@ class _$HistorySerializer implements StructuredSerializer<History> {
   @override
   History deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new HistoryBuilder();
+    final result = HistoryBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -69,22 +69,17 @@ class _$History extends History {
   final String date;
 
   factory _$History([void Function(HistoryBuilder)? updates]) =>
-      (new HistoryBuilder()..update(updates))._build();
+      (HistoryBuilder()..update(updates))._build();
 
   _$History._(
       {required this.entry, required this.increment, required this.date})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(entry, r'History', 'entry');
-    BuiltValueNullFieldError.checkNotNull(increment, r'History', 'increment');
-    BuiltValueNullFieldError.checkNotNull(date, r'History', 'date');
-  }
-
+      : super._();
   @override
   History rebuild(void Function(HistoryBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  HistoryBuilder toBuilder() => new HistoryBuilder()..replace(this);
+  HistoryBuilder toBuilder() => HistoryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -119,7 +114,7 @@ class HistoryBuilder implements Builder<History, HistoryBuilder> {
   _$History? _$v;
 
   MetaBuilder? _entry;
-  MetaBuilder get entry => _$this._entry ??= new MetaBuilder();
+  MetaBuilder get entry => _$this._entry ??= MetaBuilder();
   set entry(MetaBuilder? entry) => _$this._entry = entry;
 
   int? _increment;
@@ -145,7 +140,6 @@ class HistoryBuilder implements Builder<History, HistoryBuilder> {
 
   @override
   void replace(History other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$History;
   }
 
@@ -161,19 +155,20 @@ class HistoryBuilder implements Builder<History, HistoryBuilder> {
     _$History _$result;
     try {
       _$result = _$v ??
-          new _$History._(
-              entry: entry.build(),
-              increment: BuiltValueNullFieldError.checkNotNull(
-                  increment, r'History', 'increment'),
-              date: BuiltValueNullFieldError.checkNotNull(
-                  date, r'History', 'date'));
+          _$History._(
+            entry: entry.build(),
+            increment: BuiltValueNullFieldError.checkNotNull(
+                increment, r'History', 'increment'),
+            date:
+                BuiltValueNullFieldError.checkNotNull(date, r'History', 'date'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'entry';
         entry.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'History', _$failedField, e.toString());
       }
       rethrow;

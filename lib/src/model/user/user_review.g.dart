@@ -6,7 +6,7 @@ part of 'user_review.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<UserReview> _$userReviewSerializer = new _$UserReviewSerializer();
+Serializer<UserReview> _$userReviewSerializer = _$UserReviewSerializer();
 
 class _$UserReviewSerializer implements StructuredSerializer<UserReview> {
   @override
@@ -75,7 +75,7 @@ class _$UserReviewSerializer implements StructuredSerializer<UserReview> {
   @override
   UserReview deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserReviewBuilder();
+    final result = UserReviewBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -179,7 +179,7 @@ class _$UserReview extends UserReview {
   final UserMeta user;
 
   factory _$UserReview([void Function(UserReviewBuilder)? updates]) =>
-      (new UserReviewBuilder()..update(updates))._build();
+      (UserReviewBuilder()..update(updates))._build();
 
   _$UserReview._(
       {required this.malId,
@@ -196,29 +196,13 @@ class _$UserReview extends UserReview {
       this.chaptersRead,
       required this.entry,
       required this.user})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'UserReview', 'malId');
-    BuiltValueNullFieldError.checkNotNull(url, r'UserReview', 'url');
-    BuiltValueNullFieldError.checkNotNull(
-        reactions, r'UserReview', 'reactions');
-    BuiltValueNullFieldError.checkNotNull(date, r'UserReview', 'date');
-    BuiltValueNullFieldError.checkNotNull(review, r'UserReview', 'review');
-    BuiltValueNullFieldError.checkNotNull(score, r'UserReview', 'score');
-    BuiltValueNullFieldError.checkNotNull(tags, r'UserReview', 'tags');
-    BuiltValueNullFieldError.checkNotNull(
-        isSpoiler, r'UserReview', 'isSpoiler');
-    BuiltValueNullFieldError.checkNotNull(
-        isPreliminary, r'UserReview', 'isPreliminary');
-    BuiltValueNullFieldError.checkNotNull(entry, r'UserReview', 'entry');
-    BuiltValueNullFieldError.checkNotNull(user, r'UserReview', 'user');
-  }
-
+      : super._();
   @override
   UserReview rebuild(void Function(UserReviewBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserReviewBuilder toBuilder() => new UserReviewBuilder()..replace(this);
+  UserReviewBuilder toBuilder() => UserReviewBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -298,8 +282,7 @@ class UserReviewBuilder implements Builder<UserReview, UserReviewBuilder> {
   set type(String? type) => _$this._type = type;
 
   ReactionsBuilder? _reactions;
-  ReactionsBuilder get reactions =>
-      _$this._reactions ??= new ReactionsBuilder();
+  ReactionsBuilder get reactions => _$this._reactions ??= ReactionsBuilder();
   set reactions(ReactionsBuilder? reactions) => _$this._reactions = reactions;
 
   String? _date;
@@ -315,7 +298,7 @@ class UserReviewBuilder implements Builder<UserReview, UserReviewBuilder> {
   set score(int? score) => _$this._score = score;
 
   ListBuilder<String>? _tags;
-  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  ListBuilder<String> get tags => _$this._tags ??= ListBuilder<String>();
   set tags(ListBuilder<String>? tags) => _$this._tags = tags;
 
   bool? _isSpoiler;
@@ -337,11 +320,11 @@ class UserReviewBuilder implements Builder<UserReview, UserReviewBuilder> {
   set chaptersRead(int? chaptersRead) => _$this._chaptersRead = chaptersRead;
 
   EntryMetaBuilder? _entry;
-  EntryMetaBuilder get entry => _$this._entry ??= new EntryMetaBuilder();
+  EntryMetaBuilder get entry => _$this._entry ??= EntryMetaBuilder();
   set entry(EntryMetaBuilder? entry) => _$this._entry = entry;
 
   UserMetaBuilder? _user;
-  UserMetaBuilder get user => _$this._user ??= new UserMetaBuilder();
+  UserMetaBuilder get user => _$this._user ??= UserMetaBuilder();
   set user(UserMetaBuilder? user) => _$this._user = user;
 
   UserReviewBuilder();
@@ -370,7 +353,6 @@ class UserReviewBuilder implements Builder<UserReview, UserReviewBuilder> {
 
   @override
   void replace(UserReview other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserReview;
   }
 
@@ -386,28 +368,29 @@ class UserReviewBuilder implements Builder<UserReview, UserReviewBuilder> {
     _$UserReview _$result;
     try {
       _$result = _$v ??
-          new _$UserReview._(
-              malId: BuiltValueNullFieldError.checkNotNull(
-                  malId, r'UserReview', 'malId'),
-              url: BuiltValueNullFieldError.checkNotNull(
-                  url, r'UserReview', 'url'),
-              type: type,
-              reactions: reactions.build(),
-              date: BuiltValueNullFieldError.checkNotNull(
-                  date, r'UserReview', 'date'),
-              review: BuiltValueNullFieldError.checkNotNull(
-                  review, r'UserReview', 'review'),
-              score: BuiltValueNullFieldError.checkNotNull(
-                  score, r'UserReview', 'score'),
-              tags: tags.build(),
-              isSpoiler: BuiltValueNullFieldError.checkNotNull(
-                  isSpoiler, r'UserReview', 'isSpoiler'),
-              isPreliminary: BuiltValueNullFieldError.checkNotNull(
-                  isPreliminary, r'UserReview', 'isPreliminary'),
-              episodesWatched: episodesWatched,
-              chaptersRead: chaptersRead,
-              entry: entry.build(),
-              user: user.build());
+          _$UserReview._(
+            malId: BuiltValueNullFieldError.checkNotNull(
+                malId, r'UserReview', 'malId'),
+            url: BuiltValueNullFieldError.checkNotNull(
+                url, r'UserReview', 'url'),
+            type: type,
+            reactions: reactions.build(),
+            date: BuiltValueNullFieldError.checkNotNull(
+                date, r'UserReview', 'date'),
+            review: BuiltValueNullFieldError.checkNotNull(
+                review, r'UserReview', 'review'),
+            score: BuiltValueNullFieldError.checkNotNull(
+                score, r'UserReview', 'score'),
+            tags: tags.build(),
+            isSpoiler: BuiltValueNullFieldError.checkNotNull(
+                isSpoiler, r'UserReview', 'isSpoiler'),
+            isPreliminary: BuiltValueNullFieldError.checkNotNull(
+                isPreliminary, r'UserReview', 'isPreliminary'),
+            episodesWatched: episodesWatched,
+            chaptersRead: chaptersRead,
+            entry: entry.build(),
+            user: user.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -422,7 +405,7 @@ class UserReviewBuilder implements Builder<UserReview, UserReviewBuilder> {
         _$failedField = 'user';
         user.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserReview', _$failedField, e.toString());
       }
       rethrow;

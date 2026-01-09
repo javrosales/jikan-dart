@@ -6,7 +6,7 @@ part of 'favorites.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Favorites> _$favoritesSerializer = new _$FavoritesSerializer();
+Serializer<Favorites> _$favoritesSerializer = _$FavoritesSerializer();
 
 class _$FavoritesSerializer implements StructuredSerializer<Favorites> {
   @override
@@ -42,7 +42,7 @@ class _$FavoritesSerializer implements StructuredSerializer<Favorites> {
   @override
   Favorites deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new FavoritesBuilder();
+    final result = FavoritesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -92,27 +92,20 @@ class _$Favorites extends Favorites {
   final BuiltList<Favorite> people;
 
   factory _$Favorites([void Function(FavoritesBuilder)? updates]) =>
-      (new FavoritesBuilder()..update(updates))._build();
+      (FavoritesBuilder()..update(updates))._build();
 
   _$Favorites._(
       {required this.anime,
       required this.manga,
       required this.characters,
       required this.people})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(anime, r'Favorites', 'anime');
-    BuiltValueNullFieldError.checkNotNull(manga, r'Favorites', 'manga');
-    BuiltValueNullFieldError.checkNotNull(
-        characters, r'Favorites', 'characters');
-    BuiltValueNullFieldError.checkNotNull(people, r'Favorites', 'people');
-  }
-
+      : super._();
   @override
   Favorites rebuild(void Function(FavoritesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FavoritesBuilder toBuilder() => new FavoritesBuilder()..replace(this);
+  FavoritesBuilder toBuilder() => FavoritesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -150,24 +143,22 @@ class FavoritesBuilder implements Builder<Favorites, FavoritesBuilder> {
   _$Favorites? _$v;
 
   ListBuilder<Favorite>? _anime;
-  ListBuilder<Favorite> get anime =>
-      _$this._anime ??= new ListBuilder<Favorite>();
+  ListBuilder<Favorite> get anime => _$this._anime ??= ListBuilder<Favorite>();
   set anime(ListBuilder<Favorite>? anime) => _$this._anime = anime;
 
   ListBuilder<Favorite>? _manga;
-  ListBuilder<Favorite> get manga =>
-      _$this._manga ??= new ListBuilder<Favorite>();
+  ListBuilder<Favorite> get manga => _$this._manga ??= ListBuilder<Favorite>();
   set manga(ListBuilder<Favorite>? manga) => _$this._manga = manga;
 
   ListBuilder<Favorite>? _characters;
   ListBuilder<Favorite> get characters =>
-      _$this._characters ??= new ListBuilder<Favorite>();
+      _$this._characters ??= ListBuilder<Favorite>();
   set characters(ListBuilder<Favorite>? characters) =>
       _$this._characters = characters;
 
   ListBuilder<Favorite>? _people;
   ListBuilder<Favorite> get people =>
-      _$this._people ??= new ListBuilder<Favorite>();
+      _$this._people ??= ListBuilder<Favorite>();
   set people(ListBuilder<Favorite>? people) => _$this._people = people;
 
   FavoritesBuilder();
@@ -186,7 +177,6 @@ class FavoritesBuilder implements Builder<Favorites, FavoritesBuilder> {
 
   @override
   void replace(Favorites other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Favorites;
   }
 
@@ -202,11 +192,12 @@ class FavoritesBuilder implements Builder<Favorites, FavoritesBuilder> {
     _$Favorites _$result;
     try {
       _$result = _$v ??
-          new _$Favorites._(
-              anime: anime.build(),
-              manga: manga.build(),
-              characters: characters.build(),
-              people: people.build());
+          _$Favorites._(
+            anime: anime.build(),
+            manga: manga.build(),
+            characters: characters.build(),
+            people: people.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -219,7 +210,7 @@ class FavoritesBuilder implements Builder<Favorites, FavoritesBuilder> {
         _$failedField = 'people';
         people.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'Favorites', _$failedField, e.toString());
       }
       rethrow;

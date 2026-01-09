@@ -1,4 +1,4 @@
-library manga;
+// library manga;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -12,7 +12,7 @@ part 'manga.g.dart';
 abstract class Manga implements Built<Manga, MangaBuilder> {
   Manga._();
 
-  factory Manga([Function(MangaBuilder b) updates]) = _$Manga;
+  factory Manga([void Function(MangaBuilder) updates]) = _$Manga;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

@@ -6,7 +6,7 @@ part of 'user_stats.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<UserStats> _$userStatsSerializer = new _$UserStatsSerializer();
+Serializer<UserStats> _$userStatsSerializer = _$UserStatsSerializer();
 
 class _$UserStatsSerializer implements StructuredSerializer<UserStats> {
   @override
@@ -107,7 +107,7 @@ class _$UserStatsSerializer implements StructuredSerializer<UserStats> {
   @override
   UserStats deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new UserStatsBuilder();
+    final result = UserStatsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -221,7 +221,7 @@ class _$UserStats extends UserStats {
   final int? volumesRead;
 
   factory _$UserStats([void Function(UserStatsBuilder)? updates]) =>
-      (new UserStatsBuilder()..update(updates))._build();
+      (UserStatsBuilder()..update(updates))._build();
 
   _$UserStats._(
       {this.daysWatched,
@@ -240,21 +240,13 @@ class _$UserStats extends UserStats {
       this.episodesWatched,
       this.chaptersRead,
       this.volumesRead})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(meanScore, r'UserStats', 'meanScore');
-    BuiltValueNullFieldError.checkNotNull(completed, r'UserStats', 'completed');
-    BuiltValueNullFieldError.checkNotNull(onHold, r'UserStats', 'onHold');
-    BuiltValueNullFieldError.checkNotNull(dropped, r'UserStats', 'dropped');
-    BuiltValueNullFieldError.checkNotNull(
-        totalEntries, r'UserStats', 'totalEntries');
-  }
-
+      : super._();
   @override
   UserStats rebuild(void Function(UserStatsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserStatsBuilder toBuilder() => new UserStatsBuilder()..replace(this);
+  UserStatsBuilder toBuilder() => UserStatsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -420,7 +412,6 @@ class UserStatsBuilder implements Builder<UserStats, UserStatsBuilder> {
 
   @override
   void replace(UserStats other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserStats;
   }
 
@@ -434,28 +425,29 @@ class UserStatsBuilder implements Builder<UserStats, UserStatsBuilder> {
 
   _$UserStats _build() {
     final _$result = _$v ??
-        new _$UserStats._(
-            daysWatched: daysWatched,
-            daysRead: daysRead,
-            meanScore: BuiltValueNullFieldError.checkNotNull(
-                meanScore, r'UserStats', 'meanScore'),
-            watching: watching,
-            reading: reading,
-            completed: BuiltValueNullFieldError.checkNotNull(
-                completed, r'UserStats', 'completed'),
-            onHold: BuiltValueNullFieldError.checkNotNull(
-                onHold, r'UserStats', 'onHold'),
-            dropped: BuiltValueNullFieldError.checkNotNull(
-                dropped, r'UserStats', 'dropped'),
-            planToWatch: planToWatch,
-            planToRead: planToRead,
-            totalEntries: BuiltValueNullFieldError.checkNotNull(
-                totalEntries, r'UserStats', 'totalEntries'),
-            rewatched: rewatched,
-            reread: reread,
-            episodesWatched: episodesWatched,
-            chaptersRead: chaptersRead,
-            volumesRead: volumesRead);
+        _$UserStats._(
+          daysWatched: daysWatched,
+          daysRead: daysRead,
+          meanScore: BuiltValueNullFieldError.checkNotNull(
+              meanScore, r'UserStats', 'meanScore'),
+          watching: watching,
+          reading: reading,
+          completed: BuiltValueNullFieldError.checkNotNull(
+              completed, r'UserStats', 'completed'),
+          onHold: BuiltValueNullFieldError.checkNotNull(
+              onHold, r'UserStats', 'onHold'),
+          dropped: BuiltValueNullFieldError.checkNotNull(
+              dropped, r'UserStats', 'dropped'),
+          planToWatch: planToWatch,
+          planToRead: planToRead,
+          totalEntries: BuiltValueNullFieldError.checkNotNull(
+              totalEntries, r'UserStats', 'totalEntries'),
+          rewatched: rewatched,
+          reread: reread,
+          episodesWatched: episodesWatched,
+          chaptersRead: chaptersRead,
+          volumesRead: volumesRead,
+        );
     replace(_$result);
     return _$result;
   }

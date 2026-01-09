@@ -1,4 +1,4 @@
-library review;
+// library review;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -12,7 +12,7 @@ part 'review.g.dart';
 abstract class Review implements Built<Review, ReviewBuilder> {
   Review._();
 
-  factory Review([Function(ReviewBuilder b) updates]) = _$Review;
+  factory Review([void Function(ReviewBuilder) updates]) = _$Review;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

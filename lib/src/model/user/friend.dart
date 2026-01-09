@@ -1,4 +1,4 @@
-library friend;
+// library friend;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -10,7 +10,7 @@ part 'friend.g.dart';
 abstract class Friend implements Built<Friend, FriendBuilder> {
   Friend._();
 
-  factory Friend([Function(FriendBuilder b) updates]) = _$Friend;
+  factory Friend([void Function(FriendBuilder) updates]) = _$Friend;
 
   @BuiltValueField(wireName: 'user')
   UserMeta get user;

@@ -6,7 +6,7 @@ part of 'relation.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Relation> _$relationSerializer = new _$RelationSerializer();
+Serializer<Relation> _$relationSerializer = _$RelationSerializer();
 
 class _$RelationSerializer implements StructuredSerializer<Relation> {
   @override
@@ -33,7 +33,7 @@ class _$RelationSerializer implements StructuredSerializer<Relation> {
   @override
   Relation deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new RelationBuilder();
+    final result = RelationBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -65,19 +65,15 @@ class _$Relation extends Relation {
   final BuiltList<Meta> entry;
 
   factory _$Relation([void Function(RelationBuilder)? updates]) =>
-      (new RelationBuilder()..update(updates))._build();
+      (RelationBuilder()..update(updates))._build();
 
-  _$Relation._({required this.relation, required this.entry}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(relation, r'Relation', 'relation');
-    BuiltValueNullFieldError.checkNotNull(entry, r'Relation', 'entry');
-  }
-
+  _$Relation._({required this.relation, required this.entry}) : super._();
   @override
   Relation rebuild(void Function(RelationBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  RelationBuilder toBuilder() => new RelationBuilder()..replace(this);
+  RelationBuilder toBuilder() => RelationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -113,7 +109,7 @@ class RelationBuilder implements Builder<Relation, RelationBuilder> {
   set relation(String? relation) => _$this._relation = relation;
 
   ListBuilder<Meta>? _entry;
-  ListBuilder<Meta> get entry => _$this._entry ??= new ListBuilder<Meta>();
+  ListBuilder<Meta> get entry => _$this._entry ??= ListBuilder<Meta>();
   set entry(ListBuilder<Meta>? entry) => _$this._entry = entry;
 
   RelationBuilder();
@@ -130,7 +126,6 @@ class RelationBuilder implements Builder<Relation, RelationBuilder> {
 
   @override
   void replace(Relation other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Relation;
   }
 
@@ -146,17 +141,18 @@ class RelationBuilder implements Builder<Relation, RelationBuilder> {
     _$Relation _$result;
     try {
       _$result = _$v ??
-          new _$Relation._(
-              relation: BuiltValueNullFieldError.checkNotNull(
-                  relation, r'Relation', 'relation'),
-              entry: entry.build());
+          _$Relation._(
+            relation: BuiltValueNullFieldError.checkNotNull(
+                relation, r'Relation', 'relation'),
+            entry: entry.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'entry';
         entry.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'Relation', _$failedField, e.toString());
       }
       rethrow;

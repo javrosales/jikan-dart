@@ -6,7 +6,7 @@ part of 'anime.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Anime> _$animeSerializer = new _$AnimeSerializer();
+Serializer<Anime> _$animeSerializer = _$AnimeSerializer();
 
 class _$AnimeSerializer implements StructuredSerializer<Anime> {
   @override
@@ -234,7 +234,7 @@ class _$AnimeSerializer implements StructuredSerializer<Anime> {
   @override
   Anime deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new AnimeBuilder();
+    final result = AnimeBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -496,7 +496,7 @@ class _$Anime extends Anime {
   final BuiltList<String>? endingThemes;
 
   factory _$Anime([void Function(AnimeBuilder)? updates]) =>
-      (new AnimeBuilder()..update(updates))._build();
+      (AnimeBuilder()..update(updates))._build();
 
   _$Anime._(
       {required this.malId,
@@ -536,31 +536,13 @@ class _$Anime extends Anime {
       this.relations,
       this.openingThemes,
       this.endingThemes})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'Anime', 'malId');
-    BuiltValueNullFieldError.checkNotNull(url, r'Anime', 'url');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'Anime', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(title, r'Anime', 'title');
-    BuiltValueNullFieldError.checkNotNull(
-        titleSynonyms, r'Anime', 'titleSynonyms');
-    BuiltValueNullFieldError.checkNotNull(airing, r'Anime', 'airing');
-    BuiltValueNullFieldError.checkNotNull(producers, r'Anime', 'producers');
-    BuiltValueNullFieldError.checkNotNull(licensors, r'Anime', 'licensors');
-    BuiltValueNullFieldError.checkNotNull(studios, r'Anime', 'studios');
-    BuiltValueNullFieldError.checkNotNull(genres, r'Anime', 'genres');
-    BuiltValueNullFieldError.checkNotNull(
-        explicitGenres, r'Anime', 'explicitGenres');
-    BuiltValueNullFieldError.checkNotNull(themes, r'Anime', 'themes');
-    BuiltValueNullFieldError.checkNotNull(
-        demographics, r'Anime', 'demographics');
-  }
-
+      : super._();
   @override
   Anime rebuild(void Function(AnimeBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  AnimeBuilder toBuilder() => new AnimeBuilder()..replace(this);
+  AnimeBuilder toBuilder() => AnimeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -727,7 +709,7 @@ class AnimeBuilder implements Builder<Anime, AnimeBuilder> {
 
   ListBuilder<String>? _titleSynonyms;
   ListBuilder<String> get titleSynonyms =>
-      _$this._titleSynonyms ??= new ListBuilder<String>();
+      _$this._titleSynonyms ??= ListBuilder<String>();
   set titleSynonyms(ListBuilder<String>? titleSynonyms) =>
       _$this._titleSynonyms = titleSynonyms;
 
@@ -808,54 +790,52 @@ class AnimeBuilder implements Builder<Anime, AnimeBuilder> {
   set broadcast(String? broadcast) => _$this._broadcast = broadcast;
 
   ListBuilder<Meta>? _producers;
-  ListBuilder<Meta> get producers =>
-      _$this._producers ??= new ListBuilder<Meta>();
+  ListBuilder<Meta> get producers => _$this._producers ??= ListBuilder<Meta>();
   set producers(ListBuilder<Meta>? producers) => _$this._producers = producers;
 
   ListBuilder<Meta>? _licensors;
-  ListBuilder<Meta> get licensors =>
-      _$this._licensors ??= new ListBuilder<Meta>();
+  ListBuilder<Meta> get licensors => _$this._licensors ??= ListBuilder<Meta>();
   set licensors(ListBuilder<Meta>? licensors) => _$this._licensors = licensors;
 
   ListBuilder<Meta>? _studios;
-  ListBuilder<Meta> get studios => _$this._studios ??= new ListBuilder<Meta>();
+  ListBuilder<Meta> get studios => _$this._studios ??= ListBuilder<Meta>();
   set studios(ListBuilder<Meta>? studios) => _$this._studios = studios;
 
   ListBuilder<Meta>? _genres;
-  ListBuilder<Meta> get genres => _$this._genres ??= new ListBuilder<Meta>();
+  ListBuilder<Meta> get genres => _$this._genres ??= ListBuilder<Meta>();
   set genres(ListBuilder<Meta>? genres) => _$this._genres = genres;
 
   ListBuilder<Meta>? _explicitGenres;
   ListBuilder<Meta> get explicitGenres =>
-      _$this._explicitGenres ??= new ListBuilder<Meta>();
+      _$this._explicitGenres ??= ListBuilder<Meta>();
   set explicitGenres(ListBuilder<Meta>? explicitGenres) =>
       _$this._explicitGenres = explicitGenres;
 
   ListBuilder<Meta>? _themes;
-  ListBuilder<Meta> get themes => _$this._themes ??= new ListBuilder<Meta>();
+  ListBuilder<Meta> get themes => _$this._themes ??= ListBuilder<Meta>();
   set themes(ListBuilder<Meta>? themes) => _$this._themes = themes;
 
   ListBuilder<Meta>? _demographics;
   ListBuilder<Meta> get demographics =>
-      _$this._demographics ??= new ListBuilder<Meta>();
+      _$this._demographics ??= ListBuilder<Meta>();
   set demographics(ListBuilder<Meta>? demographics) =>
       _$this._demographics = demographics;
 
   ListBuilder<Relation>? _relations;
   ListBuilder<Relation> get relations =>
-      _$this._relations ??= new ListBuilder<Relation>();
+      _$this._relations ??= ListBuilder<Relation>();
   set relations(ListBuilder<Relation>? relations) =>
       _$this._relations = relations;
 
   ListBuilder<String>? _openingThemes;
   ListBuilder<String> get openingThemes =>
-      _$this._openingThemes ??= new ListBuilder<String>();
+      _$this._openingThemes ??= ListBuilder<String>();
   set openingThemes(ListBuilder<String>? openingThemes) =>
       _$this._openingThemes = openingThemes;
 
   ListBuilder<String>? _endingThemes;
   ListBuilder<String> get endingThemes =>
-      _$this._endingThemes ??= new ListBuilder<String>();
+      _$this._endingThemes ??= ListBuilder<String>();
   set endingThemes(ListBuilder<String>? endingThemes) =>
       _$this._endingThemes = endingThemes;
 
@@ -908,7 +888,6 @@ class AnimeBuilder implements Builder<Anime, AnimeBuilder> {
 
   @override
   void replace(Anime other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Anime;
   }
 
@@ -924,48 +903,49 @@ class AnimeBuilder implements Builder<Anime, AnimeBuilder> {
     _$Anime _$result;
     try {
       _$result = _$v ??
-          new _$Anime._(
-              malId: BuiltValueNullFieldError.checkNotNull(
-                  malId, r'Anime', 'malId'),
-              url: BuiltValueNullFieldError.checkNotNull(url, r'Anime', 'url'),
-              imageUrl: BuiltValueNullFieldError.checkNotNull(
-                  imageUrl, r'Anime', 'imageUrl'),
-              trailerUrl: trailerUrl,
-              title: BuiltValueNullFieldError.checkNotNull(
-                  title, r'Anime', 'title'),
-              titleEnglish: titleEnglish,
-              titleJapanese: titleJapanese,
-              titleSynonyms: titleSynonyms.build(),
-              type: type,
-              source: source,
-              episodes: episodes,
-              status: status,
-              airing: BuiltValueNullFieldError.checkNotNull(
-                  airing, r'Anime', 'airing'),
-              aired: aired,
-              duration: duration,
-              rating: rating,
-              score: score,
-              scoredBy: scoredBy,
-              rank: rank,
-              popularity: popularity,
-              members: members,
-              favorites: favorites,
-              synopsis: synopsis,
-              background: background,
-              season: season,
-              year: year,
-              broadcast: broadcast,
-              producers: producers.build(),
-              licensors: licensors.build(),
-              studios: studios.build(),
-              genres: genres.build(),
-              explicitGenres: explicitGenres.build(),
-              themes: themes.build(),
-              demographics: demographics.build(),
-              relations: _relations?.build(),
-              openingThemes: _openingThemes?.build(),
-              endingThemes: _endingThemes?.build());
+          _$Anime._(
+            malId:
+                BuiltValueNullFieldError.checkNotNull(malId, r'Anime', 'malId'),
+            url: BuiltValueNullFieldError.checkNotNull(url, r'Anime', 'url'),
+            imageUrl: BuiltValueNullFieldError.checkNotNull(
+                imageUrl, r'Anime', 'imageUrl'),
+            trailerUrl: trailerUrl,
+            title:
+                BuiltValueNullFieldError.checkNotNull(title, r'Anime', 'title'),
+            titleEnglish: titleEnglish,
+            titleJapanese: titleJapanese,
+            titleSynonyms: titleSynonyms.build(),
+            type: type,
+            source: source,
+            episodes: episodes,
+            status: status,
+            airing: BuiltValueNullFieldError.checkNotNull(
+                airing, r'Anime', 'airing'),
+            aired: aired,
+            duration: duration,
+            rating: rating,
+            score: score,
+            scoredBy: scoredBy,
+            rank: rank,
+            popularity: popularity,
+            members: members,
+            favorites: favorites,
+            synopsis: synopsis,
+            background: background,
+            season: season,
+            year: year,
+            broadcast: broadcast,
+            producers: producers.build(),
+            licensors: licensors.build(),
+            studios: studios.build(),
+            genres: genres.build(),
+            explicitGenres: explicitGenres.build(),
+            themes: themes.build(),
+            demographics: demographics.build(),
+            relations: _relations?.build(),
+            openingThemes: _openingThemes?.build(),
+            endingThemes: _endingThemes?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -993,8 +973,7 @@ class AnimeBuilder implements Builder<Anime, AnimeBuilder> {
         _$failedField = 'endingThemes';
         _endingThemes?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'Anime', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Anime', _$failedField, e.toString());
       }
       rethrow;
     }

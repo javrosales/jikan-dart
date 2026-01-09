@@ -6,7 +6,7 @@ part of 'magazine.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Magazine> _$magazineSerializer = new _$MagazineSerializer();
+Serializer<Magazine> _$magazineSerializer = _$MagazineSerializer();
 
 class _$MagazineSerializer implements StructuredSerializer<Magazine> {
   @override
@@ -34,7 +34,7 @@ class _$MagazineSerializer implements StructuredSerializer<Magazine> {
   @override
   Magazine deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new MagazineBuilder();
+    final result = MagazineBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -76,26 +76,20 @@ class _$Magazine extends Magazine {
   final int count;
 
   factory _$Magazine([void Function(MagazineBuilder)? updates]) =>
-      (new MagazineBuilder()..update(updates))._build();
+      (MagazineBuilder()..update(updates))._build();
 
   _$Magazine._(
       {required this.malId,
       required this.name,
       required this.url,
       required this.count})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'Magazine', 'malId');
-    BuiltValueNullFieldError.checkNotNull(name, r'Magazine', 'name');
-    BuiltValueNullFieldError.checkNotNull(url, r'Magazine', 'url');
-    BuiltValueNullFieldError.checkNotNull(count, r'Magazine', 'count');
-  }
-
+      : super._();
   @override
   Magazine rebuild(void Function(MagazineBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MagazineBuilder toBuilder() => new MagazineBuilder()..replace(this);
+  MagazineBuilder toBuilder() => MagazineBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -164,7 +158,6 @@ class MagazineBuilder implements Builder<Magazine, MagazineBuilder> {
 
   @override
   void replace(Magazine other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Magazine;
   }
 
@@ -178,14 +171,15 @@ class MagazineBuilder implements Builder<Magazine, MagazineBuilder> {
 
   _$Magazine _build() {
     final _$result = _$v ??
-        new _$Magazine._(
-            malId: BuiltValueNullFieldError.checkNotNull(
-                malId, r'Magazine', 'malId'),
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'Magazine', 'name'),
-            url: BuiltValueNullFieldError.checkNotNull(url, r'Magazine', 'url'),
-            count: BuiltValueNullFieldError.checkNotNull(
-                count, r'Magazine', 'count'));
+        _$Magazine._(
+          malId: BuiltValueNullFieldError.checkNotNull(
+              malId, r'Magazine', 'malId'),
+          name:
+              BuiltValueNullFieldError.checkNotNull(name, r'Magazine', 'name'),
+          url: BuiltValueNullFieldError.checkNotNull(url, r'Magazine', 'url'),
+          count: BuiltValueNullFieldError.checkNotNull(
+              count, r'Magazine', 'count'),
+        );
     replace(_$result);
     return _$result;
   }

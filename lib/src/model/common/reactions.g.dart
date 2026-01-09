@@ -6,7 +6,7 @@ part of 'reactions.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Reactions> _$reactionsSerializer = new _$ReactionsSerializer();
+Serializer<Reactions> _$reactionsSerializer = _$ReactionsSerializer();
 
 class _$ReactionsSerializer implements StructuredSerializer<Reactions> {
   @override
@@ -46,7 +46,7 @@ class _$ReactionsSerializer implements StructuredSerializer<Reactions> {
   @override
   Reactions deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ReactionsBuilder();
+    final result = ReactionsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -112,7 +112,7 @@ class _$Reactions extends Reactions {
   final int creative;
 
   factory _$Reactions([void Function(ReactionsBuilder)? updates]) =>
-      (new ReactionsBuilder()..update(updates))._build();
+      (ReactionsBuilder()..update(updates))._build();
 
   _$Reactions._(
       {required this.overall,
@@ -123,25 +123,13 @@ class _$Reactions extends Reactions {
       required this.informative,
       required this.wellWritten,
       required this.creative})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(overall, r'Reactions', 'overall');
-    BuiltValueNullFieldError.checkNotNull(nice, r'Reactions', 'nice');
-    BuiltValueNullFieldError.checkNotNull(loveIt, r'Reactions', 'loveIt');
-    BuiltValueNullFieldError.checkNotNull(funny, r'Reactions', 'funny');
-    BuiltValueNullFieldError.checkNotNull(confusing, r'Reactions', 'confusing');
-    BuiltValueNullFieldError.checkNotNull(
-        informative, r'Reactions', 'informative');
-    BuiltValueNullFieldError.checkNotNull(
-        wellWritten, r'Reactions', 'wellWritten');
-    BuiltValueNullFieldError.checkNotNull(creative, r'Reactions', 'creative');
-  }
-
+      : super._();
   @override
   Reactions rebuild(void Function(ReactionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ReactionsBuilder toBuilder() => new ReactionsBuilder()..replace(this);
+  ReactionsBuilder toBuilder() => ReactionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -242,7 +230,6 @@ class ReactionsBuilder implements Builder<Reactions, ReactionsBuilder> {
 
   @override
   void replace(Reactions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Reactions;
   }
 
@@ -256,23 +243,24 @@ class ReactionsBuilder implements Builder<Reactions, ReactionsBuilder> {
 
   _$Reactions _build() {
     final _$result = _$v ??
-        new _$Reactions._(
-            overall: BuiltValueNullFieldError.checkNotNull(
-                overall, r'Reactions', 'overall'),
-            nice: BuiltValueNullFieldError.checkNotNull(
-                nice, r'Reactions', 'nice'),
-            loveIt: BuiltValueNullFieldError.checkNotNull(
-                loveIt, r'Reactions', 'loveIt'),
-            funny: BuiltValueNullFieldError.checkNotNull(
-                funny, r'Reactions', 'funny'),
-            confusing: BuiltValueNullFieldError.checkNotNull(
-                confusing, r'Reactions', 'confusing'),
-            informative: BuiltValueNullFieldError.checkNotNull(
-                informative, r'Reactions', 'informative'),
-            wellWritten: BuiltValueNullFieldError.checkNotNull(
-                wellWritten, r'Reactions', 'wellWritten'),
-            creative: BuiltValueNullFieldError.checkNotNull(
-                creative, r'Reactions', 'creative'));
+        _$Reactions._(
+          overall: BuiltValueNullFieldError.checkNotNull(
+              overall, r'Reactions', 'overall'),
+          nice:
+              BuiltValueNullFieldError.checkNotNull(nice, r'Reactions', 'nice'),
+          loveIt: BuiltValueNullFieldError.checkNotNull(
+              loveIt, r'Reactions', 'loveIt'),
+          funny: BuiltValueNullFieldError.checkNotNull(
+              funny, r'Reactions', 'funny'),
+          confusing: BuiltValueNullFieldError.checkNotNull(
+              confusing, r'Reactions', 'confusing'),
+          informative: BuiltValueNullFieldError.checkNotNull(
+              informative, r'Reactions', 'informative'),
+          wellWritten: BuiltValueNullFieldError.checkNotNull(
+              wellWritten, r'Reactions', 'wellWritten'),
+          creative: BuiltValueNullFieldError.checkNotNull(
+              creative, r'Reactions', 'creative'),
+        );
     replace(_$result);
     return _$result;
   }

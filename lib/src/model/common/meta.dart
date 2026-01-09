@@ -1,4 +1,4 @@
-library meta;
+// library meta;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'meta.g.dart';
 abstract class Meta implements Built<Meta, MetaBuilder> {
   Meta._();
 
-  factory Meta([Function(MetaBuilder b) updates]) = _$Meta;
+  factory Meta([void Function(MetaBuilder) updates]) = _$Meta;
 
   @BuiltValueField(wireName: 'mal_id')
   int get malId;

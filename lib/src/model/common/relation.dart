@@ -1,4 +1,4 @@
-library relation;
+// library relation;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -11,7 +11,7 @@ part 'relation.g.dart';
 abstract class Relation implements Built<Relation, RelationBuilder> {
   Relation._();
 
-  factory Relation([Function(RelationBuilder b) updates]) = _$Relation;
+  factory Relation([void Function(RelationBuilder) updates]) = _$Relation;
 
   @BuiltValueField(wireName: 'relation')
   String get relation;

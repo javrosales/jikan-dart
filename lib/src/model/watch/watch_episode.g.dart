@@ -6,8 +6,7 @@ part of 'watch_episode.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<WatchEpisode> _$watchEpisodeSerializer =
-    new _$WatchEpisodeSerializer();
+Serializer<WatchEpisode> _$watchEpisodeSerializer = _$WatchEpisodeSerializer();
 
 class _$WatchEpisodeSerializer implements StructuredSerializer<WatchEpisode> {
   @override
@@ -38,7 +37,7 @@ class _$WatchEpisodeSerializer implements StructuredSerializer<WatchEpisode> {
   WatchEpisode deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new WatchEpisodeBuilder();
+    final result = WatchEpisodeBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -76,24 +75,17 @@ class _$WatchEpisode extends WatchEpisode {
   final bool regionLocked;
 
   factory _$WatchEpisode([void Function(WatchEpisodeBuilder)? updates]) =>
-      (new WatchEpisodeBuilder()..update(updates))._build();
+      (WatchEpisodeBuilder()..update(updates))._build();
 
   _$WatchEpisode._(
       {required this.entry, required this.episodes, required this.regionLocked})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(entry, r'WatchEpisode', 'entry');
-    BuiltValueNullFieldError.checkNotNull(
-        episodes, r'WatchEpisode', 'episodes');
-    BuiltValueNullFieldError.checkNotNull(
-        regionLocked, r'WatchEpisode', 'regionLocked');
-  }
-
+      : super._();
   @override
   WatchEpisode rebuild(void Function(WatchEpisodeBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  WatchEpisodeBuilder toBuilder() => new WatchEpisodeBuilder()..replace(this);
+  WatchEpisodeBuilder toBuilder() => WatchEpisodeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -129,12 +121,12 @@ class WatchEpisodeBuilder
   _$WatchEpisode? _$v;
 
   EntryMetaBuilder? _entry;
-  EntryMetaBuilder get entry => _$this._entry ??= new EntryMetaBuilder();
+  EntryMetaBuilder get entry => _$this._entry ??= EntryMetaBuilder();
   set entry(EntryMetaBuilder? entry) => _$this._entry = entry;
 
   ListBuilder<Episode>? _episodes;
   ListBuilder<Episode> get episodes =>
-      _$this._episodes ??= new ListBuilder<Episode>();
+      _$this._episodes ??= ListBuilder<Episode>();
   set episodes(ListBuilder<Episode>? episodes) => _$this._episodes = episodes;
 
   bool? _regionLocked;
@@ -156,7 +148,6 @@ class WatchEpisodeBuilder
 
   @override
   void replace(WatchEpisode other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WatchEpisode;
   }
 
@@ -172,11 +163,12 @@ class WatchEpisodeBuilder
     _$WatchEpisode _$result;
     try {
       _$result = _$v ??
-          new _$WatchEpisode._(
-              entry: entry.build(),
-              episodes: episodes.build(),
-              regionLocked: BuiltValueNullFieldError.checkNotNull(
-                  regionLocked, r'WatchEpisode', 'regionLocked'));
+          _$WatchEpisode._(
+            entry: entry.build(),
+            episodes: episodes.build(),
+            regionLocked: BuiltValueNullFieldError.checkNotNull(
+                regionLocked, r'WatchEpisode', 'regionLocked'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -185,7 +177,7 @@ class WatchEpisodeBuilder
         _$failedField = 'episodes';
         episodes.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'WatchEpisode', _$failedField, e.toString());
       }
       rethrow;

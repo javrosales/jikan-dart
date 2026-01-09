@@ -1,4 +1,4 @@
-library promo;
+// library promo;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'promo.g.dart';
 abstract class Promo implements Built<Promo, PromoBuilder> {
   Promo._();
 
-  factory Promo([Function(PromoBuilder b) updates]) = _$Promo;
+  factory Promo([void Function(PromoBuilder) updates]) = _$Promo;
 
   @BuiltValueField(wireName: 'title')
   String get title;

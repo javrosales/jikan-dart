@@ -6,7 +6,7 @@ part of 'manga.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Manga> _$mangaSerializer = new _$MangaSerializer();
+Serializer<Manga> _$mangaSerializer = _$MangaSerializer();
 
 class _$MangaSerializer implements StructuredSerializer<Manga> {
   @override
@@ -169,7 +169,7 @@ class _$MangaSerializer implements StructuredSerializer<Manga> {
   @override
   Manga deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new MangaBuilder();
+    final result = MangaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -371,7 +371,7 @@ class _$Manga extends Manga {
   final BuiltList<Relation>? relations;
 
   factory _$Manga([void Function(MangaBuilder)? updates]) =>
-      (new MangaBuilder()..update(updates))._build();
+      (MangaBuilder()..update(updates))._build();
 
   _$Manga._(
       {required this.malId,
@@ -402,32 +402,13 @@ class _$Manga extends Manga {
       required this.themes,
       required this.demographics,
       this.relations})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(malId, r'Manga', 'malId');
-    BuiltValueNullFieldError.checkNotNull(url, r'Manga', 'url');
-    BuiltValueNullFieldError.checkNotNull(imageUrl, r'Manga', 'imageUrl');
-    BuiltValueNullFieldError.checkNotNull(title, r'Manga', 'title');
-    BuiltValueNullFieldError.checkNotNull(
-        titleSynonyms, r'Manga', 'titleSynonyms');
-    BuiltValueNullFieldError.checkNotNull(status, r'Manga', 'status');
-    BuiltValueNullFieldError.checkNotNull(publishing, r'Manga', 'publishing');
-    BuiltValueNullFieldError.checkNotNull(authors, r'Manga', 'authors');
-    BuiltValueNullFieldError.checkNotNull(
-        serializations, r'Manga', 'serializations');
-    BuiltValueNullFieldError.checkNotNull(genres, r'Manga', 'genres');
-    BuiltValueNullFieldError.checkNotNull(
-        explicitGenres, r'Manga', 'explicitGenres');
-    BuiltValueNullFieldError.checkNotNull(themes, r'Manga', 'themes');
-    BuiltValueNullFieldError.checkNotNull(
-        demographics, r'Manga', 'demographics');
-  }
-
+      : super._();
   @override
   Manga rebuild(void Function(MangaBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MangaBuilder toBuilder() => new MangaBuilder()..replace(this);
+  MangaBuilder toBuilder() => MangaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -563,7 +544,7 @@ class MangaBuilder implements Builder<Manga, MangaBuilder> {
 
   ListBuilder<String>? _titleSynonyms;
   ListBuilder<String> get titleSynonyms =>
-      _$this._titleSynonyms ??= new ListBuilder<String>();
+      _$this._titleSynonyms ??= ListBuilder<String>();
   set titleSynonyms(ListBuilder<String>? titleSynonyms) =>
       _$this._titleSynonyms = titleSynonyms;
 
@@ -624,38 +605,38 @@ class MangaBuilder implements Builder<Manga, MangaBuilder> {
   set background(String? background) => _$this._background = background;
 
   ListBuilder<Meta>? _authors;
-  ListBuilder<Meta> get authors => _$this._authors ??= new ListBuilder<Meta>();
+  ListBuilder<Meta> get authors => _$this._authors ??= ListBuilder<Meta>();
   set authors(ListBuilder<Meta>? authors) => _$this._authors = authors;
 
   ListBuilder<Meta>? _serializations;
   ListBuilder<Meta> get serializations =>
-      _$this._serializations ??= new ListBuilder<Meta>();
+      _$this._serializations ??= ListBuilder<Meta>();
   set serializations(ListBuilder<Meta>? serializations) =>
       _$this._serializations = serializations;
 
   ListBuilder<Meta>? _genres;
-  ListBuilder<Meta> get genres => _$this._genres ??= new ListBuilder<Meta>();
+  ListBuilder<Meta> get genres => _$this._genres ??= ListBuilder<Meta>();
   set genres(ListBuilder<Meta>? genres) => _$this._genres = genres;
 
   ListBuilder<Meta>? _explicitGenres;
   ListBuilder<Meta> get explicitGenres =>
-      _$this._explicitGenres ??= new ListBuilder<Meta>();
+      _$this._explicitGenres ??= ListBuilder<Meta>();
   set explicitGenres(ListBuilder<Meta>? explicitGenres) =>
       _$this._explicitGenres = explicitGenres;
 
   ListBuilder<Meta>? _themes;
-  ListBuilder<Meta> get themes => _$this._themes ??= new ListBuilder<Meta>();
+  ListBuilder<Meta> get themes => _$this._themes ??= ListBuilder<Meta>();
   set themes(ListBuilder<Meta>? themes) => _$this._themes = themes;
 
   ListBuilder<Meta>? _demographics;
   ListBuilder<Meta> get demographics =>
-      _$this._demographics ??= new ListBuilder<Meta>();
+      _$this._demographics ??= ListBuilder<Meta>();
   set demographics(ListBuilder<Meta>? demographics) =>
       _$this._demographics = demographics;
 
   ListBuilder<Relation>? _relations;
   ListBuilder<Relation> get relations =>
-      _$this._relations ??= new ListBuilder<Relation>();
+      _$this._relations ??= ListBuilder<Relation>();
   set relations(ListBuilder<Relation>? relations) =>
       _$this._relations = relations;
 
@@ -699,7 +680,6 @@ class MangaBuilder implements Builder<Manga, MangaBuilder> {
 
   @override
   void replace(Manga other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Manga;
   }
 
@@ -715,40 +695,41 @@ class MangaBuilder implements Builder<Manga, MangaBuilder> {
     _$Manga _$result;
     try {
       _$result = _$v ??
-          new _$Manga._(
-              malId: BuiltValueNullFieldError.checkNotNull(
-                  malId, r'Manga', 'malId'),
-              url: BuiltValueNullFieldError.checkNotNull(url, r'Manga', 'url'),
-              imageUrl: BuiltValueNullFieldError.checkNotNull(
-                  imageUrl, r'Manga', 'imageUrl'),
-              title: BuiltValueNullFieldError.checkNotNull(
-                  title, r'Manga', 'title'),
-              titleEnglish: titleEnglish,
-              titleJapanese: titleJapanese,
-              titleSynonyms: titleSynonyms.build(),
-              type: type,
-              chapters: chapters,
-              volumes: volumes,
-              status: BuiltValueNullFieldError.checkNotNull(
-                  status, r'Manga', 'status'),
-              publishing: BuiltValueNullFieldError.checkNotNull(
-                  publishing, r'Manga', 'publishing'),
-              published: published,
-              score: score,
-              scoredBy: scoredBy,
-              rank: rank,
-              popularity: popularity,
-              members: members,
-              favorites: favorites,
-              synopsis: synopsis,
-              background: background,
-              authors: authors.build(),
-              serializations: serializations.build(),
-              genres: genres.build(),
-              explicitGenres: explicitGenres.build(),
-              themes: themes.build(),
-              demographics: demographics.build(),
-              relations: _relations?.build());
+          _$Manga._(
+            malId:
+                BuiltValueNullFieldError.checkNotNull(malId, r'Manga', 'malId'),
+            url: BuiltValueNullFieldError.checkNotNull(url, r'Manga', 'url'),
+            imageUrl: BuiltValueNullFieldError.checkNotNull(
+                imageUrl, r'Manga', 'imageUrl'),
+            title:
+                BuiltValueNullFieldError.checkNotNull(title, r'Manga', 'title'),
+            titleEnglish: titleEnglish,
+            titleJapanese: titleJapanese,
+            titleSynonyms: titleSynonyms.build(),
+            type: type,
+            chapters: chapters,
+            volumes: volumes,
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'Manga', 'status'),
+            publishing: BuiltValueNullFieldError.checkNotNull(
+                publishing, r'Manga', 'publishing'),
+            published: published,
+            score: score,
+            scoredBy: scoredBy,
+            rank: rank,
+            popularity: popularity,
+            members: members,
+            favorites: favorites,
+            synopsis: synopsis,
+            background: background,
+            authors: authors.build(),
+            serializations: serializations.build(),
+            genres: genres.build(),
+            explicitGenres: explicitGenres.build(),
+            themes: themes.build(),
+            demographics: demographics.build(),
+            relations: _relations?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -770,8 +751,7 @@ class MangaBuilder implements Builder<Manga, MangaBuilder> {
         _$failedField = 'relations';
         _relations?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'Manga', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Manga', _$failedField, e.toString());
       }
       rethrow;
     }

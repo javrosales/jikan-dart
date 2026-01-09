@@ -1,4 +1,4 @@
-library user_update;
+// library user_update;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -10,7 +10,7 @@ part 'user_update.g.dart';
 abstract class UserUpdate implements Built<UserUpdate, UserUpdateBuilder> {
   UserUpdate._();
 
-  factory UserUpdate([Function(UserUpdateBuilder b) updates]) = _$UserUpdate;
+  factory UserUpdate([void Function(UserUpdateBuilder) updates]) = _$UserUpdate;
 
   @BuiltValueField(wireName: 'user')
   UserMeta get user;

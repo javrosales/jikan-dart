@@ -1,4 +1,4 @@
-library score;
+// library score;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -9,7 +9,7 @@ part 'score.g.dart';
 abstract class Score implements Built<Score, ScoreBuilder> {
   Score._();
 
-  factory Score([Function(ScoreBuilder b) updates]) = _$Score;
+  factory Score([void Function(ScoreBuilder) updates]) = _$Score;
 
   @BuiltValueField(wireName: 'score')
   int get score;
