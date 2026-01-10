@@ -11,7 +11,7 @@ void main() {
   });
 
   setUp(() {
-    // https://docs.api.jikan.moe/#section/Information/Rate-Limiting
+    // https://docs.api.jikan.moe/#/section/information/rate-limiting
     sleep(const Duration(seconds: 5));
   });
 
@@ -142,7 +142,7 @@ void main() {
 
     test('Producers list', () async {
       var producers = await jikan.getProducers();
-      expect(producers.first.name, 'Pierrot');
+      expect(producers.first.name, 'Studio Pierrot');
     });
 
     test('Magazines list', () async {
@@ -171,7 +171,7 @@ void main() {
 
     test('Top anime list', () async {
       var top = await jikan.getTopAnime(filter: TopFilter.favorite);
-      expect(top.first.title, 'Fullmetal Alchemist: Brotherhood');
+      expect(top.first.title, 'One Piece');
       expect(top.first.type, 'TV');
     });
 
@@ -189,8 +189,8 @@ void main() {
       expect(user.username, 'javoeria');
       expect(user.animeStats.completed, greaterThan(0));
       expect(user.mangaStats.completed, greaterThan(0));
-      expect(user.favorites.anime.first.name, 'FLCL');
-      expect(user.favorites.manga.first.name, 'Oyasumi Punpun');
+      expect(user.favorites.anime.first.title, 'FLCL');
+      expect(user.favorites.manga.first.title, 'Oyasumi Punpun');
       expect(user.favorites.characters.first.name, 'Oshino, Ougi');
       expect(user.favorites.people.first.name, 'Kon, Satoshi');
     });

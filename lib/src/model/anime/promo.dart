@@ -25,8 +25,14 @@ abstract class Promo implements Built<Promo, PromoBuilder> {
   }
 
   static Promo fromJson(Map<String, dynamic> jsonMap) {
-    jsonMap['image_url'] = jsonMap['trailer']['images']['maximum_image_url'];
-    jsonMap['video_url'] = jsonMap['trailer']['url'];
+    if (jsonMap['trailer']['url'] != null) {
+      jsonMap['image_url'] = jsonMap['trailer']['images']['maximum_image_url'];
+      jsonMap['video_url'] = jsonMap['trailer']['url'];
+    } else {
+      var id = Uri.parse(jsonMap['trailer']['embed_url']).pathSegments.last;
+      jsonMap['image_url'] = 'https://i.ytimg.com/vi/$id/maxresdefault.jpg';
+      jsonMap['video_url'] = 'https://www.youtube.com/watch?v=$id';
+    }
     return serializers.deserializeWith(Promo.serializer, jsonMap)!;
   }
 

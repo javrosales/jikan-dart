@@ -134,6 +134,7 @@ abstract class Anime implements Built<Anime, AnimeBuilder> {
     jsonMap['trailer_url'] = jsonMap['trailer']['url'];
     jsonMap['aired'] = jsonMap['aired']['string'];
     jsonMap['broadcast'] = jsonMap['broadcast']['string'];
+    jsonMap['title'] ??= jsonMap['titles'][0]['title'];
     if (jsonMap['theme'] != null) {
       jsonMap['opening_themes'] = jsonMap['theme']['openings'];
       jsonMap['ending_themes'] = jsonMap['theme']['endings'];

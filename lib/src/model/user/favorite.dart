@@ -29,6 +29,8 @@ abstract class Favorite implements Built<Favorite, FavoriteBuilder> {
   @BuiltValueField(wireName: 'start_year')
   int? get startYear;
 
+  String get title => name;
+
   String toJson() {
     return serializers.toJson(Favorite.serializer, this);
   }

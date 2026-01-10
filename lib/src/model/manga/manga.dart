@@ -105,6 +105,7 @@ abstract class Manga implements Built<Manga, MangaBuilder> {
   static Manga fromJson(Map<String, dynamic> jsonMap) {
     jsonMap['image_url'] = jsonMap['images']['jpg']['large_image_url'];
     jsonMap['published'] = jsonMap['published']['string'];
+    jsonMap['title'] ??= jsonMap['titles'][0]['title'];
     return serializers.deserializeWith(Manga.serializer, jsonMap)!;
   }
 

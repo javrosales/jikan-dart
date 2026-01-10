@@ -1,6 +1,6 @@
 const String baseUrl = 'https://api.jikan.moe/v4';
 
-enum AnimeType { tv, movie, ova, ona, special, music }
+enum AnimeType { tv, movie, ova, ona, special, music, cm, pv, tv_special }
 
 enum MangaType { manga, novel, lightnovel, oneshot, doujin, manhwa, manhua }
 
@@ -10,7 +10,7 @@ enum ForumType { all, episode, other }
 
 enum GenreType { genres, explicit_genres, themes, demographics }
 
-enum HistoryType { anime, manga }
+enum MediaType { anime, manga }
 
 enum TopFilter { airing, publishing, upcoming, bypopularity, favorite }
 

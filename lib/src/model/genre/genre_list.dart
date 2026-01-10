@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:jikan_api/src/model/genre/genre.dart';
 
 class GenreList {
@@ -204,6 +203,11 @@ class GenreList {
       'url': 'https://myanimelist.net/anime/genre/64/Love_Polygon'
     },
     {
+      'mal_id': 74,
+      'name': 'Love Status Quo',
+      'url': 'https://myanimelist.net/anime/genre/74/Love_Status_Quo'
+    },
+    {
       'mal_id': 65,
       'name': 'Magical Sex Shift',
       'url': 'https://myanimelist.net/anime/genre/65/Magical_Sex_Shift'
@@ -289,11 +293,6 @@ class GenreList {
       'url': 'https://myanimelist.net/anime/genre/73/Reverse_Harem'
     },
     {
-      'mal_id': 74,
-      'name': 'Romantic Subtext',
-      'url': 'https://myanimelist.net/anime/genre/74/Romantic_Subtext'
-    },
-    {
       'mal_id': 21,
       'name': 'Samurai',
       'url': 'https://myanimelist.net/anime/genre/21/Samurai'
@@ -339,6 +338,11 @@ class GenreList {
       'url': 'https://myanimelist.net/anime/genre/78/Time_Travel'
     },
     {
+      'mal_id': 82,
+      'name': 'Urban Fantasy',
+      'url': 'https://myanimelist.net/anime/genre/82/Urban_Fantasy'
+    },
+    {
       'mal_id': 32,
       'name': 'Vampire',
       'url': 'https://myanimelist.net/anime/genre/32/Vampire'
@@ -347,6 +351,11 @@ class GenreList {
       'mal_id': 79,
       'name': 'Video Game',
       'url': 'https://myanimelist.net/anime/genre/79/Video_Game'
+    },
+    {
+      'mal_id': 83,
+      'name': 'Villainess',
+      'url': 'https://myanimelist.net/anime/genre/83/Villainess'
     },
     {
       'mal_id': 80,
@@ -383,7 +392,7 @@ class GenreList {
       'name': 'Shounen',
       'url': 'https://myanimelist.net/anime/genre/27/Shounen'
     },
-  ].map((i) => Genre.fromJson(i)).toBuiltList();
+  ].map((i) => Genre.fromJson(i)).toList();
 
   static final manga = [
     {
@@ -587,6 +596,11 @@ class GenreList {
       'url': 'https://myanimelist.net/manga/genre/64/Love_Polygon'
     },
     {
+      'mal_id': 75,
+      'name': 'Love Status Quo',
+      'url': 'https://myanimelist.net/manga/genre/75/Love_Status_Quo'
+    },
+    {
       'mal_id': 65,
       'name': 'Magical Sex Shift',
       'url': 'https://myanimelist.net/manga/genre/65/Magical_Sex_Shift'
@@ -677,11 +691,6 @@ class GenreList {
       'url': 'https://myanimelist.net/manga/genre/74/Reverse_Harem'
     },
     {
-      'mal_id': 75,
-      'name': 'Romantic Subtext',
-      'url': 'https://myanimelist.net/manga/genre/75/Romantic_Subtext'
-    },
-    {
       'mal_id': 21,
       'name': 'Samurai',
       'url': 'https://myanimelist.net/manga/genre/21/Samurai'
@@ -725,6 +734,11 @@ class GenreList {
       'mal_id': 79,
       'name': 'Time Travel',
       'url': 'https://myanimelist.net/manga/genre/79/Time_Travel'
+    },
+    {
+      'mal_id': 83,
+      'name': 'Urban Fantasy',
+      'url': 'https://myanimelist.net/manga/genre/83/Urban_Fantasy'
     },
     {
       'mal_id': 32,
@@ -776,5 +790,5 @@ class GenreList {
       'name': 'Shounen',
       'url': 'https://myanimelist.net/manga/genre/27/Shounen'
     },
-  ].map((i) => Genre.fromJson(i)).toBuiltList();
+  ].map((i) => Genre.fromJson(i)).toList();
 }

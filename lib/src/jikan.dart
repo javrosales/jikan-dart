@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:built_collection/built_collection.dart';
 import 'package:http/http.dart' as http;
 import 'package:jikan_api/src/model/anime/anime.dart';
 import 'package:jikan_api/src/model/anime/episode.dart';
@@ -52,61 +51,61 @@ class Jikan {
     return Anime.fromJson(response['data']);
   }
 
-  Future<BuiltList<CharacterMeta>> getAnimeCharacters(int id) async {
+  Future<List<CharacterMeta>> getAnimeCharacters(int id) async {
     var url = '/anime/$id/characters';
     var response = await _getResponse(url);
 
-    final characters = response['data'] ?? [];
-    return BuiltList(characters.map((i) => CharacterMeta.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => CharacterMeta.fromJson(i)).toList();
   }
 
-  Future<BuiltList<PersonMeta>> getAnimeStaff(int id) async {
+  Future<List<PersonMeta>> getAnimeStaff(int id) async {
     var url = '/anime/$id/staff';
     var response = await _getResponse(url);
 
-    final staff = response['data'] ?? [];
-    return BuiltList(staff.map((i) => PersonMeta.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => PersonMeta.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Episode>> getAnimeEpisodes(int id, {int page = 1}) async {
+  Future<List<Episode>> getAnimeEpisodes(int id, {int page = 1}) async {
     var url = '/anime/$id/episodes?page=$page';
     var response = await _getResponse(url);
 
-    final episodes = response['data'] ?? [];
-    return BuiltList(episodes.map((i) => Episode.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Episode.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Article>> getAnimeNews(int id, {int page = 1}) async {
+  Future<List<Article>> getAnimeNews(int id, {int page = 1}) async {
     var url = '/anime/$id/news?page=$page';
     var response = await _getResponse(url);
 
-    final articles = response['data'] ?? [];
-    return BuiltList(articles.map((i) => Article.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Article.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Forum>> getAnimeForum(int id, {ForumType? type}) async {
+  Future<List<Forum>> getAnimeForum(int id, {ForumType? type}) async {
     var url = '/anime/$id/forum';
     if (type != null) url += '?filter=${type.name}';
     var response = await _getResponse(url);
 
-    final topics = response['data'] ?? [];
-    return BuiltList(topics.map((i) => Forum.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Forum.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Promo>> getAnimeVideos(int id) async {
+  Future<List<Promo>> getAnimeVideos(int id) async {
     var url = '/anime/$id/videos';
     var response = await _getResponse(url);
 
-    final promo = response['data']['promo'] ?? [];
-    return BuiltList(promo.map((i) => Promo.fromJson(i)));
+    final List data = response['data']['promo'] ?? [];
+    return data.map((i) => Promo.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Picture>> getAnimePictures(int id) async {
+  Future<List<Picture>> getAnimePictures(int id) async {
     var url = '/anime/$id/pictures';
     var response = await _getResponse(url);
 
-    final pictures = response['data'] ?? [];
-    return BuiltList(pictures.map((i) => Picture.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Picture.fromJson(i)).toList();
   }
 
   Future<Stats> getAnimeStatistics(int id) async {
@@ -123,29 +122,28 @@ class Jikan {
     return response['data']['moreinfo'] ?? '';
   }
 
-  Future<BuiltList<Recommendation>> getAnimeRecommendations(int id) async {
+  Future<List<Recommendation>> getAnimeRecommendations(int id) async {
     var url = '/anime/$id/recommendations';
     var response = await _getResponse(url);
 
-    final recommendations = response['data'] ?? [];
-    return BuiltList(recommendations.map((i) => Recommendation.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Recommendation.fromJson(i)).toList();
   }
 
-  Future<BuiltList<UserUpdate>> getAnimeUserUpdates(int id,
-      {int page = 1}) async {
+  Future<List<UserUpdate>> getAnimeUserUpdates(int id, {int page = 1}) async {
     var url = '/anime/$id/userupdates?page=$page';
     var response = await _getResponse(url);
 
-    final users = response['data'] ?? [];
-    return BuiltList(users.map((i) => UserUpdate.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => UserUpdate.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Review>> getAnimeReviews(int id, {int page = 1}) async {
+  Future<List<Review>> getAnimeReviews(int id, {int page = 1}) async {
     var url = '/anime/$id/reviews?page=$page&preliminary=true&spoilers=true';
     var response = await _getResponse(url);
 
-    final reviews = response['data'] ?? [];
-    return BuiltList(reviews.map((i) => Review.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Review.fromJson(i)).toList();
   }
 
   Future<Manga> getManga(int id) async {
@@ -155,37 +153,37 @@ class Jikan {
     return Manga.fromJson(response['data']);
   }
 
-  Future<BuiltList<CharacterMeta>> getMangaCharacters(int id) async {
+  Future<List<CharacterMeta>> getMangaCharacters(int id) async {
     var url = '/manga/$id/characters';
     var response = await _getResponse(url);
 
-    final characters = response['data'] ?? [];
-    return BuiltList(characters.map((i) => CharacterMeta.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => CharacterMeta.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Article>> getMangaNews(int id, {int page = 1}) async {
+  Future<List<Article>> getMangaNews(int id, {int page = 1}) async {
     var url = '/manga/$id/news?page=$page';
     var response = await _getResponse(url);
 
-    final articles = response['data'] ?? [];
-    return BuiltList(articles.map((i) => Article.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Article.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Forum>> getMangaForum(int id, {ForumType? type}) async {
+  Future<List<Forum>> getMangaForum(int id, {ForumType? type}) async {
     var url = '/manga/$id/forum';
     if (type != null) url += '?filter=${type.name}';
     var response = await _getResponse(url);
 
-    final topics = response['data'] ?? [];
-    return BuiltList(topics.map((i) => Forum.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Forum.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Picture>> getMangaPictures(int id) async {
+  Future<List<Picture>> getMangaPictures(int id) async {
     var url = '/manga/$id/pictures';
     var response = await _getResponse(url);
 
-    final pictures = response['data'] ?? [];
-    return BuiltList(pictures.map((i) => Picture.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Picture.fromJson(i)).toList();
   }
 
   Future<Stats> getMangaStatistics(int id) async {
@@ -202,29 +200,28 @@ class Jikan {
     return response['data']['moreinfo'] ?? '';
   }
 
-  Future<BuiltList<Recommendation>> getMangaRecommendations(int id) async {
+  Future<List<Recommendation>> getMangaRecommendations(int id) async {
     var url = '/manga/$id/recommendations';
     var response = await _getResponse(url);
 
-    final recommendations = response['data'] ?? [];
-    return BuiltList(recommendations.map((i) => Recommendation.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Recommendation.fromJson(i)).toList();
   }
 
-  Future<BuiltList<UserUpdate>> getMangaUserUpdates(int id,
-      {int page = 1}) async {
+  Future<List<UserUpdate>> getMangaUserUpdates(int id, {int page = 1}) async {
     var url = '/manga/$id/userupdates?page=$page';
     var response = await _getResponse(url);
 
-    final users = response['data'] ?? [];
-    return BuiltList(users.map((i) => UserUpdate.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => UserUpdate.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Review>> getMangaReviews(int id, {int page = 1}) async {
+  Future<List<Review>> getMangaReviews(int id, {int page = 1}) async {
     var url = '/manga/$id/reviews?page=$page&preliminary=true&spoilers=true';
     var response = await _getResponse(url);
 
-    final reviews = response['data'] ?? [];
-    return BuiltList(reviews.map((i) => Review.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Review.fromJson(i)).toList();
   }
 
   Future<Person> getPerson(int id) async {
@@ -234,12 +231,12 @@ class Jikan {
     return Person.fromJson(response['data']);
   }
 
-  Future<BuiltList<Picture>> getPersonPictures(int id) async {
+  Future<List<Picture>> getPersonPictures(int id) async {
     var url = '/people/$id/pictures';
     var response = await _getResponse(url);
 
-    final pictures = response['data'] ?? [];
-    return BuiltList(pictures.map((i) => Picture.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Picture.fromJson(i)).toList();
   }
 
   Future<Character> getCharacter(int id) async {
@@ -249,15 +246,15 @@ class Jikan {
     return Character.fromJson(response['data']);
   }
 
-  Future<BuiltList<Picture>> getCharacterPictures(int id) async {
+  Future<List<Picture>> getCharacterPictures(int id) async {
     var url = '/characters/$id/pictures';
     var response = await _getResponse(url);
 
-    final pictures = response['data'] ?? [];
-    return BuiltList(pictures.map((i) => Picture.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Picture.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Anime>> searchAnime(
+  Future<List<Anime>> searchAnime(
       {String? query,
       AnimeType? type,
       List<int>? genres,
@@ -276,11 +273,11 @@ class Jikan {
     if (rawQuery != null) url += rawQuery;
     var response = await _getResponse(url);
 
-    final results = response['data'] ?? [];
-    return BuiltList(results.map((i) => Anime.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Anime.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Manga>> searchManga(
+  Future<List<Manga>> searchManga(
       {String? query,
       MangaType? type,
       List<int>? genres,
@@ -299,11 +296,11 @@ class Jikan {
     if (rawQuery != null) url += rawQuery;
     var response = await _getResponse(url);
 
-    final results = response['data'] ?? [];
-    return BuiltList(results.map((i) => Manga.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Manga.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Person>> searchPeople(
+  Future<List<Person>> searchPeople(
       {String? query, String? orderBy, String? sort, int page = 1}) async {
     var url = '/people?page=$page';
     if (query != null) url += '&q=$query';
@@ -311,11 +308,11 @@ class Jikan {
     if (sort != null) url += '&sort=$sort';
     var response = await _getResponse(url);
 
-    final results = response['data'] ?? [];
-    return BuiltList(results.map((i) => Person.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Person.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Character>> searchCharacters(
+  Future<List<Character>> searchCharacters(
       {String? query, String? orderBy, String? sort, int page = 1}) async {
     var url = '/characters?page=$page';
     if (query != null) url += '&q=$query';
@@ -323,115 +320,118 @@ class Jikan {
     if (sort != null) url += '&sort=$sort';
     var response = await _getResponse(url);
 
-    final results = response['data'] ?? [];
-    return BuiltList(results.map((i) => Character.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Character.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Anime>> getSeason(
-      {int? year, SeasonType? season, int page = 1}) async {
+  Future<List<Anime>> getSeason(
+      {int? year, SeasonType? season, AnimeType? type, int page = 1}) async {
     var url = '/seasons';
     if (year != null && season != null) {
       url += '/$year/${season.name}?page=$page';
     } else {
       url += '/now?page=$page';
     }
+    if (type != null) url += '&filter=${type.name}';
     var response = await _getResponse(url);
 
-    final anime = response['data'] ?? [];
-    return BuiltList(anime.map((i) => Anime.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Anime.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Anime>> getSeasonUpcoming({int page = 1}) async {
+  Future<List<Anime>> getSeasonUpcoming({AnimeType? type, int page = 1}) async {
     var url = '/seasons/upcoming?page=$page';
+    if (type != null) url += '&filter=${type.name}';
     var response = await _getResponse(url);
 
-    final anime = response['data'] ?? [];
-    return BuiltList(anime.map((i) => Anime.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Anime.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Archive>> getSeasonsList() async {
+  Future<List<Archive>> getSeasonsList() async {
     var url = '/seasons';
     var response = await _getResponse(url);
 
-    final archive = response['data'] ?? [];
-    return BuiltList(archive.map((i) => Archive.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Archive.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Anime>> getSchedules(
-      {WeekDay? weekday, int page = 1}) async {
+  Future<List<Anime>> getSchedules({WeekDay? weekday, int page = 1}) async {
     var url = '/schedules?page=$page';
     if (weekday != null) url += '&filter=${weekday.name}';
     var response = await _getResponse(url);
 
-    final anime = response['data'] ?? [];
-    return BuiltList(anime.map((i) => Anime.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Anime.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Anime>> getTopAnime(
+  Future<List<Anime>> getTopAnime(
       {AnimeType? type, TopFilter? filter, int page = 1}) async {
     var url = '/top/anime?page=$page';
     if (type != null) url += '&type=${type.name}';
     if (filter != null) url += '&filter=${filter.name}';
     var response = await _getResponse(url);
 
-    final top = response['data'] ?? [];
-    return BuiltList(top.map((i) => Anime.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Anime.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Manga>> getTopManga(
+  Future<List<Manga>> getTopManga(
       {MangaType? type, TopFilter? filter, int page = 1}) async {
     var url = '/top/manga?page=$page';
     if (type != null) url += '&type=${type.name}';
     if (filter != null) url += '&filter=${filter.name}';
     var response = await _getResponse(url);
 
-    final top = response['data'] ?? [];
-    return BuiltList(top.map((i) => Manga.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Manga.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Person>> getTopPeople({int page = 1}) async {
+  Future<List<Person>> getTopPeople({int page = 1}) async {
     var url = '/top/people?page=$page';
     var response = await _getResponse(url);
 
-    final top = response['data'] ?? [];
-    return BuiltList(top.map((i) => Person.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Person.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Character>> getTopCharacters({int page = 1}) async {
+  Future<List<Character>> getTopCharacters({int page = 1}) async {
     var url = '/top/characters?page=$page';
     var response = await _getResponse(url);
 
-    final top = response['data'] ?? [];
-    return BuiltList(top.map((i) => Character.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Character.fromJson(i)).toList();
   }
 
-  Future<BuiltList<UserReview>> getTopReviews({int page = 1}) async {
+  Future<List<UserReview>> getTopReviews(
+      {MediaType? type, int page = 1}) async {
     var url = '/top/reviews?page=$page';
+    if (type != null) url += '&type=${type.name}';
     var response = await _getResponse(url);
 
-    final top = response['data'] ?? [];
-    return BuiltList(top.map((i) => UserReview.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => UserReview.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Genre>> getAnimeGenres({GenreType? type}) async {
+  Future<List<Genre>> getAnimeGenres({GenreType? type}) async {
     var url = '/genres/anime';
     if (type != null) url += '?filter=${type.name}';
     var response = await _getResponse(url);
 
-    final genres = response['data'] ?? [];
-    return BuiltList(genres.map((i) => Genre.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Genre.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Genre>> getMangaGenres({GenreType? type}) async {
+  Future<List<Genre>> getMangaGenres({GenreType? type}) async {
     var url = '/genres/manga';
     if (type != null) url += '?filter=${type.name}';
     var response = await _getResponse(url);
 
-    final genres = response['data'] ?? [];
-    return BuiltList(genres.map((i) => Genre.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Genre.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Producer>> getProducers(
+  Future<List<Producer>> getProducers(
       {String? query, String? orderBy, String? sort, int page = 1}) async {
     var url = '/producers?page=$page';
     if (query != null) url += '&q=$query';
@@ -439,11 +439,11 @@ class Jikan {
     if (sort != null) url += '&sort=$sort';
     var response = await _getResponse(url);
 
-    final producers = response['data'] ?? [];
-    return BuiltList(producers.map((i) => Producer.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Producer.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Magazine>> getMagazines(
+  Future<List<Magazine>> getMagazines(
       {String? query, String? orderBy, String? sort, int page = 1}) async {
     var url = '/magazines?page=$page';
     if (query != null) url += '&q=$query';
@@ -451,8 +451,8 @@ class Jikan {
     if (sort != null) url += '&sort=$sort';
     var response = await _getResponse(url);
 
-    final magazines = response['data'] ?? [];
-    return BuiltList(magazines.map((i) => Magazine.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Magazine.fromJson(i)).toList();
   }
 
   Future<UserProfile> getUserProfile(String username) async {
@@ -462,99 +462,101 @@ class Jikan {
     return UserProfile.fromJson(response['data']);
   }
 
-  Future<BuiltList<History>> getUserHistory(String username,
-      {HistoryType? type}) async {
+  Future<List<History>> getUserHistory(String username,
+      {MediaType? type}) async {
     var url = '/users/$username/history';
     if (type != null) url += '?type=${type.name}';
     var response = await _getResponse(url);
 
-    final history = response['data'] ?? [];
-    return BuiltList(history.map((i) => History.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => History.fromJson(i)).toList();
   }
 
-  Future<BuiltList<Friend>> getUserFriends(String username,
-      {int page = 1}) async {
+  Future<List<Friend>> getUserFriends(String username, {int page = 1}) async {
     var url = '/users/$username/friends?page=$page';
     var response = await _getResponse(url);
 
-    final friends = response['data'] ?? [];
-    return BuiltList(friends.map((i) => Friend.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => Friend.fromJson(i)).toList();
   }
 
-  Future<BuiltList<UserReview>> getUserReviews(String username,
+  Future<List<UserReview>> getUserReviews(String username,
       {int page = 1}) async {
     var url = '/users/$username/reviews?page=$page';
     var response = await _getResponse(url);
 
-    final reviews = response['data'] ?? [];
-    reviews.forEach((review) => review['user'] ??= {
-          'url': 'https://myanimelist.net/profile/$username',
-          'username': username
-        });
-    return BuiltList(reviews.map((i) => UserReview.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) {
+      i['user'] ??= {
+        'url': 'https://myanimelist.net/profile/$username',
+        'username': username
+      };
+      return UserReview.fromJson(i);
+    }).toList();
   }
 
-  Future<BuiltList<UserRecommendation>> getUserRecommendations(String username,
+  Future<List<UserRecommendation>> getUserRecommendations(String username,
       {int page = 1}) async {
     var url = '/users/$username/recommendations?page=$page';
     var response = await _getResponse(url);
 
-    final recs = response['data'] ?? [];
-    recs.forEach((rec) => rec['user'] ??= {
-          'url': 'https://myanimelist.net/profile/$username',
-          'username': username
-        });
-    return BuiltList(recs.map((i) => UserRecommendation.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) {
+      i['user'] ??= {
+        'url': 'https://myanimelist.net/profile/$username',
+        'username': username
+      };
+      return UserRecommendation.fromJson(i);
+    }).toList();
   }
 
-  Future<BuiltList<UserReview>> getRecentAnimeReviews({int page = 1}) async {
+  Future<List<UserReview>> getRecentAnimeReviews({int page = 1}) async {
     var url = '/reviews/anime?page=$page&preliminary=true&spoilers=true';
     var response = await _getResponse(url);
 
-    final reviews = response['data'] ?? [];
-    return BuiltList(reviews.map((i) => UserReview.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => UserReview.fromJson(i)).toList();
   }
 
-  Future<BuiltList<UserReview>> getRecentMangaReviews({int page = 1}) async {
+  Future<List<UserReview>> getRecentMangaReviews({int page = 1}) async {
     var url = '/reviews/manga?page=$page&preliminary=true&spoilers=true';
     var response = await _getResponse(url);
 
-    final reviews = response['data'] ?? [];
-    return BuiltList(reviews.map((i) => UserReview.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => UserReview.fromJson(i)).toList();
   }
 
-  Future<BuiltList<UserRecommendation>> getRecentAnimeRecommendations(
+  Future<List<UserRecommendation>> getRecentAnimeRecommendations(
       {int page = 1}) async {
     var url = '/recommendations/anime?page=$page';
     var response = await _getResponse(url);
 
-    final recs = response['data'] ?? [];
-    return BuiltList(recs.map((i) => UserRecommendation.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => UserRecommendation.fromJson(i)).toList();
   }
 
-  Future<BuiltList<UserRecommendation>> getRecentMangaRecommendations(
+  Future<List<UserRecommendation>> getRecentMangaRecommendations(
       {int page = 1}) async {
     var url = '/recommendations/manga?page=$page';
     var response = await _getResponse(url);
 
-    final recs = response['data'] ?? [];
-    return BuiltList(recs.map((i) => UserRecommendation.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => UserRecommendation.fromJson(i)).toList();
   }
 
-  Future<BuiltList<WatchEpisode>> getWatchEpisodes(
-      {bool popular = false}) async {
+  Future<List<WatchEpisode>> getWatchEpisodes({bool popular = false}) async {
     var url = popular ? '/watch/episodes/popular' : '/watch/episodes';
     var response = await _getResponse(url);
 
-    final watch = response['data'] ?? [];
-    return BuiltList(watch.map((i) => WatchEpisode.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => WatchEpisode.fromJson(i)).toList();
   }
 
-  Future<BuiltList<WatchPromo>> getWatchPromos({bool popular = false}) async {
+  Future<List<WatchPromo>> getWatchPromos({bool popular = false}) async {
     var url = popular ? '/watch/promos/popular' : '/watch/promos';
     var response = await _getResponse(url);
 
-    final watch = response['data'] ?? [];
-    return BuiltList(watch.map((i) => WatchPromo.fromJson(i)));
+    final List data = response['data'] ?? [];
+    return data.map((i) => WatchPromo.fromJson(i)).toList();
   }
 }

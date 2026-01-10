@@ -1,3 +1,9 @@
+## 2.3.0
+
+* All public methods return `List` instead of `BuiltList`.
+* Update dependencies to latest versions.
+* Fix promo trailer constructor.
+
 ## 2.2.1
 
 * Fix user profile constructor.
@@ -50,7 +56,7 @@
 
 ## 1.3.1
 
-* Set `synopsis` param to nullable (fix issue [#1](https://github.com/javoeria/jikan-dart/issues/1)).
+* Set `synopsis` param to nullable (fix issue [#1](https://github.com/javrosales/jikan-dart/issues/1)).
 
 ## 1.3.0
 
