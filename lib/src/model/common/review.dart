@@ -21,7 +21,7 @@ abstract class Review implements Built<Review, ReviewBuilder> {
   String get url;
 
   @BuiltValueField(wireName: 'type')
-  String? get type;
+  String get type;
 
   @BuiltValueField(wireName: 'reactions')
   Reactions get reactions;

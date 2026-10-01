@@ -22,6 +22,8 @@ class _$UserReviewSerializer implements StructuredSerializer<UserReview> {
       serializers.serialize(object.malId, specifiedType: const FullType(int)),
       'url',
       serializers.serialize(object.url, specifiedType: const FullType(String)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
       'reactions',
       serializers.serialize(object.reactions,
           specifiedType: const FullType(Reactions)),
@@ -50,13 +52,6 @@ class _$UserReviewSerializer implements StructuredSerializer<UserReview> {
           specifiedType: const FullType(UserMeta)),
     ];
     Object? value;
-    value = object.type;
-    if (value != null) {
-      result
-        ..add('type')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.episodesWatched;
     if (value != null) {
       result
@@ -93,7 +88,7 @@ class _$UserReviewSerializer implements StructuredSerializer<UserReview> {
           break;
         case 'type':
           result.type = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+              specifiedType: const FullType(String))! as String;
           break;
         case 'reactions':
           result.reactions.replace(serializers.deserialize(value,
@@ -154,7 +149,7 @@ class _$UserReview extends UserReview {
   @override
   final String url;
   @override
-  final String? type;
+  final String type;
   @override
   final Reactions reactions;
   @override
@@ -184,7 +179,7 @@ class _$UserReview extends UserReview {
   _$UserReview._(
       {required this.malId,
       required this.url,
-      this.type,
+      required this.type,
       required this.reactions,
       required this.date,
       required this.review,
@@ -373,7 +368,8 @@ class UserReviewBuilder implements Builder<UserReview, UserReviewBuilder> {
                 malId, r'UserReview', 'malId'),
             url: BuiltValueNullFieldError.checkNotNull(
                 url, r'UserReview', 'url'),
-            type: type,
+            type: BuiltValueNullFieldError.checkNotNull(
+                type, r'UserReview', 'type'),
             reactions: reactions.build(),
             date: BuiltValueNullFieldError.checkNotNull(
                 date, r'UserReview', 'date'),

@@ -15,7 +15,7 @@ abstract class Episode implements Built<Episode, EpisodeBuilder> {
   int get malId;
 
   @BuiltValueField(wireName: 'url')
-  String? get url;
+  String get url;
 
   @BuiltValueField(wireName: 'title')
   String get title;

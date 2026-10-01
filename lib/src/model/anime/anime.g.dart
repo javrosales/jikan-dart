@@ -32,6 +32,14 @@ class _$AnimeSerializer implements StructuredSerializer<Anime> {
       serializers.serialize(object.titleSynonyms,
           specifiedType:
               const FullType(BuiltList, const [const FullType(String)])),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
+      'source',
+      serializers.serialize(object.source,
+          specifiedType: const FullType(String)),
+      'status',
+      serializers.serialize(object.status,
+          specifiedType: const FullType(String)),
       'airing',
       serializers.serialize(object.airing, specifiedType: const FullType(bool)),
       'producers',
@@ -85,32 +93,11 @@ class _$AnimeSerializer implements StructuredSerializer<Anime> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.type;
-    if (value != null) {
-      result
-        ..add('type')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.source;
-    if (value != null) {
-      result
-        ..add('source')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.episodes;
     if (value != null) {
       result
         ..add('episodes')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.status;
-    if (value != null) {
-      result
-        ..add('status')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
     }
     value = object.aired;
     if (value != null) {
@@ -228,6 +215,13 @@ class _$AnimeSerializer implements StructuredSerializer<Anime> {
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
+    value = object.moreinfo;
+    if (value != null) {
+      result
+        ..add('moreinfo')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -278,11 +272,11 @@ class _$AnimeSerializer implements StructuredSerializer<Anime> {
           break;
         case 'type':
           result.type = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+              specifiedType: const FullType(String))! as String;
           break;
         case 'source':
           result.source = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+              specifiedType: const FullType(String))! as String;
           break;
         case 'episodes':
           result.episodes = serializers.deserialize(value,
@@ -290,7 +284,7 @@ class _$AnimeSerializer implements StructuredSerializer<Anime> {
           break;
         case 'status':
           result.status = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+              specifiedType: const FullType(String))! as String;
           break;
         case 'airing':
           result.airing = serializers.deserialize(value,
@@ -412,6 +406,10 @@ class _$AnimeSerializer implements StructuredSerializer<Anime> {
                       BuiltList, const [const FullType(String)]))!
               as BuiltList<Object?>);
           break;
+        case 'moreinfo':
+          result.moreinfo = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
       }
     }
 
@@ -437,13 +435,13 @@ class _$Anime extends Anime {
   @override
   final BuiltList<String> titleSynonyms;
   @override
-  final String? type;
+  final String type;
   @override
-  final String? source;
+  final String source;
   @override
   final int? episodes;
   @override
-  final String? status;
+  final String status;
   @override
   final bool airing;
   @override
@@ -494,6 +492,8 @@ class _$Anime extends Anime {
   final BuiltList<String>? openingThemes;
   @override
   final BuiltList<String>? endingThemes;
+  @override
+  final String? moreinfo;
 
   factory _$Anime([void Function(AnimeBuilder)? updates]) =>
       (AnimeBuilder()..update(updates))._build();
@@ -507,10 +507,10 @@ class _$Anime extends Anime {
       this.titleEnglish,
       this.titleJapanese,
       required this.titleSynonyms,
-      this.type,
-      this.source,
+      required this.type,
+      required this.source,
       this.episodes,
-      this.status,
+      required this.status,
       required this.airing,
       this.aired,
       this.duration,
@@ -535,7 +535,8 @@ class _$Anime extends Anime {
       required this.demographics,
       this.relations,
       this.openingThemes,
-      this.endingThemes})
+      this.endingThemes,
+      this.moreinfo})
       : super._();
   @override
   Anime rebuild(void Function(AnimeBuilder) updates) =>
@@ -584,7 +585,8 @@ class _$Anime extends Anime {
         demographics == other.demographics &&
         relations == other.relations &&
         openingThemes == other.openingThemes &&
-        endingThemes == other.endingThemes;
+        endingThemes == other.endingThemes &&
+        moreinfo == other.moreinfo;
   }
 
   @override
@@ -627,6 +629,7 @@ class _$Anime extends Anime {
     _$hash = $jc(_$hash, relations.hashCode);
     _$hash = $jc(_$hash, openingThemes.hashCode);
     _$hash = $jc(_$hash, endingThemes.hashCode);
+    _$hash = $jc(_$hash, moreinfo.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -670,7 +673,8 @@ class _$Anime extends Anime {
           ..add('demographics', demographics)
           ..add('relations', relations)
           ..add('openingThemes', openingThemes)
-          ..add('endingThemes', endingThemes))
+          ..add('endingThemes', endingThemes)
+          ..add('moreinfo', moreinfo))
         .toString();
   }
 }
@@ -839,6 +843,10 @@ class AnimeBuilder implements Builder<Anime, AnimeBuilder> {
   set endingThemes(ListBuilder<String>? endingThemes) =>
       _$this._endingThemes = endingThemes;
 
+  String? _moreinfo;
+  String? get moreinfo => _$this._moreinfo;
+  set moreinfo(String? moreinfo) => _$this._moreinfo = moreinfo;
+
   AnimeBuilder();
 
   AnimeBuilder get _$this {
@@ -881,6 +889,7 @@ class AnimeBuilder implements Builder<Anime, AnimeBuilder> {
       _relations = $v.relations?.toBuilder();
       _openingThemes = $v.openingThemes?.toBuilder();
       _endingThemes = $v.endingThemes?.toBuilder();
+      _moreinfo = $v.moreinfo;
       _$v = null;
     }
     return this;
@@ -915,10 +924,12 @@ class AnimeBuilder implements Builder<Anime, AnimeBuilder> {
             titleEnglish: titleEnglish,
             titleJapanese: titleJapanese,
             titleSynonyms: titleSynonyms.build(),
-            type: type,
-            source: source,
+            type: BuiltValueNullFieldError.checkNotNull(type, r'Anime', 'type'),
+            source: BuiltValueNullFieldError.checkNotNull(
+                source, r'Anime', 'source'),
             episodes: episodes,
-            status: status,
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'Anime', 'status'),
             airing: BuiltValueNullFieldError.checkNotNull(
                 airing, r'Anime', 'airing'),
             aired: aired,
@@ -945,6 +956,7 @@ class AnimeBuilder implements Builder<Anime, AnimeBuilder> {
             relations: _relations?.build(),
             openingThemes: _openingThemes?.build(),
             endingThemes: _endingThemes?.build(),
+            moreinfo: moreinfo,
           );
     } catch (_) {
       late String _$failedField;

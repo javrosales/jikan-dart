@@ -32,6 +32,8 @@ class _$MangaSerializer implements StructuredSerializer<Manga> {
       serializers.serialize(object.titleSynonyms,
           specifiedType:
               const FullType(BuiltList, const [const FullType(String)])),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
       'status',
       serializers.serialize(object.status,
           specifiedType: const FullType(String)),
@@ -75,13 +77,6 @@ class _$MangaSerializer implements StructuredSerializer<Manga> {
     if (value != null) {
       result
         ..add('title_japanese')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.type;
-    if (value != null) {
-      result
-        ..add('type')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -163,6 +158,13 @@ class _$MangaSerializer implements StructuredSerializer<Manga> {
             specifiedType:
                 const FullType(BuiltList, const [const FullType(Relation)])));
     }
+    value = object.moreinfo;
+    if (value != null) {
+      result
+        ..add('moreinfo')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -209,7 +211,7 @@ class _$MangaSerializer implements StructuredSerializer<Manga> {
           break;
         case 'type':
           result.type = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+              specifiedType: const FullType(String))! as String;
           break;
         case 'chapters':
           result.chapters = serializers.deserialize(value,
@@ -305,6 +307,10 @@ class _$MangaSerializer implements StructuredSerializer<Manga> {
                       BuiltList, const [const FullType(Relation)]))!
               as BuiltList<Object?>);
           break;
+        case 'moreinfo':
+          result.moreinfo = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
       }
     }
 
@@ -328,7 +334,7 @@ class _$Manga extends Manga {
   @override
   final BuiltList<String> titleSynonyms;
   @override
-  final String? type;
+  final String type;
   @override
   final int? chapters;
   @override
@@ -369,6 +375,8 @@ class _$Manga extends Manga {
   final BuiltList<Meta> demographics;
   @override
   final BuiltList<Relation>? relations;
+  @override
+  final String? moreinfo;
 
   factory _$Manga([void Function(MangaBuilder)? updates]) =>
       (MangaBuilder()..update(updates))._build();
@@ -381,7 +389,7 @@ class _$Manga extends Manga {
       this.titleEnglish,
       this.titleJapanese,
       required this.titleSynonyms,
-      this.type,
+      required this.type,
       this.chapters,
       this.volumes,
       required this.status,
@@ -401,7 +409,8 @@ class _$Manga extends Manga {
       required this.explicitGenres,
       required this.themes,
       required this.demographics,
-      this.relations})
+      this.relations,
+      this.moreinfo})
       : super._();
   @override
   Manga rebuild(void Function(MangaBuilder) updates) =>
@@ -441,7 +450,8 @@ class _$Manga extends Manga {
         explicitGenres == other.explicitGenres &&
         themes == other.themes &&
         demographics == other.demographics &&
-        relations == other.relations;
+        relations == other.relations &&
+        moreinfo == other.moreinfo;
   }
 
   @override
@@ -475,6 +485,7 @@ class _$Manga extends Manga {
     _$hash = $jc(_$hash, themes.hashCode);
     _$hash = $jc(_$hash, demographics.hashCode);
     _$hash = $jc(_$hash, relations.hashCode);
+    _$hash = $jc(_$hash, moreinfo.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -509,7 +520,8 @@ class _$Manga extends Manga {
           ..add('explicitGenres', explicitGenres)
           ..add('themes', themes)
           ..add('demographics', demographics)
-          ..add('relations', relations))
+          ..add('relations', relations)
+          ..add('moreinfo', moreinfo))
         .toString();
   }
 }
@@ -640,6 +652,10 @@ class MangaBuilder implements Builder<Manga, MangaBuilder> {
   set relations(ListBuilder<Relation>? relations) =>
       _$this._relations = relations;
 
+  String? _moreinfo;
+  String? get moreinfo => _$this._moreinfo;
+  set moreinfo(String? moreinfo) => _$this._moreinfo = moreinfo;
+
   MangaBuilder();
 
   MangaBuilder get _$this {
@@ -673,6 +689,7 @@ class MangaBuilder implements Builder<Manga, MangaBuilder> {
       _themes = $v.themes.toBuilder();
       _demographics = $v.demographics.toBuilder();
       _relations = $v.relations?.toBuilder();
+      _moreinfo = $v.moreinfo;
       _$v = null;
     }
     return this;
@@ -706,7 +723,7 @@ class MangaBuilder implements Builder<Manga, MangaBuilder> {
             titleEnglish: titleEnglish,
             titleJapanese: titleJapanese,
             titleSynonyms: titleSynonyms.build(),
-            type: type,
+            type: BuiltValueNullFieldError.checkNotNull(type, r'Manga', 'type'),
             chapters: chapters,
             volumes: volumes,
             status: BuiltValueNullFieldError.checkNotNull(
@@ -729,6 +746,7 @@ class MangaBuilder implements Builder<Manga, MangaBuilder> {
             themes: themes.build(),
             demographics: demographics.build(),
             relations: _relations?.build(),
+            moreinfo: moreinfo,
           );
     } catch (_) {
       late String _$failedField;

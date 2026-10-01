@@ -1,6 +1,6 @@
 name: jikan_api
-description: Dart wrapper for the Jikan API, an unofficial MyAnimeList API.
-version: 2.3.0
+description: Dart wrapper for the Jikan/Tenrai API, an unofficial MyAnimeList API.
+version: 3.0.0
 homepage: https://github.com/javrosales/jikan-dart
 
 environment:

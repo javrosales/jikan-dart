@@ -20,18 +20,13 @@ class _$EpisodeSerializer implements StructuredSerializer<Episode> {
     final result = <Object?>[
       'mal_id',
       serializers.serialize(object.malId, specifiedType: const FullType(int)),
+      'url',
+      serializers.serialize(object.url, specifiedType: const FullType(String)),
       'title',
       serializers.serialize(object.title,
           specifiedType: const FullType(String)),
     ];
     Object? value;
-    value = object.url;
-    if (value != null) {
-      result
-        ..add('url')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.titleJapanese;
     if (value != null) {
       result
@@ -108,7 +103,7 @@ class _$EpisodeSerializer implements StructuredSerializer<Episode> {
           break;
         case 'url':
           result.url = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+              specifiedType: const FullType(String))! as String;
           break;
         case 'title':
           result.title = serializers.deserialize(value,
@@ -157,7 +152,7 @@ class _$Episode extends Episode {
   @override
   final int malId;
   @override
-  final String? url;
+  final String url;
   @override
   final String title;
   @override
@@ -182,7 +177,7 @@ class _$Episode extends Episode {
 
   _$Episode._(
       {required this.malId,
-      this.url,
+      required this.url,
       required this.title,
       this.titleJapanese,
       this.titleRomanji,
@@ -340,7 +335,7 @@ class EpisodeBuilder implements Builder<Episode, EpisodeBuilder> {
         _$Episode._(
           malId:
               BuiltValueNullFieldError.checkNotNull(malId, r'Episode', 'malId'),
-          url: url,
+          url: BuiltValueNullFieldError.checkNotNull(url, r'Episode', 'url'),
           title:
               BuiltValueNullFieldError.checkNotNull(title, r'Episode', 'title'),
           titleJapanese: titleJapanese,

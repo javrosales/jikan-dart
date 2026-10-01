@@ -50,6 +50,9 @@ Serializers _$serializers = (Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(EntryMeta)]),
           () => ListBuilder<EntryMeta>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(EntryMeta)]),
+          () => ListBuilder<EntryMeta>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(EntryUpdate)]),
           () => ListBuilder<EntryUpdate>())
       ..addBuilderFactory(
@@ -70,9 +73,6 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Favorite)]),
           () => ListBuilder<Favorite>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(Meta)]),
-          () => ListBuilder<Meta>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(PersonMeta)]),
           () => ListBuilder<PersonMeta>())

@@ -1,6 +1,8 @@
 # jikan_api
 
-[Jikan](https://jikan.moe/) is an **Unofficial** MyAnimeList API. It scrapes the website to satisfy the need for a complete API - which MyAnimeList lacks.
+Jikan is an **Unofficial** MyAnimeList API. It scrapes the website to satisfy the need for a complete API - which MyAnimeList lacks.
+
+Note: Jikan API has been discontinued and replaced by [Tenrai API](https://tenrai.org/).
 
 [![Build Status](https://github.com/javrosales/jikan-dart/actions/workflows/dart.yml/badge.svg)](https://github.com/javrosales/jikan-dart/actions/workflows/dart.yml)
 [![Pub Version](https://img.shields.io/pub/v/jikan_api)](https://pub.dev/packages/jikan_api)
@@ -17,7 +19,6 @@ Future<List<Forum>> getAnimeForum(int id, {ForumType? type});
 Future<List<Promo>> getAnimeVideos(int id);
 Future<List<Picture>> getAnimePictures(int id);
 Future<Stats> getAnimeStatistics(int id);
-Future<String> getAnimeMoreInfo(int id);
 Future<List<Recommendation>> getAnimeRecommendations(int id);
 Future<List<UserUpdate>> getAnimeUserUpdates(int id, {int page = 1});
 Future<List<Review>> getAnimeReviews(int id, {int page = 1});
@@ -32,7 +33,6 @@ Future<List<Article>> getMangaNews(int id, {int page = 1});
 Future<List<Forum>> getMangaForum(int id, {ForumType? type});
 Future<List<Picture>> getMangaPictures(int id);
 Future<Stats> getMangaStatistics(int id);
-Future<String> getMangaMoreInfo(int id);
 Future<List<Recommendation>> getMangaRecommendations(int id);
 Future<List<UserUpdate>> getMangaUserUpdates(int id, {int page = 1});
 Future<List<Review>> getMangaReviews(int id, {int page = 1});

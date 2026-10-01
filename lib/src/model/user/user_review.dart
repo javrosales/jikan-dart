@@ -22,7 +22,7 @@ abstract class UserReview implements Built<UserReview, UserReviewBuilder> {
   String get url;
 
   @BuiltValueField(wireName: 'type')
-  String? get type;
+  String get type;
 
   @BuiltValueField(wireName: 'reactions')
   Reactions get reactions;

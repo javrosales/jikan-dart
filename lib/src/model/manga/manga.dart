@@ -36,7 +36,7 @@ abstract class Manga implements Built<Manga, MangaBuilder> {
   BuiltList<String> get titleSynonyms;
 
   @BuiltValueField(wireName: 'type')
-  String? get type;
+  String get type;
 
   @BuiltValueField(wireName: 'chapters')
   int? get chapters;
@@ -98,6 +98,9 @@ abstract class Manga implements Built<Manga, MangaBuilder> {
   @BuiltValueField(wireName: 'relations')
   BuiltList<Relation>? get relations;
 
+  @BuiltValueField(wireName: 'moreinfo')
+  String? get moreinfo;
+
   String toJson() {
     return serializers.toJson(Manga.serializer, this);
   }
@@ -106,6 +109,12 @@ abstract class Manga implements Built<Manga, MangaBuilder> {
     jsonMap['image_url'] = jsonMap['images']['jpg']['large_image_url'];
     jsonMap['published'] = jsonMap['published']['string'];
     jsonMap['title'] ??= jsonMap['titles'][0]['title'];
+    for (var relation in (jsonMap['relations'] ?? [])) {
+      for (var entry in relation['entry']) {
+        entry['title'] = entry['name'];
+        entry['image_url'] = entry['images']['jpg']['large_image_url'];
+      }
+    }
     return serializers.deserializeWith(Manga.serializer, jsonMap)!;
   }
 

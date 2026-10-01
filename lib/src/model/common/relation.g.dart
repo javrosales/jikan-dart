@@ -24,7 +24,7 @@ class _$RelationSerializer implements StructuredSerializer<Relation> {
       'entry',
       serializers.serialize(object.entry,
           specifiedType:
-              const FullType(BuiltList, const [const FullType(Meta)])),
+              const FullType(BuiltList, const [const FullType(EntryMeta)])),
     ];
 
     return result;
@@ -47,8 +47,8 @@ class _$RelationSerializer implements StructuredSerializer<Relation> {
           break;
         case 'entry':
           result.entry.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(Meta)]))!
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(EntryMeta)]))!
               as BuiltList<Object?>);
           break;
       }
@@ -62,7 +62,7 @@ class _$Relation extends Relation {
   @override
   final String relation;
   @override
-  final BuiltList<Meta> entry;
+  final BuiltList<EntryMeta> entry;
 
   factory _$Relation([void Function(RelationBuilder)? updates]) =>
       (RelationBuilder()..update(updates))._build();
@@ -108,9 +108,10 @@ class RelationBuilder implements Builder<Relation, RelationBuilder> {
   String? get relation => _$this._relation;
   set relation(String? relation) => _$this._relation = relation;
 
-  ListBuilder<Meta>? _entry;
-  ListBuilder<Meta> get entry => _$this._entry ??= ListBuilder<Meta>();
-  set entry(ListBuilder<Meta>? entry) => _$this._entry = entry;
+  ListBuilder<EntryMeta>? _entry;
+  ListBuilder<EntryMeta> get entry =>
+      _$this._entry ??= ListBuilder<EntryMeta>();
+  set entry(ListBuilder<EntryMeta>? entry) => _$this._entry = entry;
 
   RelationBuilder();
 

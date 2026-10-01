@@ -1,4 +1,4 @@
-const String baseUrl = 'https://api.jikan.moe/v4';
+const String baseUrl = 'https://api.tenrai.org/v1';
 
 enum AnimeType { tv, movie, ova, ona, special, music, cm, pv, tv_special }
 

@@ -115,13 +115,6 @@ class Jikan {
     return Stats.fromJson(response['data']);
   }
 
-  Future<String> getAnimeMoreInfo(int id) async {
-    var url = '/anime/$id/moreinfo';
-    var response = await _getResponse(url);
-
-    return response['data']['moreinfo'] ?? '';
-  }
-
   Future<List<Recommendation>> getAnimeRecommendations(int id) async {
     var url = '/anime/$id/recommendations';
     var response = await _getResponse(url);
@@ -130,6 +123,7 @@ class Jikan {
     return data.map((i) => Recommendation.fromJson(i)).toList();
   }
 
+  @Deprecated('Not supported by the Tenrai API yet')
   Future<List<UserUpdate>> getAnimeUserUpdates(int id, {int page = 1}) async {
     var url = '/anime/$id/userupdates?page=$page';
     var response = await _getResponse(url);
@@ -169,6 +163,7 @@ class Jikan {
     return data.map((i) => Article.fromJson(i)).toList();
   }
 
+  @Deprecated('Not supported by the Tenrai API yet')
   Future<List<Forum>> getMangaForum(int id, {ForumType? type}) async {
     var url = '/manga/$id/forum';
     if (type != null) url += '?filter=${type.name}';
@@ -193,13 +188,6 @@ class Jikan {
     return Stats.fromJson(response['data']);
   }
 
-  Future<String> getMangaMoreInfo(int id) async {
-    var url = '/manga/$id/moreinfo';
-    var response = await _getResponse(url);
-
-    return response['data']['moreinfo'] ?? '';
-  }
-
   Future<List<Recommendation>> getMangaRecommendations(int id) async {
     var url = '/manga/$id/recommendations';
     var response = await _getResponse(url);
@@ -208,6 +196,7 @@ class Jikan {
     return data.map((i) => Recommendation.fromJson(i)).toList();
   }
 
+  @Deprecated('Not supported by the Tenrai API yet')
   Future<List<UserUpdate>> getMangaUserUpdates(int id, {int page = 1}) async {
     var url = '/manga/$id/userupdates?page=$page';
     var response = await _getResponse(url);
@@ -328,9 +317,9 @@ class Jikan {
       {int? year, SeasonType? season, AnimeType? type, int page = 1}) async {
     var url = '/seasons';
     if (year != null && season != null) {
-      url += '/$year/${season.name}?page=$page';
+      url += '/$year/${season.name}?page=$page&limit=50';
     } else {
-      url += '/now?page=$page';
+      url += '/now?page=$page&limit=50';
     }
     if (type != null) url += '&filter=${type.name}';
     var response = await _getResponse(url);
@@ -340,7 +329,7 @@ class Jikan {
   }
 
   Future<List<Anime>> getSeasonUpcoming({AnimeType? type, int page = 1}) async {
-    var url = '/seasons/upcoming?page=$page';
+    var url = '/seasons/upcoming?page=$page&limit=50';
     if (type != null) url += '&filter=${type.name}';
     var response = await _getResponse(url);
 
@@ -367,8 +356,11 @@ class Jikan {
 
   Future<List<Anime>> getTopAnime(
       {AnimeType? type, TopFilter? filter, int page = 1}) async {
-    var url = '/top/anime?page=$page';
-    if (type != null) url += '&type=${type.name}';
+    var url = '/top/anime?page=$page&limit=50';
+    if (type != null) {
+      url +=
+          '&type=${type == AnimeType.special ? 'special,tv_special' : type.name}';
+    }
     if (filter != null) url += '&filter=${filter.name}';
     var response = await _getResponse(url);
 
@@ -378,7 +370,7 @@ class Jikan {
 
   Future<List<Manga>> getTopManga(
       {MangaType? type, TopFilter? filter, int page = 1}) async {
-    var url = '/top/manga?page=$page';
+    var url = '/top/manga?page=$page&limit=50';
     if (type != null) url += '&type=${type.name}';
     if (filter != null) url += '&filter=${filter.name}';
     var response = await _getResponse(url);
@@ -388,7 +380,7 @@ class Jikan {
   }
 
   Future<List<Person>> getTopPeople({int page = 1}) async {
-    var url = '/top/people?page=$page';
+    var url = '/top/people?page=$page&limit=50';
     var response = await _getResponse(url);
 
     final List data = response['data'] ?? [];
@@ -396,7 +388,7 @@ class Jikan {
   }
 
   Future<List<Character>> getTopCharacters({int page = 1}) async {
-    var url = '/top/characters?page=$page';
+    var url = '/top/characters?page=$page&limit=50';
     var response = await _getResponse(url);
 
     final List data = response['data'] ?? [];
@@ -433,7 +425,7 @@ class Jikan {
 
   Future<List<Producer>> getProducers(
       {String? query, String? orderBy, String? sort, int page = 1}) async {
-    var url = '/producers?page=$page';
+    var url = '/producers?page=$page&limit=50';
     if (query != null) url += '&q=$query';
     if (orderBy != null) url += '&order_by=$orderBy';
     if (sort != null) url += '&sort=$sort';
@@ -445,7 +437,7 @@ class Jikan {
 
   Future<List<Magazine>> getMagazines(
       {String? query, String? orderBy, String? sort, int page = 1}) async {
-    var url = '/magazines?page=$page';
+    var url = '/magazines?page=$page&limit=50';
     if (query != null) url += '&q=$query';
     if (orderBy != null) url += '&order_by=$orderBy';
     if (sort != null) url += '&sort=$sort';
@@ -455,6 +447,7 @@ class Jikan {
     return data.map((i) => Magazine.fromJson(i)).toList();
   }
 
+  @Deprecated('Not supported by the Tenrai API yet')
   Future<UserProfile> getUserProfile(String username) async {
     var url = '/users/$username/full';
     var response = await _getResponse(url);
@@ -462,6 +455,7 @@ class Jikan {
     return UserProfile.fromJson(response['data']);
   }
 
+  @Deprecated('Not supported by the Tenrai API yet')
   Future<List<History>> getUserHistory(String username,
       {MediaType? type}) async {
     var url = '/users/$username/history';
@@ -472,6 +466,7 @@ class Jikan {
     return data.map((i) => History.fromJson(i)).toList();
   }
 
+  @Deprecated('Not supported by the Tenrai API yet')
   Future<List<Friend>> getUserFriends(String username, {int page = 1}) async {
     var url = '/users/$username/friends?page=$page';
     var response = await _getResponse(url);
@@ -480,6 +475,7 @@ class Jikan {
     return data.map((i) => Friend.fromJson(i)).toList();
   }
 
+  @Deprecated('Not supported by the Tenrai API yet')
   Future<List<UserReview>> getUserReviews(String username,
       {int page = 1}) async {
     var url = '/users/$username/reviews?page=$page';
@@ -495,6 +491,7 @@ class Jikan {
     }).toList();
   }
 
+  @Deprecated('Not supported by the Tenrai API yet')
   Future<List<UserRecommendation>> getUserRecommendations(String username,
       {int page = 1}) async {
     var url = '/users/$username/recommendations?page=$page';
@@ -511,7 +508,8 @@ class Jikan {
   }
 
   Future<List<UserReview>> getRecentAnimeReviews({int page = 1}) async {
-    var url = '/reviews/anime?page=$page&preliminary=true&spoilers=true';
+    var url =
+        '/reviews/anime?page=$page&preliminary=true&spoilers=true&sort=newest';
     var response = await _getResponse(url);
 
     final List data = response['data'] ?? [];
@@ -519,7 +517,8 @@ class Jikan {
   }
 
   Future<List<UserReview>> getRecentMangaReviews({int page = 1}) async {
-    var url = '/reviews/manga?page=$page&preliminary=true&spoilers=true';
+    var url =
+        '/reviews/manga?page=$page&preliminary=true&spoilers=true&sort=newest';
     var response = await _getResponse(url);
 
     final List data = response['data'] ?? [];
@@ -544,6 +543,7 @@ class Jikan {
     return data.map((i) => UserRecommendation.fromJson(i)).toList();
   }
 
+  @Deprecated('Not supported by the Tenrai API yet')
   Future<List<WatchEpisode>> getWatchEpisodes({bool popular = false}) async {
     var url = popular ? '/watch/episodes/popular' : '/watch/episodes';
     var response = await _getResponse(url);
@@ -552,6 +552,7 @@ class Jikan {
     return data.map((i) => WatchEpisode.fromJson(i)).toList();
   }
 
+  @Deprecated('Not supported by the Tenrai API yet')
   Future<List<WatchPromo>> getWatchPromos({bool popular = false}) async {
     var url = popular ? '/watch/promos/popular' : '/watch/promos';
     var response = await _getResponse(url);

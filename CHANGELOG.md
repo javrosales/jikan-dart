@@ -1,3 +1,9 @@
+## 3.0.0
+
+* **BREAKING**: Migrate to the new Tenrai API v1.
+* All models follow the Jikan schema, check the official docs [here](https://api.tenrai.org/documentation).
+* The endpoints /userupdates, /users and /watch along with manga/forum are not currently available.
+
 ## 2.3.0
 
 * All public methods return `List` instead of `BuiltList`.
@@ -20,7 +26,7 @@
 
 ## 2.0.0
 
-* **BREAKING**: Migrate to the new REST API v4.
+* **BREAKING**: Migrate to the new Jikan API v4.
 * Most of the endpoints and models have been updated, check the official docs [here](https://docs.api.jikan.moe/).
 * Only GET requests are supported and by default are cached for 24 hours.
 
